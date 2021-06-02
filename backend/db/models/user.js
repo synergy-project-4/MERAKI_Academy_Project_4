@@ -18,7 +18,7 @@ const users = new mongoose.Schema({
 // Hashed the password
 users.pre("save", async function () {
   this.email = this.email.toLowerCase();
-  this.password = await bcrypt.hash(this.password, process.env.SALT);
+  this.password = await bcrypt.hash(this.password, salt);
 });
 
 module.exports = mongoose.model("User", users);
