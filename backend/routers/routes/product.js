@@ -3,7 +3,15 @@ const productRouter = express.Router();
 
 const { createProduct ,
     deleteProduct,
-	updateProduct,getProductToHistory,getAllProducts,pendingApproval  } = require('../controllers/product');
+
+	updateProduct,
+    getProductToHistory
+    ,getAllProducts,
+    pendingApproval ,
+    
+    searchProduct,
+    filterProduct, } = require('../controllers/product');
+
 
 
 const productRouter = express.Router();
@@ -15,6 +23,11 @@ productRouter.put('/manage/product',updateProduct);
 productRouter.delete('/manage/product',deleteProduct);
 productRouter.get("/product/history", getProductToHistory);
 productRouter.get("/home", getAllProducts);
+
+productRouter.get("/search/product", searchProduct)
+productRouter.get("/filter/product", filterProduct)
+
+
 
 
 
