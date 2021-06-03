@@ -1,3 +1,4 @@
+const userModel = require("../../db/models/user");
 const productsModel = require("./../../db/models/productSchema");
 const createProduct = (req, res) => {
 	const {
@@ -64,29 +65,33 @@ const getAllProducts = (req, res) => {
 			});
 	});
 };
-
 const pendingApproval = (req, res) => {
-	productsModel
-		.find({ ready: false })
-		.then((result) => {
-			res.status(200).json(result);
-		})
-		.catch((err) => {
-			res.send(err);
-		});
-};
-
-const manageProduct = (req, res) => {
 	const id = req.query.id;
-	productsModel
-		.find({ ready: false, userId: id })
-		.then((result) => {
-			res.status(200).json(result);
+	userModel
+		.findOne({ _id: id })
+		.then((result_user) => {
+			if (result_user.admin === true) {
+				productsModel
+					.find({ ready: false })
+					.then((result_product) => {
+						res.json(result_product);
+					})
+			} else {
+				productsModel
+					.find({ ready: false, userId: id })
+					.then((result_product) => {
+						res.status(200).json(result_product);
+					})
+					.catch((err) => {
+						res.send(err);
+					});
+			}
 		})
 		.catch((err) => {
-			res.send(err);
-		});
-};
+			res.send(err)
+		})
+
+}
 
 const updateProduct = (req, res) => {
 	const id = req.query.id;
@@ -116,7 +121,6 @@ module.exports = {
 	updateProduct,
 	getProductToHistory,
 	getAllProducts,
-	pendingApproval,
-	manageProduct,
+	pendingApproval
 };
 
