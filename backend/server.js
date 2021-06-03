@@ -2,8 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./db/db");
 const userRouter = require("./routers/routes/auth/signUp");
-const productRouter = require("./routers/routes/product");
+
+
 const cartRouter = require("./routers/routes/cart");
+
+const productRouter = require("./routers/routes/product")
+
 
 const app = express();
 
