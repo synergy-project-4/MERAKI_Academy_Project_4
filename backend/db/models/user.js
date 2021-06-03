@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
-const salt = Number( process.env.SALT)
+
+const salt = Number(process.env.SALT);
 
 // create new user
 const users = new mongoose.Schema({
@@ -23,4 +23,4 @@ users.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-module.exports = mongoose.model("User", users); 
+module.exports = mongoose.model("User", users);

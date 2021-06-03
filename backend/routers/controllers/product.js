@@ -53,8 +53,21 @@ const getProductToHistory = (req,res)=>{
 	});
 }
 
+const getAllProducts = (req, res) => {
+	productsModel.find({ ready: false }).then((result) => {
+	  res
+		.status(200)
+		.json(result)
+		.catch((err) => {
+		  res.send(err);
+		});
+	});
+  };
+  
 
 module.exports = {
   createProduct,
-  getProductToHistory
-};
+  getProductToHistory,
+  getAllProducts}
+
+
