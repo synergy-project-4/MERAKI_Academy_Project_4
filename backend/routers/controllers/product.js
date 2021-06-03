@@ -1,20 +1,10 @@
 const productsModel = require("./../../db/models/productSchema");
 const createProduct = (req, res) => {
-  const {
-    title,
-    tags,
-    description,
-    price,
-    quantity,
-    optionsToExchange,
-    itemLength,
-    itemHeight,
-    itemWidth,
-    itemWeight,
-    location,
-    shortDescription,
-    userId,
-  } = req.body;
+
+	const { title, tags, description, price, quantity, optionsToExchange, itemLength, itemHeight, itemWidth, itemWeight,
+		location, shortDescription, userId } = req.body;
+
+
 
   const product = new productsModel({
     title,
@@ -63,6 +53,33 @@ const getAllProducts = (req, res) => {
 		});
 
 };
+
+
+const pendingApproval = (req, res) => {
+	productsModel
+		.find({ ready: false })
+		.then((result) => {
+			res.status(200).json(result);
+		})
+		.catch((err) => {
+			res.send(err);
+		});
+};
+
+const manageProduct = (req, res) => {
+	const id = req.query.id
+	productsModel
+		.find({ ready: false, userId: id })
+		.then((result) => {
+			res.status(200).json(result);
+		})
+		.catch((err) => {
+			res.send(err);
+		});
+};
+
+
+
 const updateProduct=((req,res)=>{
 	const id=req.query.id
 	productsModel
@@ -90,6 +107,9 @@ module.exports = {
 	deleteProduct,
 	updateProduct, 
   getProductToHistory,
-  getAllProducts
+  getAllProducts,
+  pendingApproval,
+	manageProduct
 };
+
 
