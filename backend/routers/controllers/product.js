@@ -61,13 +61,35 @@ const getAllProducts = (req, res) => {
 		.catch((err) => {
 		  res.send(err);
 		});
-	});
-  };
-  
 
+};
+const updateProduct=((req,res)=>{
+	const id=req.query.id
+	productsModel
+	.findByIdAndUpdate(id,req.body,{new:true})
+	.then((result)=>{
+		res.status(200).json(result);
+	})
+	.catch((err)=>{
+		res.send(err)
+	})
+})
+const  deleteProduct=((req,res)=>{
+	const id=req.query.id
+	productsModel
+	.findByIdAndDelete(id)
+	.then((result)=>{
+		res.json({message:'success delete he product'});
+	})
+	.catch((err)=>{
+		res.send(err)
+	})
+})
 module.exports = {
-  createProduct,
+	createProduct,
+	deleteProduct,
+	updateProduct, 
   getProductToHistory,
-  getAllProducts}
-
+  getAllProducts
+};
 
