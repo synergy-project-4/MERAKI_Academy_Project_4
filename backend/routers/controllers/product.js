@@ -43,18 +43,31 @@ const createProduct = (req, res) => {
     });
 };
 
+const getProductToHistory = (req,res)=>{
+	productsModel.find({sold : true})
+	.then((result) => {
+		res.status(200).json(result);
+	})
+	.catch((err) => {
+		res.send(err);
+	});
+}
+
 const getAllProducts = (req, res) => {
-  productsModel.find({ ready: false }).then((result) => {
-    res
-      .status(200)
-      .json(result)
-      .catch((err) => {
-        res.send(err);
-      });
-  });
-};
+	productsModel.find({ ready: false }).then((result) => {
+	  res
+		.status(200)
+		.json(result)
+		.catch((err) => {
+		  res.send(err);
+		});
+	});
+  };
+  
 
 module.exports = {
   createProduct,
-  getAllProducts,
-};
+  getProductToHistory,
+  getAllProducts}
+
+
