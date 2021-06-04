@@ -2,24 +2,27 @@ const express = require("express");
 const { createProduct,
     deleteProduct,
     updateProduct,
-    getProductToHistory, 
+    getProductToHistory,
     getAllProducts,
     pendingApproval,
     searchProduct,
     filterProduct, } = require('../controllers/product');
 
 const productRouter = express.Router();
+const authentication = require('./../middlewares/authentication');
 
-
-productRouter.post('/create/product', createProduct);
-productRouter.get('/products/approval', pendingApproval);
-productRouter.put('/manage/product', updateProduct);
-productRouter.delete('/manage/product', deleteProduct);
-productRouter.get("/product/history", getProductToHistory);
+productRouter.post('/create/product', authentication, createProduct);
+productRouter.get('/products/approval', authentication, pendingApproval);
+productRouter.get('/home/admin', authentication, pendingApproval);
+productRouter.put('/manage/product', authentication, updateProduct);
+productRouter.delete('/manage/product', authentication, deleteProduct);
+productRouter.get("/product/history", authentication, getProductToHistory);
 productRouter.get("/home", getAllProducts);
 productRouter.get("/search/product", searchProduct)
 productRouter.get("/filter/product", filterProduct)
 
+
+//,authentication,authorization,
 module.exports = productRouter
 
 
