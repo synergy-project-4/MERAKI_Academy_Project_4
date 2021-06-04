@@ -22,7 +22,6 @@ productRouter.get("/search/product", searchProduct)
 productRouter.get("/filter/product", filterProduct)
 
 
-//,authentication,authorization,
 module.exports = productRouter
 
 
