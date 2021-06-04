@@ -1,5 +1,6 @@
 const userModel = require("../../db/models/user");
 const productsModel = require("./../../db/models/productSchema");
+
 const createProduct = (req, res) => {
 	const {
 		title,
@@ -65,6 +66,7 @@ const getAllProducts = (req, res) => {
 			});
 	});
 };
+
 const pendingApproval = (req, res) => {
 	const id = req.query.id;
 	userModel
@@ -104,6 +106,7 @@ const updateProduct = (req, res) => {
 			res.send(err);
 		});
 };
+
 const deleteProduct = (req, res) => {
 	const id = req.query.id;
 	productsModel
@@ -115,45 +118,44 @@ const deleteProduct = (req, res) => {
 			res.send(err);
 		});
 };
-//////////////////////////////////////////////////////////////
-// search product
-const searchProduct =(req, res) => {
-	const{title ,tags}=req.body;
+
+const searchProduct = (req, res) => {
+	const { title, tags } = req.body;
 	productsModel
-    .find({ $or: [{ title:title }, { tags: tags }] }
+		.find({ $or: [{ title: title }, { tags: tags }] }
 		)
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
+		.then((result) => {
+			res.status(200).json(result);
+		})
+		.catch((err) => {
+			res.send(err);
+		});
 };
-//////////////////////////////////////////////////////////////
-// filter product
-const filterProduct=(req,res)=>{
-	const{greaterPrice ,location,lessPrice}=req.body;
+
+const filterProduct = (req, res) => {
+	const { greaterPrice, location, lessPrice } = req.body;
 	productsModel
-    .find({ $or: [{ $and: [{ price: { $lt:lessPrice} }, { price: { $gt: greaterPrice } }] } ,
-		{ location:location }] }
+		.find({
+			$or: [{ $and: [{ price: { $lt: lessPrice } }, { price: { $gt: greaterPrice } }] },
+			{ location: location }]
+		}
 		)
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
+		.then((result) => {
+			res.status(200).json(result);
+		})
+		.catch((err) => {
+			res.send(err);
+		});
 }
+
 module.exports = {
-
-  createProduct,
-  deleteProduct,
-  updateProduct,
-  getProductToHistory,
-  getAllProducts,
-  pendingApproval,
-    searchProduct,
-  filterProduct,
-
+	createProduct,
+	deleteProduct,
+	updateProduct,
+	getProductToHistory,
+	getAllProducts,
+	pendingApproval,
+	searchProduct,
+	filterProduct,
 };
 

@@ -2,7 +2,7 @@ const cartModel = require("./../../db/models/cartSchema");
 
 const sendToCart = (req, res) => {
   const { product, userId } = req.body;
-  const item = new cartModel({ productId, userId });
+  const item = new cartModel({ product, userId });
 
   item
     .save()
@@ -24,7 +24,7 @@ const showCart = (req, res) => {
       res
         .status(200)
         .json(result)
-       
+
     }).catch((err) => {
       res.send(err);
     });
