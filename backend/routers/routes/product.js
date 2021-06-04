@@ -14,7 +14,7 @@ const { createProduct ,
 
 
 
-const productRouter = express.Router();
+
 
 
 productRouter.post('/create/product', createProduct);
