@@ -23,4 +23,28 @@ users.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
+users.statics.authenticateBasic = async function (email, password) {
+  try {
+    const user = await this.findOne({ email });
+    if (!user) return ["The email doesn't exist", 404];
+
+    const valid = await bcrypt.compare(password, user.password);
+    if (valid) {
+      const payload = {
+        userId: user._id,
+        role: user.admin,
+      };
+
+      const options = {
+        expiresIn: '60m',
+      };
+
+      return [jwt.sign(payload, process.env.SECRET, options), 200];
+    }
+    return ['The password you’ve entered is incorrect', 403];
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 module.exports = mongoose.model("User", users);
