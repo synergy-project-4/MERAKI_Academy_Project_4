@@ -1,8 +1,15 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
+import React from "react";
+import { Route } from "react-router-dom";
+import Navigation from "./components/navigation/index";
+import Register from "./components/auth/signUp/index";
 
 const App = () => {
-	return <div className="App">App component</div>;
+  return (
+    <div className="App">
+      <Navigation />
+      <Route path="/register" component={Register} />
+    </div>
+  );
 };
 
 export default App;
