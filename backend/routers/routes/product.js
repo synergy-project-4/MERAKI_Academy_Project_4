@@ -6,9 +6,6 @@ const { createProduct ,
 	updateProduct,getProductToHistory,getAllProducts,pendingApproval  } = require('../controllers/product');
 
 
-const productRouter = express.Router();
-
-
 productRouter.post('/create/product', createProduct);
 productRouter.get('/products/approval', pendingApproval);
 productRouter.put('/manage/product',updateProduct);
