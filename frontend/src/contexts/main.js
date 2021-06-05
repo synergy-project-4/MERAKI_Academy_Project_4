@@ -5,18 +5,16 @@ export const ItemCardContext = React.createContext();
 
 const ItemCardProvider = (props) => {
     const [products, setProducts] = useState([]);
-
     const state = {
         products,
         showProduct,
     };
     async function showProduct() {
         try {
-            const res =await axios.get('http://localhost:5000/home')
+            const res =await axios.get('http://localhost:5000/main')
             setProducts(res.data);
-            console.log(res.data);
         } catch (error) {
-            console.log(error);
+           throw error;
         }
     }
 

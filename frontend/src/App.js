@@ -10,9 +10,8 @@ const App = () => {
   return (
     <div className="App">
       <Navigation />
-      
       <Route path="/register" component={Register} />
-      <Main/>
+      <Main />
       <Route path="/home" component={Main} />
       <Route path="/login" component={Login} />
     </div>

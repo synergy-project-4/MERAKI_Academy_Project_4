@@ -1,25 +1,27 @@
 import React, { useContext, useEffect } from 'react';
 import { ItemCardContext } from './../../contexts/main';
+import './main.css'
 
 const Main = () => {
-	console.log("step 1");
 	const itemCardContext = useContext(ItemCardContext);
 
 	useEffect(() => {
-		console.log("step 2");
 		itemCardContext.showProduct();
 	}, []);
 
 	return (
 		<>
+		 <div className="mainBody"> 
 			{itemCardContext.products.map((elem) => {
-				console.log("step 3");
-				<div key={elem._id}>
+			return(
+			<div className="itemCard" key={elem._id}>
 					<p>{elem.title}</p>
 					<p>{elem.shortDescription}</p>
 					<p>{elem.price}</p>
-				</div>
+				</div>	
+				)
 			})}
+			</div>
 
 		</>
 	)
