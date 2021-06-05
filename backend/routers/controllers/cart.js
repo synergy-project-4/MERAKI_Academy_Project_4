@@ -24,7 +24,7 @@ const showCart = (req, res) => {
       res
         .status(200)
         .json(result)
-       
+
     }).catch((err) => {
       res.send(err);
     });

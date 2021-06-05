@@ -18,4 +18,5 @@ const product = new mongoose.Schema({
   sold: { type: Boolean, default: false },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
+
 module.exports = mongoose.model("Product", product);
