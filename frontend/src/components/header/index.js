@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
 import { HeaderContext } from "../../../src/contexts/header";
+import { Link } from "react-router-dom";
+
 import "./header.css";
 
 const Header = () => {
@@ -15,7 +17,7 @@ const Header = () => {
         <div className="navBar">
           <div className="leftNavBar">
             <p>WebsiteName</p>
-            {/* <select
+            <select
               onChange={(e) => {
                 headerContext.filterItem(e);
               }}
@@ -37,22 +39,22 @@ const Header = () => {
               <option value="madaba">Madaba</option>
               <option value="zarqa">Zarqa</option>
               <option value="aqaba">Aqaba</option>
-            </select> */}
+            </select>
             <input
               onChange={(e) => {
                 headerContext.setSearch(e.target.value);
               }}
               placeholder="Search"
             />
-            {/* <button
+            <button
               onClick={(e) => {
                 headerContext.searchItem();
               }}
             >
               search
-            </button> */}
+            </button>
           </div>
-          <div className="rightNavBar">Login</div>
+          <div className="rightNavBar"> <Link to="/login">login</Link></div>
         </div>
       </form>
 	  {headerContext.message && <div>{headerContext.message}</div>}

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Route } from "react-router-dom";
-import Navigation from "./components/navigation/index";
+
 import Register from "./components/auth/signUp/index";
 import Header from "./components/header/index"
 import Main from './components/main/index'
@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <Navigation />
+      
       <Route path="/register" component={Register} />
       <Route exact path="/" component={Main} />
       <Route path="/login" component={Login} />
