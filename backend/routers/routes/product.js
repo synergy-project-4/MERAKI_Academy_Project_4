@@ -7,7 +7,6 @@ const { createProduct,
     pendingApproval,
     searchProduct,
     filterProduct, } = require('../controllers/product');
-
 const productRouter = express.Router();
 const authentication = require('./../middlewares/authentication');
 

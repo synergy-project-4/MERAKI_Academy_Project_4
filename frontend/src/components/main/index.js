@@ -5,16 +5,15 @@ import { useHistory } from "react-router-dom";
 import './main.css'
 
 const Main = () => {
-	const [status, setStatus] = useState(true);
 	const itemCardContext = useContext(ItemCardContext);
 	const history = useHistory();
 
 	useEffect(() => {
 		itemCardContext.showProduct();
-	}, [status]);
+	}, []);
 
 	const cardDetails = async (id) => {
-		setStatus(!status);
+	
 		const foundItem = itemCardContext.products.find((elem) => {
 			return elem._id == id
 		})
