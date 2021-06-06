@@ -1,0 +1,24 @@
+body{
+    margin: 0px;
+}
+
+.leftNavBar{
+    margin-left: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.rightNavBar{
+    margin-right: 10px;
+}
+.navBar{
+   
+    display: flex;
+    margin-top: 0px;
+    padding: 0px;
+    gap: 10px;
+    border-bottom:black solid 3px;
+    justify-content: space-between;
+    align-items: center;
+}
+
