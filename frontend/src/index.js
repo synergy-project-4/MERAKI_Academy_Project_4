@@ -4,13 +4,19 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import RegisterProvider from "./contexts/register";
 import HeaderProvider from "./contexts/header";
+import LoginProvider from "./contexts/login";
+import ItemCardProvider from './contexts/main'
 
 ReactDOM.render(
   <Router>
-    <HeaderProvider>
-      <RegisterProvider>
-        <App />
-      </RegisterProvider>
+  <HeaderProvider>
+    <LoginProvider>
+    <ItemCardProvider>
+    <RegisterProvider>
+      <App />
+    </RegisterProvider>
+    </ItemCardProvider>
+    </LoginProvider>
     </HeaderProvider>
   </Router>,
   document.getElementById("root")

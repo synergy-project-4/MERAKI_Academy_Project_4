@@ -16,7 +16,7 @@ productRouter.get('/home/admin', authentication, pendingApproval);
 productRouter.put('/manage/product', authentication, updateProduct);
 productRouter.delete('/manage/product', authentication, deleteProduct);
 productRouter.get("/product/history", authentication, getProductToHistory);
-productRouter.get("/home", getAllProducts);
+productRouter.get("/main", getAllProducts);
 productRouter.get("/search/product", searchProduct)
 productRouter.get("/filter/product", filterProduct)
 
