@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { LoginContext } from './../contexts/login';
+import './product.css'
+
 
 const ProductDetails = (props) => {
+    const loginContext = useContext(LoginContext);
+    const [notLogged, setNotLogged] = useState(false)
+    const [logged, setLogged] = useState(false)
+
+    const loginR = () => {
+        if (loginContext.token) {
+            setNotLogged(false)
+            setLogged(true)
+        } else {
+            {
+                setLogged(false)
+                setNotLogged(true)
+            }
+        }
+
+
+    }
     return (
         <>
             <div key={props.item._id}>
@@ -13,9 +33,15 @@ const ProductDetails = (props) => {
                 <p>{props.item.location}</p>
             </div>
             <div>
-                <button>Add to cart</button>
+                <button onClick={loginR}>Add to cart</button>
                 {props.item.optionsToExchange && <button>Exchange</button>}
 
+            </div>
+            <div>
+                {notLogged ? <p className="failMessage">You must login</p>
+                    : ""}
+                {logged ? <p className="successMessage">Added to cart</p>
+                    : ""}
             </div>
         </>
     )

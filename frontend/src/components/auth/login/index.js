@@ -1,39 +1,46 @@
-import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import { LoginContext } from './../../../contexts/login';
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { LoginContext } from "./../../../contexts/login";
 import { Link } from "react-router-dom";
+import "./login.css";
 
 const Login = () => {
-	const loginContext = useContext(LoginContext);
-	const history = useHistory();
+  const loginContext = useContext(LoginContext);
+  const history = useHistory();
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		loginContext.login();
-		if (loginContext.loggedIn) {
-		
-		}
-	};
-	return (
-		<div>
-		<p>website name</p>
-			<form onSubmit={handleSubmit}>
-				<input
-					type="email"
-					placeholder="email here"
-					onChange={(e) => loginContext.setEmail(e.target.value)}
-				/>
-				<input
-					type="password"
-					placeholder="password here"
-					onChange={(e) => loginContext.setPassword(e.target.value)}
-				/>
-				<button>Login</button>
-			</form>
-            <Link to="/register">Register</Link>
-			{loginContext.message && <div>{loginContext.message}</div>}
-		</div>
-	);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    loginContext.login();
+    if (loginContext.loggedIn) {
+    }
+  };
+  return (
+    <div className="login-body">
+      <div className="login">
+        <p>website name</p>
+        <form onSubmit={handleSubmit} className="login-form">
+          <input
+            className="input"
+            type="email"
+            placeholder="E-mail"
+            onChange={(e) => loginContext.setEmail(e.target.value)}
+          />
+          <input
+            className="input"
+            type="password"
+            placeholder="Password"
+            onChange={(e) => loginContext.setPassword(e.target.value)}
+          />
+          <button className="done-button">Sign-In</button>
+        </form>
+        <p>
+          if you don't have an account, click &nbsp;
+          <Link to="/register">here</Link>
+        </p>
+        {loginContext.message && <div>{loginContext.message}</div>}
+      </div>
+    </div>
+  );
 };
 
 export default Login;
