@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ItemCardContext } from './../../contexts/main';
 import axios from 'axios';
+import ReactPaginate from 'react-paginate';
 import { useHistory } from "react-router-dom";
 
 import './main.css'
