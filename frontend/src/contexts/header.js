@@ -5,11 +5,15 @@ import ItemCardContext from './main'
 export const HeaderContext = React.createContext();
 
 const HeaderProvider = (props) => {
+
+  
   const history = useHistory();
   const [filterLocation, setFilterLocation] = useState("");
   const [search, setSearch] = useState("");
+  const [products, setProducts] = useState([]);
   const [found, setFound] = useState([]);
   const [message, setMessage] = useState("");
+
   const state = {
     filterLocation,
     setFilterLocation,
@@ -37,11 +41,8 @@ const HeaderProvider = (props) => {
     history.push('/search/product');
   }
   async function filterItem(e) {
-    console.log(e.target.value);
     try {
-      await axios.get("http://localhost:5000/filter/product",
-        e.target.value
-      );
+      await axios.get("http://localhost:5000/filter/product", e.target.value);
     } catch (error) {
       setMessage("item not found");
     }

@@ -13,8 +13,8 @@ const Main = () => {
 
 	useEffect(() => {
 		itemCardContext.showProduct();
+	}, [itemCardContext.offset]);
 
-	}, []);
 	const cardDetails = async (id) => {
 
 		const foundItem = itemCardContext.products.find((elem) => {
@@ -23,6 +23,11 @@ const Main = () => {
 		itemCardContext.setFound(foundItem)
 		history.push('/product/details');
 	}
+
+	const handlePageClick = (e) => {
+		const selectedPage = e.selected;
+		itemCardContext.setOffset(selectedPage * itemCardContext.perPage)
+	};
 
 	return (
 		<>
@@ -39,13 +44,21 @@ const Main = () => {
 					})
 				}
 			</div>
-			<div onClick={() => {
-				itemCardContext.showProduct();
-
-				itemCardContext.setOffset(itemCardContext.offset + itemCardContext.perPage)
-			}}>
-				ssssss
+			<div className="">
+				<ReactPaginate
+					previousLabel={"prev"}
+					nextLabel={"next"}
+					breakLabel={"..."}
+					breakClassName={"break-me"}
+					pageCount={itemCardContext.pageCount}
+					marginPagesDisplayed={2}
+					pageRangeDisplayed={5}
+					onPageChange={handlePageClick}
+					containerClassName={"pagination"}
+					subContainerClassName={"pages pagination"}
+					activeClassName={"active"} />
 			</div>
+
 
 		</>
 	)

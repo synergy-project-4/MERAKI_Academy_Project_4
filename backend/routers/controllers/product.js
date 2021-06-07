@@ -57,7 +57,7 @@ const getProductToHistory = (req, res) => {
 };
 
 const getAllProducts = (req, res) => {
-	productsModel.find({ ready: false }).then((result) => {
+	productsModel.find({ ready: true }).then((result) => {
 		res
 			.status(200)
 			.json(result)
