@@ -33,11 +33,6 @@ const ItemCardProvider = (props) => {
             await axios.get('http://localhost:5000/main')
                 .then((result) => {
                     const setOfdata = result.data.slice(offset, offset + perPage)
-                    console.log("b",offset);
-                   // setOffset(offset+perPage)
-                    console.log("a",offset);
-
-                   // console.log(setOfdata);
                     setProducts(setOfdata);
                     setPageCount(Math.ceil(result.data.length / perPage))
                 })

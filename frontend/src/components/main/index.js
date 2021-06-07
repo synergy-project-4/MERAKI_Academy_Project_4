@@ -39,6 +39,7 @@ const Main = () => {
 								<p>{elem.title}</p>
 								<p>{elem.shortDescription}</p>
 								<p>{elem.price}</p>
+								<img className="image" src="https://m.media-amazon.com/images/I/81-7VeKHsSL.jpg"></img>
 							</div>
 						)
 					})
