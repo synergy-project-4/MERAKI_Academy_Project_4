@@ -1,12 +1,15 @@
 import React, { useState, useContext } from "react";
 import { HeaderContext } from "../../../src/contexts/header";
+import { LoginContext } from "../../../src/contexts/login";
 import { Link } from "react-router-dom";
+import SettingsMenu  from './../header/edit';
+
 
 import "./header.css";
 
 const Header = () => {
   const headerContext = useContext(HeaderContext);
-
+  const loginContext = useContext(LoginContext);
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -54,10 +57,16 @@ const Header = () => {
               search
             </button>
           </div>
-          <div className="rightNavBar"> <Link to="/login">login</Link></div>
+          {loginContext.loggedIn ? (
+            <div className="rightNavBar"><p>{`welcome `}</p><div><SettingsMenu/></div></div>
+          ) : (
+            <div className="rightNavBar">
+              <Link to="/login">login</Link>
+            </div>
+          )}
         </div>
       </form>
-	  {headerContext.message && <div>{headerContext.message}</div>}
+      {headerContext.message && <div>{headerContext.message}</div>}
     </>
   );
 };
