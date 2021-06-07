@@ -12,6 +12,8 @@ const ProductDetails = (props) => {
         if (loginContext.token) {
             setNotLogged(false)
             setLogged(true)
+             
+
         } else {
             {
                 setLogged(false)
