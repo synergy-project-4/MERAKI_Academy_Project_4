@@ -1,14 +1,17 @@
 import React, { useState, useContext } from "react";
 import { HeaderContext } from "../../../src/contexts/header";
 import { Link } from "react-router-dom";
-
+import { useHistory } from "react-router-dom";
 import "./header.css";
 
 const Header = () => {
   const headerContext = useContext(HeaderContext);
-
+  const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+  const handleClick = () => {
+    history.push("/");
   };
 
   return (
@@ -16,7 +19,7 @@ const Header = () => {
       <form onSubmit={handleSubmit}>
         <div className="navBar">
           <div className="leftNavBar">
-            <p>WebsiteName</p>
+            <p onClick={handleClick} className="websiteName">WebsiteName</p>
             <select
               onChange={(e) => {
                 headerContext.filterItem(e);
@@ -54,10 +57,13 @@ const Header = () => {
               search
             </button>
           </div>
-          <div className="rightNavBar"> <Link to="/login">login</Link></div>
+          <div className="rightNavBar">
+            {" "}
+            <Link to="/login">login</Link>
+          </div>
         </div>
       </form>
-	  {headerContext.message && <div>{headerContext.message}</div>}
+      {headerContext.message && <div>{headerContext.message}</div>}
     </>
   );
 };

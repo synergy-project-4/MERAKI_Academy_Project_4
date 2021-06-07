@@ -71,7 +71,9 @@ const RegisterProvider = (props) => {
             setMessage("the e-mail already exist");
           }
         });
-    } catch (error) {}
+    } catch (error) {
+      throw error;
+    }
   }
 
   return (
