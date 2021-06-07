@@ -2,8 +2,7 @@ import React, { useState, useContext } from "react";
 import { HeaderContext } from "../../../src/contexts/header";
 import { LoginContext } from "../../../src/contexts/login";
 import { Link } from "react-router-dom";
-import SettingsMenu  from './../header/edit';
-
+import SettingsMenu from "./../header/edit";
 
 import "./header.css";
 
@@ -22,7 +21,7 @@ const Header = () => {
             <p>WebsiteName</p>
             <select
               onChange={(e) => {
-                headerContext.filterItem(e);
+                headerContext.searchItem(e);
               }}
               name="filter"
             >
@@ -32,7 +31,7 @@ const Header = () => {
             </select>
             <select
               onChange={(e) => {
-                headerContext.filterItem(e);
+                headerContext.searchItem(e);
               }}
               name="location"
             >
@@ -58,7 +57,12 @@ const Header = () => {
             </button>
           </div>
           {loginContext.loggedIn ? (
-            <div className="rightNavBar"><p>{`welcome `}</p><div><SettingsMenu/></div></div>
+            <div className="rightNavBar">
+              <p>{`welcome `}</p>
+              <div>
+                <SettingsMenu />
+              </div>
+            </div>
           ) : (
             <div className="rightNavBar">
               <Link to="/login">login</Link>

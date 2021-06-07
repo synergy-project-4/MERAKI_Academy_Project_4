@@ -9,7 +9,9 @@ body{
     align-items: center;
 }
 .rightNavBar{
+   display: flex;
     margin-right: 10px;
+    align-items: center;
 }
 .navBar{
     display: flex;
