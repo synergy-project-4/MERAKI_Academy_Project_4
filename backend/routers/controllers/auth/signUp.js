@@ -3,32 +3,36 @@ const usersModel = require("./../../../db/models/user");
 const createUser = (req, res) => {
   const { firstName, lastName, city, email, password, confirmPassword } =
     req.body;
-  if (password === confirmPassword) {
-    const newUser = new usersModel({
-      firstName,
-      lastName,
-      city,
-      email,
-      password,
+
+  const newUser = new usersModel({
+    firstName,
+    lastName,
+    city,
+    email,
+    password,
+  });
+  newUser
+    .save()
+    .then((result) => {
+      res.status(201);
+      res.json(result);
+    })
+    .catch((err) => {
+      res.status(500);
+      res.send(err);
     });
-    newUser
-      .save()
-      .then((result) => {
-        res.status(201);
-        res.json(result);
-      })
-      .catch((err) => {
-        res.send(err);
-      });
-  } else {
-    res.status(403);
-    res.json("entered password does not match");
-  }
 };
 
-// create a middleware and genrate a token
-// const authentication = () =>{
+const getAllUsers = (req, res) => {
+  usersModel
+    .find({})
+    .then((result) => {
+      res.status(200);
+      res.json(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
 
-// }
-
-module.exports = { createUser };
+module.exports = { createUser, getAllUsers };
