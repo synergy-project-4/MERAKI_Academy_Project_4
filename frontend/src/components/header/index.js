@@ -1,16 +1,26 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import { HeaderContext } from "../../../src/contexts/header";
 import { LoginContext } from "../../../src/contexts/login";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import SettingsMenu from "./../header/edit";
 
 import "./header.css";
 
 const Header = () => {
   const headerContext = useContext(HeaderContext);
+  const history = useHistory();
+
+  useEffect(() => {
+		headerContext.searchItem();
+	}, [headerContext.filterLocation]);
+ 
   const loginContext = useContext(LoginContext);
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+  const handleClick = () => {
+    history.push("/");
   };
 
   return (
@@ -18,20 +28,24 @@ const Header = () => {
       <form onSubmit={handleSubmit}>
         <div className="navBar">
           <div className="leftNavBar">
-            <p>WebsiteName</p>
+            <p onClick={handleClick} className="websiteName">
+              WebsiteName
+            </p>
             <select
               onChange={(e) => {
                 headerContext.searchItem(e);
               }}
               name="filter"
             >
-              <option value="">price</option>
-              <option value="price"></option>
-              <option value="location">Location</option>
+              <option value="">Filter</option>
+              <option value= "10">10</option>
+              <option value="20">20</option>
             </select>
             <select
               onChange={(e) => {
-                headerContext.searchItem(e);
+                console.log("onnn",e.target.value)
+                 headerContext.setFilterLocation(e.target.value);
+                 headerContext.searchItem();
               }}
               name="location"
             >
@@ -44,7 +58,7 @@ const Header = () => {
             </select>
             <input
               onChange={(e) => {
-                headerContext.setTitle(e.target.value);
+                headerContext.setSearch(e.target.value);
               }}
               placeholder="Search"
             />
