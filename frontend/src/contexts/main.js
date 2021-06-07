@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-
-
 export const ItemCardContext = React.createContext();
 
 const ItemCardProvider = (props) => {
