@@ -1,12 +1,10 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import ItemCardContext from './main'
+import ItemCardContext from "./main";
 export const HeaderContext = React.createContext();
 
 const HeaderProvider = (props) => {
-
-  
   const history = useHistory();
   const [filterLocation, setFilterLocation] = useState("");
   const [search, setSearch] = useState("");
@@ -37,8 +35,8 @@ const HeaderProvider = (props) => {
     }).
       catch((error) => {
         throw error;
-      })
-    history.push('/search/product');
+      });
+    history.push("/search/product");
   }
   async function filterItem(e) {
     try {

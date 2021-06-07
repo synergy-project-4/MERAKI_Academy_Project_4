@@ -2,13 +2,14 @@ import React, { useState, useContext,useEffect } from "react";
 import { HeaderContext } from "../../../src/contexts/header";
 import { LoginContext } from "../../../src/contexts/login";
 import { Link } from "react-router-dom";
-import SettingsMenu  from './../header/edit';
-
+import { useHistory } from "react-router-dom";
+import SettingsMenu from "./../header/edit";
 
 import "./header.css";
 
 const Header = () => {
   const headerContext = useContext(HeaderContext);
+  const history = useHistory();
 
   useEffect(() => {
 		headerContext.searchItem();
@@ -18,13 +19,18 @@ const Header = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+  const handleClick = () => {
+    history.push("/");
+  };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <div className="navBar">
           <div className="leftNavBar">
-            <p>WebsiteName</p>
+            <p onClick={handleClick} className="websiteName">
+              WebsiteName
+            </p>
             <select
               onChange={(e) => {
                 headerContext.filterItem(e);
@@ -65,7 +71,12 @@ const Header = () => {
             </button>
           </div>
           {loginContext.loggedIn ? (
-            <div className="rightNavBar"><p>{`welcome `}</p><div><SettingsMenu/></div></div>
+            <div className="rightNavBar">
+              <p>{`welcome `}</p>
+              <div>
+                <SettingsMenu />
+              </div>
+            </div>
           ) : (
             <div className="rightNavBar">
               <Link to="/login">login</Link>
