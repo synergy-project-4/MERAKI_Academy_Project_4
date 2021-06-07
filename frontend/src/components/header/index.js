@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import { HeaderContext } from "../../../src/contexts/header";
 import { LoginContext } from "../../../src/contexts/login";
 import { Link } from "react-router-dom";
@@ -10,6 +10,11 @@ import "./header.css";
 const Header = () => {
   const headerContext = useContext(HeaderContext);
   const history = useHistory();
+
+  useEffect(() => {
+		headerContext.searchItem();
+	}, [headerContext.filterLocation]);
+ 
   const loginContext = useContext(LoginContext);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,13 +37,15 @@ const Header = () => {
               }}
               name="filter"
             >
-              <option value="">price</option>
-              <option value="price"></option>
-              <option value="location">Location</option>
+              <option value="">Filter</option>
+              <option value= "10">10</option>
+              <option value="20">20</option>
             </select>
             <select
               onChange={(e) => {
-                headerContext.filterItem(e);
+                console.log("onnn",e.target.value)
+                 headerContext.setFilterLocation(e.target.value);
+                 headerContext.searchItem();
               }}
               name="location"
             >
@@ -51,7 +58,7 @@ const Header = () => {
             </select>
             <input
               onChange={(e) => {
-                headerContext.setTitle(e.target.value);
+                headerContext.setSearch(e.target.value);
               }}
               placeholder="Search"
             />

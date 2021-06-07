@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ReactPaginate from 'react-paginate';
+
 
 
 export const ItemCardContext = React.createContext();
