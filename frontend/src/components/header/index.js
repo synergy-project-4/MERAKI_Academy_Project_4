@@ -23,8 +23,8 @@ const Header = () => {
               }}
               name="filter"
             >
-              <option value="">Filter</option>
-              <option value="price">Price</option>
+              <option value="">price</option>
+              <option value="price"></option>
               <option value="location">Location</option>
             </select>
             <select
@@ -42,7 +42,7 @@ const Header = () => {
             </select>
             <input
               onChange={(e) => {
-                headerContext.setSearch(e.target.value);
+                headerContext.setTitle(e.target.value);
               }}
               placeholder="Search"
             />
