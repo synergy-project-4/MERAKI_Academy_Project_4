@@ -6,11 +6,14 @@ import Header from "./components/header/index"
 import Main from './components/main/index'
 import Login from "./components/auth/login/index";
 import ProductDetails from './components/productDetails'
+import  SearchProduct  from "./components/searchProduct";
 import { ItemCardContext } from './../src/contexts/main';
+import { HeaderContext } from "./contexts/header";
 
 
 const App = () => {
   const itemCardContext = useContext(ItemCardContext);
+  const headerContext = useContext(HeaderContext);
 
   return (
     <div className="App">
@@ -20,7 +23,7 @@ const App = () => {
       <Route exact path="/" component={Main} />
       <Route path="/login" component={Login} />
       <Route path="/product/details" render={() => <ProductDetails item={itemCardContext.found} />} />
-
+      <Route path="/search/product" render={() => <SearchProduct item={headerContext.found} />} />
 
     </div>
   );

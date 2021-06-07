@@ -15,7 +15,6 @@ const Main = () => {
 		itemCardContext.showProduct();
 
 	}, []);
-
 	const cardDetails = async (id) => {
 
 		const foundItem = itemCardContext.products.find((elem) => {
