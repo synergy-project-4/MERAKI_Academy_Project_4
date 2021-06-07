@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom"
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 
 export const LoginContext = React.createContext();
 
 const LoginProvider = (props) => {
+	const history = useHistory()
+	
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [message, setMessage] = useState('');
@@ -42,6 +45,7 @@ const LoginProvider = (props) => {
 			});
 
 			saveToken(res.data.token);
+			history.push("/");
 			setLoggedIn(true);
 		} catch (error) {
 			setMessage(error.response.data);
