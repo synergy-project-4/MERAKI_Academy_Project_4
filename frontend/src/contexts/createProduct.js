@@ -7,7 +7,6 @@ export const CreateProductContext = React.createContext();
 const CreateProductProvider = (props) => {
   const loginContext = useContext(LoginContext);
 
-  //  const loginToken = loginContext.token
 
   const [title, setTitle] = useState("");
   const [tags, setTags] = useState("");
@@ -25,8 +24,7 @@ const CreateProductProvider = (props) => {
   const [messageFalse, setMessageFalse] = useState("");
   const [userId, setUserId] = useState("")
 
-  // setUserId()
-  // console.log("id::::" ,props.item._id);
+  
 
   const state = {
     setTitle,
@@ -49,8 +47,8 @@ const CreateProductProvider = (props) => {
   
 
   async function createProducts() {
-    setUserId(LoginContext.userIdLoggedIn)
     console.log(LoginContext.userIdLoggedIn);
+    setUserId(LoginContext.userIdLoggedIn)
    await axios
       .post("http://localhost:5000/create/product", {
         title,

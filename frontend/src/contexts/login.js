@@ -34,10 +34,12 @@ const LoginProvider = (props) => {
     if (user) {
       setToken(token);
       localStorage.setItem("token", token);
+      console.log(token);
     }
   }
 const saveId =(userIdLoggedIn)=>{
 	setUserIdLoggedIn(userIdLoggedIn);
+  console.log("iddddddd log in",userIdLoggedIn);
 }
 
   async function login() {
