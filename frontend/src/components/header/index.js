@@ -32,6 +32,7 @@ const Header = () => {
             <p onClick={handleClick} className="websiteName">
               WebsiteName
             </p>
+
             <select
               onChange={(e) => {
                 headerContext.searchItem(e);
@@ -44,7 +45,7 @@ const Header = () => {
             </select>
             <select
               onChange={(e) => {
-                console.log("onnn", e.target.value)
+                console.log("onnn", e.target.value);
                 headerContext.setFilterLocation(e.target.value);
                 headerContext.searchItem();
               }}
@@ -58,12 +59,14 @@ const Header = () => {
               <option value="aqaba">Aqaba</option>
             </select>
             <input
+              className="search-bar"
               onChange={(e) => {
                 headerContext.setSearch(e.target.value);
               }}
               placeholder="Search"
             />
             <button
+              className="search-button"
               onClick={(e) => {
                 headerContext.searchItem();
               }}
@@ -71,20 +74,21 @@ const Header = () => {
               search
             </button>
           </div>
-          {loginContext.loggedIn ? (
-            <div className="rightNavBar">
-              <img src={logo} onClick={history.push("/cart")}/>
-              <p>{`welcome `}</p>
+          <div className="rightNavBar">
+            {loginContext.loggedIn ? (
               <div>
-                <SettingsMenu />
-                
+                <img src={logo} onClick={history.push("/cart")} />
+                <p>{`welcome `}</p>
+                <div>
+                  <SettingsMenu />
+                </div>
               </div>
-            </div>
-          ) : (
-            <div className="rightNavBar">
-              <Link to="/login">login</Link>
-            </div>
-          )}
+            ) : (
+              <div>
+                <Link to="/login">login</Link>
+              </div>
+            )}
+          </div>
         </div>
       </form>
       {headerContext.message && <div>{headerContext.message}</div>}

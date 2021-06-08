@@ -14,8 +14,8 @@ const Register = () => {
     <>
       <div className="sign-up-body">
         <div className="sign-up">
-          <p>WebSite Name</p>
-          <p>Sign-up</p>
+          <p style={{ color: "yellow", fontSize: "30px" }}>WebSite Name</p>
+          <p style={{ color: "white", fontSize: "25px" }}>Sign-up</p>
           <form onSubmit={handleSubmit} className="sign-up-form">
             <input
               className="input"
@@ -72,8 +72,12 @@ const Register = () => {
               Sign-Up
             </button>
           </form>
-
-          {registerContext.message && <div>{registerContext.message}</div>}
+          {/* to fix the message to have succes and failure so each message would have a differnet color */}
+          {registerContext.message && (
+            <div style={{ backgroundColor: "red" }}>
+              {registerContext.message}
+            </div>
+          )}
         </div>
       </div>
     </>

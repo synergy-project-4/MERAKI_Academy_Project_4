@@ -2,27 +2,80 @@ body {
   margin: 0px;
 }
 
-.leftNavBar {
-  margin-left: 10px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: white;
 }
-.rightNavBar{
-   display: flex;
-    margin-right: 10px;
-    align-items: center;
+
+a:hover {
+  text-decoration: none;
+  color: yellow;
 }
+
+select {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+select:hover {
+  background-color: yellow;
+  cursor: pointer;
+}
+
+.search-button {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.search-button:hover {
+  background-color: yellow;
+  cursor: pointer;
+}
+
 .navBar {
   display: flex;
-  margin-top: 0px;
-  padding: 0px;
+  padding: 5px;
   gap: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   justify-content: space-between;
   align-items: center;
+  background-color: rgb(15, 6, 56);
+}
+
+.leftNavBar {
+  display: flex;
+  gap: 3px;
+  padding-left: 15px;
+}
+
+.rightNavBar {
+  display: flex;
+  gap: 10px;
+  font-size: 18px;
+  padding-right: 15px;
+}
+
+.websiteName {
+  margin-right: 10px;
+  margin-top: 9px;
+  font-size: 18px;
+  color: white;
 }
 
 .websiteName:hover {
   cursor: pointer;
+  color: yellow;
+}
+
+.search-bar {
+  width: 1000px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 }

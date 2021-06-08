@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Route, Switch } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 import Register from "./components/auth/signUp/index";
 import Header from "./components/header/index";
