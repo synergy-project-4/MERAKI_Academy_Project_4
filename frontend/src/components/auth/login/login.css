@@ -2,12 +2,12 @@ body {
   margin: 0;
 }
 
-.login-button {
+.register-button {
   text-decoration: none;
   color: yellow;
 }
 
-.login-button:hover {
+.register-button:hover {
   color: red;
 }
 
