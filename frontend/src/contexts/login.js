@@ -22,6 +22,7 @@ const LoginProvider = (props) => {
 		login,
 		token,
 		loggedIn,
+		logout,
 		
 	};
 
@@ -45,13 +46,16 @@ const LoginProvider = (props) => {
 			});
 
 			saveToken(res.data.token);
-			history.push("/");
 			setLoggedIn(true);
 		} catch (error) {
 			setMessage(error.response.data);
 		}
 	}
-
+	function logout() {
+		setLoggedIn(false);
+		localStorage.clear();
+		setToken("")
+	}
 
 	return (
 		<LoginContext.Provider value={state}>

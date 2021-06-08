@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect, useState } from 'react';
 import { ItemCardContext } from './../../contexts/main';
 import axios from 'axios';
@@ -41,14 +40,16 @@ const Main = () => {
               className="itemCard"
               key={elem._id}
             >
-              <p>{elem.title}</p>
-              <p>{elem.shortDescription}</p>
-              <p>{elem.price}</p>
+              <p className="title">{elem.title} </p>
+              <p className="info">Description : {elem.shortDescription}</p>
+              <p className="info">Located in : {elem.location}</p>
+              <p className="info">In Stock : {elem.quantity}</p>
+              <p className="price">Price : {elem.price}$</p>
             </div>
           );
         })}
       </div>
-      <div className="">
+      <div className="paginate-page">
         <ReactPaginate
           previousLabel={"prev"}
           nextLabel={"next"}
