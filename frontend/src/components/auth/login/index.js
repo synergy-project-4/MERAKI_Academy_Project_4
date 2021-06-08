@@ -33,11 +33,16 @@ const Login = () => {
           />
           <button className="done-button">Sign-In</button>
         </form>
-        <p>
-          if you don't have an account, click &nbsp;
-          <Link to="/register">here</Link>
+        <p style={{ color: "white" }}>
+          if you don't have an account, click&nbsp;
+          <Link className="register-button" to="/register">
+            here
+          </Link>
         </p>
-        {loginContext.message && <div>{loginContext.message}</div>}
+        {/* to fix the message to have succes and failure so each message would have a differnet color */}
+        {loginContext.message && (
+          <div style={{ backgroundColor: "red" }}>{loginContext.message}</div>
+        )}
       </div>
     </div>
   );
