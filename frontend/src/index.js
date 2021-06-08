@@ -8,6 +8,7 @@ import LoginProvider from "./contexts/login";
 import ItemCardProvider from './contexts/main'
 import ProfileProvider from './contexts/profile'
 import CartProvider from './contexts/cart'
+import CreateProductProvider from './contexts/createProduct'
 
 ReactDOM.render(
   <Router>

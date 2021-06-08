@@ -5,7 +5,6 @@ import Register from "./components/auth/signUp/index";
 import Header from "./components/header/index";
 import Main from "./components/main/index";
 import Login from "./components/auth/login/index";
-import Profile from './components/profile/profile'
 import ProductDetails from './components/productDetails'
 import SearchProduct from "./components/searchProduct";
 import Cart from './components/cart'
