@@ -34,7 +34,7 @@ const Header = () => {
             </p>
             <select
               onChange={(e) => {
-                headerContext.filterItem(e);
+                headerContext.searchItem(e);
               }}
               name="filter"
             >

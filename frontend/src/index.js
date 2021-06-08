@@ -11,19 +11,21 @@ import CartProvider from './contexts/cart'
 
 ReactDOM.render(
   <Router>
-  <HeaderProvider>
-    <LoginProvider>
-    <ItemCardProvider>
-    <RegisterProvider>
-      <ProfileProvider>
-        <CartProvider>
-      <App />
-      </CartProvider>
-      </ProfileProvider>
-    </RegisterProvider>
-    </ItemCardProvider>
-    </LoginProvider>
-    </HeaderProvider>
+    <CreateProductProvider>
+      <HeaderProvider>
+        <LoginProvider>
+          <ItemCardProvider>
+            <RegisterProvider>
+              <ProfileProvider>
+                <CartProvider>
+                  <App />
+                </CartProvider>
+              </ProfileProvider>
+            </RegisterProvider>
+          </ItemCardProvider>
+        </LoginProvider>
+      </HeaderProvider>
+    </CreateProductProvider>
   </Router>,
   document.getElementById("root")
 );

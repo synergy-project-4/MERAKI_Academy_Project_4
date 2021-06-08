@@ -8,8 +8,10 @@ body {
   gap: 10px;
   align-items: center;
 }
-.rightNavBar {
-  margin-right: 10px;
+.rightNavBar{
+   display: flex;
+    margin-right: 10px;
+    align-items: center;
 }
 .navBar {
   display: flex;
