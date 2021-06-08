@@ -48,7 +48,6 @@ const LoginProvider = (props) => {
 			history.push("/");
 			setLoggedIn(true);
 		} catch (error) {
-			setMessage(error.response.data);
 		}
 	}
 

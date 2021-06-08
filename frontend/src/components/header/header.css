@@ -2,15 +2,15 @@ body {
   margin: 0px;
 }
 
-a,
-a:hover,
-a:focus,
-a:active {
+.rightNavBar a,
+.rightNavBar a,
+.rightNavBar a,
+.rightNavBar a {
   text-decoration: none;
   color: white;
 }
 
-a:hover {
+.rightNavBar a:hover {
   text-decoration: none;
   color: yellow;
 }
@@ -60,6 +60,24 @@ select:hover {
   gap: 10px;
   font-size: 18px;
   padding-right: 15px;
+  align-items: center;
+}
+
+.accountSettings {
+  display: flex;
+  gap: 10px;
+  font-size: 18px;
+  padding-right: 15px;
+  align-items: center;
+}
+
+.accountSettings a {
+  text-decoration: none;
+  color: rgba(15, 6, 56, 1, 0.6);
+}
+
+.accountSettings a:hover {
+  color: red;
 }
 
 .websiteName {
