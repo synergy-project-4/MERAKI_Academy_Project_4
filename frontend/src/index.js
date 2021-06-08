@@ -8,22 +8,25 @@ import LoginProvider from "./contexts/login";
 import ItemCardProvider from "./contexts/main";
 import ProfileProvider from "./contexts/profile";
 import CreateProductProvider from "./contexts/createProduct";
+import HistoryProvider from "./contexts/history";
 
 ReactDOM.render(
   <Router>
-    <CreateProductProvider>
-      <LoginProvider>
-      <HeaderProvider>
-          <ItemCardProvider>
-            <RegisterProvider>
-              <ProfileProvider>
-                <App />
-              </ProfileProvider>
-            </RegisterProvider>
-          </ItemCardProvider>
-      </HeaderProvider>
-       </LoginProvider>
-    </CreateProductProvider>
+    <LoginProvider>
+      <HistoryProvider>
+        <HeaderProvider>
+          <CreateProductProvider>
+            <ItemCardProvider>
+              <RegisterProvider>
+                <ProfileProvider>
+                  <App />
+                </ProfileProvider>
+              </RegisterProvider>
+            </ItemCardProvider>
+          </CreateProductProvider>
+        </HeaderProvider>
+      </HistoryProvider>
+    </LoginProvider>
   </Router>,
   document.getElementById("root")
 );

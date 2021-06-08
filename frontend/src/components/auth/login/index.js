@@ -29,12 +29,14 @@ const Login = () => {
             type="email"
             placeholder="E-mail"
             onChange={(e) => loginContext.setEmail(e.target.value)}
+            
           />
           <input
             className="input"
             type="password"
             placeholder="Password"
             onChange={(e) => loginContext.setPassword(e.target.value)}
+            
           />
           <button className="done-button">Sign-In</button>
         </form>

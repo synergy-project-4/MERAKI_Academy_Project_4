@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from "react-router-dom"
-import axios from 'axios';
-import jwt from 'jsonwebtoken';
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+import jwt from "jsonwebtoken";
 
 export const LoginContext = React.createContext();
 
@@ -13,6 +13,8 @@ const LoginProvider = (props) => {
 	const [message, setMessage] = useState('');
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [token, setToken] = useState('');
+	const [userIdLoggedIn, setUserIdLoggedIn] = useState('');
+
 	
 
 	const state = {
@@ -23,6 +25,7 @@ const LoginProvider = (props) => {
 		token,
 		loggedIn,
 		logout,
+		userIdLoggedIn
 		
 	};
 
@@ -37,7 +40,10 @@ const LoginProvider = (props) => {
 			localStorage.setItem('token', token);
 		}
 	}
-
+	const saveId = (userIdLoggedIn) => {
+		setUserIdLoggedIn(userIdLoggedIn);
+		console.log("iddddddd log in", userIdLoggedIn);
+	  };
 	async function login() {
 		try {
 			const res = await axios.post('http://localhost:5000/login', {
@@ -47,6 +53,7 @@ const LoginProvider = (props) => {
 
 			saveToken(res.data.token);
 			setLoggedIn(true);
+			saveId(res.data.id);
 		} catch (error) {
 			setMessage(error.response.data);
 		}
