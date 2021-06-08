@@ -8,6 +8,7 @@ const HeaderProvider = (props) => {
   const history = useHistory();
   const [filterLocation, setFilterLocation] = useState("");
   const [search, setSearch] = useState("");
+  const [title, setTitle] = useState("");
   const [products, setProducts] = useState([]);
   const [found, setFound] = useState([]);
   const [message, setMessage] = useState("");
