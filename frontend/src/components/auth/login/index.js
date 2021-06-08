@@ -17,7 +17,7 @@ const Login = () => {
   return (
     <div className="login-body">
       <div className="login">
-        <p style={{ color: "yellow", fontSize: "30px" }}>Website Name</p>
+        <p>website name</p>
         <form onSubmit={handleSubmit} className="login-form">
           <input
             className="input"
@@ -33,11 +33,9 @@ const Login = () => {
           />
           <button className="done-button">Sign-In</button>
         </form>
-        <p style={{ color: "white" }}>
-          if you don't have an account, click&nbsp;
-          <Link className="login-button" to="/register">
-            here
-          </Link>
+        <p>
+          if you don't have an account, click &nbsp;
+          <Link to="/register">here</Link>
         </p>
         {loginContext.message && <div>{loginContext.message}</div>}
       </div>
