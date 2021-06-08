@@ -25,19 +25,24 @@ const HeaderProvider = (props) => {
   };
   async function searchItem() {
     console.log("location::", filterLocation);
-    await axios.get('http://localhost:5000/main').then((result) => {
-      const find = result.data.filter((elem) => {
-        return ((elem.title == search || search == "" || elem.tags == search) && (elem.location == filterLocation || filterLocation == ""))
+    await axios
+      .get("http://localhost:5000/main")
+      .then((result) => {
+        const find = result.data.filter((elem) => {
+          return (
+            (elem.title == search || search == "" || elem.tags == search) &&
+            (elem.location == filterLocation || filterLocation == "")
+          );
+        });
+        console.log(result);
+        setFound(find);
+        console.log("find:", find.location);
+        console.log("found ;;", found);
       })
-      console.log(result);
-      setFound(find)
-      console.log("find:", find.location);
-      console.log("found ;;", found)
-    }).
-      catch((error) => {
+      .catch((error) => {
         throw error;
       });
-    // history.push("/search/product");
+    history.push("/search/product");
   }
   async function filterItem(e) {
     try {
@@ -45,7 +50,6 @@ const HeaderProvider = (props) => {
     } catch (error) {
       setMessage("item not found");
     }
-
   }
 
   return (
