@@ -31,7 +31,7 @@ const App = () => {
       />
 
       <Route
-        path="/search/product"
+        exact path="/search/product"
         render={() => <SearchProduct item={headerContext.found} />}
       />
       <Route
