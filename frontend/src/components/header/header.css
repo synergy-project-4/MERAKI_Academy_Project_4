@@ -41,7 +41,7 @@ select:hover {
 
 .navBar {
   display: flex;
-  padding: 5px;
+  padding: 10px;
   gap: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   justify-content: space-between;
@@ -93,7 +93,7 @@ select:hover {
 }
 
 .search-bar {
-  width: 500px;
+  width: 75vw;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 }

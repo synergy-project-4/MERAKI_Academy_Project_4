@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Route, Switch } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-
 import Register from "./components/auth/signUp/index";
 import Header from "./components/header/index";
 import Main from "./components/main/index";
@@ -12,7 +11,9 @@ import Cart from './components/cart'
 import { ItemCardContext } from './../src/contexts/main';
 import Profile from "./components/profile/profile";
 import { HeaderContext } from "./contexts/header";
+import { LoginContext } from "./contexts/login";
 import CreateProduct from "./components/createProduct/index";
+import History from "./components/history/index";
 
 const App = () => {
   const itemCardContext = useContext(ItemCardContext);
@@ -31,8 +32,9 @@ const App = () => {
       <Route path="/search/product" render={() => <SearchProduct item={headerContext.found} />} />
       <Route
         path="/create/product"
-        render={() => <CreateProduct />}
+        render={() => <CreateProduct item={LoginContext.found} />}
       />
+      <Route path="/product/history" render={() => <History />} />
     </div>
   );
 };

@@ -13,7 +13,15 @@ const Header = () => {
   const history = useHistory();
 
   useEffect(() => {
-    headerContext.searchItem();
+    // console.log("AAA", headerContext.filterLocation);
+    // console.log({a:headerContext.filterLocation})
+    if (headerContext.filterLocation !== "") {
+      console.log("RUNNNNNNN");
+      headerContext.searchItem();
+    }
+    // if(headerContext.filterLocation === ''){
+    //   console.log('YESSS')
+    // }
   }, [headerContext.filterLocation]);
 
   const loginContext = useContext(LoginContext);
@@ -74,22 +82,23 @@ const Header = () => {
               search
             </button>
           </div>
-          <div className="rightNavBar">
-            {loginContext.loggedIn ? (
+
+          {loginContext.token ? (
+            <div className="accountSettings">
+              {/* instead of welcome it should display first name */}
+              <p>{`welcome `}</p>
+              <img src={logo} onClick={history.push("/cart")} />
               <div>
-                <p>{`welcome `}</p>
-                <img src={logo} onClick={history.push("/cart")} />
-                <div>
-                  <SettingsMenu />
-                </div>
+                <SettingsMenu />
               </div>
-            ) : (
-              <div>
-                <Link to="/login">login</Link>
-              </div>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div className="rightNavBar">
+              <Link to="/login">login</Link>
+            </div>
+          )}
         </div>
+
       </form>
       {headerContext.message && <div>{headerContext.message}</div>}
     </>

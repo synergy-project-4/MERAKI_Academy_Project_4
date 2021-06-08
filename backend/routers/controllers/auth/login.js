@@ -4,10 +4,11 @@ const login = (req, res) => {
 	const { email, password } = req.body;
 
 	usersModel
-		.authenticateBasic(email, password)
+		.authenticateBasic(email.toLowerCase(), password)
 		.then((result) => {
+			console.log(result);
 			if (result[1] === 200)
-				return res.status(result[1]).json({ token: result[0] });
+				return res.status(result[1]).json({ token: result[0] ,id: result[2]});
 
 			res.status(result[1]).json(result[0]);
 		})

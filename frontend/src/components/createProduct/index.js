@@ -3,6 +3,7 @@ import { CreateProductContext } from "../../contexts/createProduct";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "./createProduct.css";
+
 const CreateProduct = () => {
   const createProductContext = useContext(CreateProductContext);
   const history = useHistory();
@@ -94,10 +95,14 @@ const CreateProduct = () => {
             createProductContext.setShortDescription(e.target.value);
           }}
         />
-        <button>submit</button>
-        
-         {createProductContext.messageTrue && <div>{createProductContext.message}</div>}
-         {createProductContext.messageFalse && <div>{createProductContext.messageFalse}</div>}
+        <button onClick={createProductContext.createProducts}>submit</button>
+
+        {createProductContext.messageTrue && (
+          <div>{createProductContext.messageTrue}</div>
+        )}
+        {createProductContext.messageFalse && (
+          <div>{createProductContext.messageFalse}</div>
+        )}
       </div>
     </>
   );

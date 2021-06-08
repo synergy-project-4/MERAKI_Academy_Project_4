@@ -33,7 +33,6 @@ const createProduct = (req, res) => {
 		shortDescription,
 		userId,
 	});
-
 	product
 		.save()
 		.then((result) => {
@@ -61,9 +60,8 @@ const getAllProducts = (req, res) => {
 		res
 			.status(200)
 			.json(result)
-			.catch((err) => {
-				res.send(err);
-			});
+	}).catch((err) => {
+		res.send(err);
 	});
 };
 
