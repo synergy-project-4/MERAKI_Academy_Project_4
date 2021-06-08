@@ -36,7 +36,7 @@ const HeaderProvider = (props) => {
       catch((error) => {
         throw error;
       });
-    history.push("/search/product");
+      history.push("/search/product");
   }
   async function filterItem(e) {
     try {
