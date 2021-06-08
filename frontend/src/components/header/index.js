@@ -77,8 +77,8 @@ const Header = () => {
           <div className="rightNavBar">
             {loginContext.loggedIn ? (
               <div>
-                <img src={logo} onClick={history.push("/cart")} />
                 <p>{`welcome `}</p>
+                <img src={logo} onClick={history.push("/cart")} />
                 <div>
                   <SettingsMenu />
                 </div>

@@ -15,9 +15,9 @@ const ProductDetails = (props) => {
             setNotLogged(false)
             setLogged(true)
 
-            console.log("idddd:", props.item._id);
+            //console.log("idddd:", props.item._id);
             await cartContext.setProductId(props.item._id)
-            console.log("productId ", cartContext.productId);
+            //console.log("productId ", cartContext.productId);
 
         } else {
             {

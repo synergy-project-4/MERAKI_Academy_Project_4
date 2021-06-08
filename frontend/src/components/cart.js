@@ -1,25 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext } from './../contexts/cart';
 import axios from 'axios'
 
 
-const Cart = async () => {
+const Cart = () => {
+    const [cartData, setCartData] = useState([])
     const cartContext = useContext(CartContext);
- /*   await axios
+    let found = ''
+    const arr = []
+
+    axios
         .get("http://localhost:5000/main")
         .then((result) => {
-            console.log("result", result);
-            result.find((elem) => {
-                return elem._id == cartContext.productId
+       found= result.data.find((elem) => {
+                return elem._id === cartContext.productId
             })
-                .catch((err) => {
-                    throw err
-                })
-        })*/
-
+            setCartData([found])
+        })
+        .catch((err) => {
+            throw err
+        })
+        console.log(cartData);
+  /*  arr.push(found)
+    setCartData(arr)*/
     return (
+        
         <>
-        <p>Cart</p>
+          <h1>test:: {cartData[0].title}</h1>
         </>
     )
 }
