@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Route } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-
 import Register from "./components/auth/signUp/index";
 import Header from "./components/header/index";
 import Main from "./components/main/index";
@@ -11,7 +10,7 @@ import ProductDetails from "./components/productDetails";
 import SearchProduct from "./components/searchProduct";
 import { ItemCardContext } from "./../src/contexts/main";
 import { HeaderContext } from "./contexts/header";
-import { LoginContext} from "./contexts/login"
+import { LoginContext } from "./contexts/login";
 import CreateProduct from "./components/createProduct/index";
 import History from "./components/history/index";
 
@@ -37,12 +36,9 @@ const App = () => {
       />
       <Route
         path="/create/product"
-        render={() => <CreateProduct item={LoginContext.found}/>}
+        render={() => <CreateProduct item={LoginContext.found} />}
       />
-       <Route
-        path="/product/history"
-        render={() => <History />}
-      />
+      <Route path="/product/history" render={() => <History />} />
     </div>
   );
 };
