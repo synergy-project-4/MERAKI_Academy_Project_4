@@ -70,8 +70,9 @@ const Header = () => {
               search
             </button>
           </div>
-          {loginContext.loggedIn ? (
+          {loginContext.token ? (
             <div className="rightNavBar">
+
               <p>{`welcome `}</p>
               <div>
                 <SettingsMenu />

@@ -10,7 +10,9 @@ import ProductDetails from "./components/productDetails";
 import SearchProduct from "./components/searchProduct";
 import { ItemCardContext } from "./../src/contexts/main";
 import { HeaderContext } from "./contexts/header";
+import { LoginContext} from "./contexts/login"
 import CreateProduct from "./components/createProduct/index";
+import History from "./components/history/index";
 
 const App = () => {
   const itemCardContext = useContext(ItemCardContext);
@@ -34,7 +36,11 @@ const App = () => {
       />
       <Route
         path="/create/product"
-        render={() => <CreateProduct />}
+        render={() => <CreateProduct item={LoginContext.found}/>}
+      />
+       <Route
+        path="/product/history"
+        render={() => <History />}
       />
     </div>
   );
