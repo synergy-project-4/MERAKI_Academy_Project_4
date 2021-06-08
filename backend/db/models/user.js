@@ -39,7 +39,7 @@ users.statics.authenticateBasic = async function (email, password) {
         expiresIn: '60m',
       };
 
-      return [jwt.sign(payload, process.env.SECRET, options), 200];
+      return [jwt.sign(payload, process.env.SECRET, options), 200,payload.userId];
     }
     return ['The password you’ve entered is incorrect', 403];
   } catch (error) {
