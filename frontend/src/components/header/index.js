@@ -73,16 +73,10 @@ const Header = () => {
               search
             </button>
           </div>
-<<<<<<< HEAD
-          {loginContext.token ? (
-            <div className="rightNavBar">
-
-=======
 
           {loginContext.loggedIn ? (
             <div className="accountSettings">
               {/* instead of welcome it should display first name */}
->>>>>>> 853ec75c739d716b4b0b21fa0b50ef1555eae0a9
               <p>{`welcome `}</p>
               <div>
                 <SettingsMenu />
