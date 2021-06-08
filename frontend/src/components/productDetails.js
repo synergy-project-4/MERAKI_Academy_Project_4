@@ -1,18 +1,23 @@
 import React, { useContext, useState } from 'react';
 import { LoginContext } from './../contexts/login';
+import { CartContext } from './../contexts/cart';
 import './product.css'
 
 
 const ProductDetails = (props) => {
     const loginContext = useContext(LoginContext);
+    const cartContext = useContext(CartContext);
     const [notLogged, setNotLogged] = useState(false)
     const [logged, setLogged] = useState(false)
 
-    const loginR = () => {
+    const loginR = async () => {
         if (loginContext.token) {
             setNotLogged(false)
             setLogged(true)
-             
+
+            console.log("idddd:", props.item._id);
+            await cartContext.setProductId(props.item._id)
+            console.log("productId ", cartContext.productId);
 
         } else {
             {

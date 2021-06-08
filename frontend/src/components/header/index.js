@@ -4,6 +4,7 @@ import { LoginContext } from "../../../src/contexts/login";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import SettingsMenu from "./../header/edit";
+import logo from './cart.png'
 
 import "./header.css";
 
@@ -72,9 +73,11 @@ const Header = () => {
           </div>
           {loginContext.loggedIn ? (
             <div className="rightNavBar">
+              <img src={logo} onClick={history.push("/cart")}/>
               <p>{`welcome `}</p>
               <div>
                 <SettingsMenu />
+                
               </div>
             </div>
           ) : (

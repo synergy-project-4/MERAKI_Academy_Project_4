@@ -8,6 +8,7 @@ import Login from "./components/auth/login/index";
 import Profile from './components/profile/profile'
 import ProductDetails from './components/productDetails'
 import SearchProduct from "./components/searchProduct";
+import Cart from './components/cart'
 import { ItemCardContext } from './../src/contexts/main';
 import { HeaderContext } from "./contexts/header";
 
@@ -24,6 +25,7 @@ const App = () => {
       <Route path="/register" component={Register} />
       <Route exact path="/" component={Main} />
       <Route path="/login" component={Login} />
+      <Route path="/cart" component={Cart} />
       <Route path="/product/details" render={() => <ProductDetails item={itemCardContext.found} />} />
       <Route path="/search/product" render={() => <SearchProduct item={headerContext.found} />} />
     </div>

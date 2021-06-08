@@ -7,6 +7,7 @@ import HeaderProvider from "./contexts/header";
 import LoginProvider from "./contexts/login";
 import ItemCardProvider from './contexts/main'
 import ProfileProvider from './contexts/profile'
+import CartProvider from './contexts/cart'
 
 ReactDOM.render(
   <Router>
@@ -15,7 +16,9 @@ ReactDOM.render(
     <ItemCardProvider>
     <RegisterProvider>
       <ProfileProvider>
+        <CartProvider>
       <App />
+      </CartProvider>
       </ProfileProvider>
     </RegisterProvider>
     </ItemCardProvider>
