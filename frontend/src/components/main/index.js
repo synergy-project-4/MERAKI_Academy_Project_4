@@ -43,7 +43,7 @@ const Main = () => {
               <p className="title">{elem.title} </p>
               <p className="info">Description : {elem.shortDescription}</p>
               <p className="info">Located in : {elem.location}</p>
-              <p className="info">In Stock : {elem.quantity}</p>
+              <p className="price">In Stock : {elem.quantity}</p>
               <p className="price">Price : {elem.price}$</p>
             </div>
           );
