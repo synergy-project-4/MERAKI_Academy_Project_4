@@ -44,11 +44,11 @@ const CreateProductProvider = (props) => {
     createProducts,
   };
 
-  
+  setUserId(loginContext.userIdLoggedIn)
+  console.log("aaaaaaaaaaa:",loginContext.userIdLoggedIn);  
 
   async function createProducts() {
-    console.log(LoginContext.userIdLoggedIn);
-    setUserId(LoginContext.userIdLoggedIn)
+    console.log("aaaaaaaaaaa:",loginContext.userIdLoggedIn); 
    await axios
       .post("http://localhost:5000/create/product", {
         title,

@@ -22,7 +22,7 @@ const LoginProvider = (props) => {
     login,
     token,
     loggedIn,
-	userIdLoggedIn,
+    userIdLoggedIn,
   };
 
   useEffect(() => {
@@ -37,10 +37,10 @@ const LoginProvider = (props) => {
       console.log(token);
     }
   }
-const saveId =(userIdLoggedIn)=>{
-	setUserIdLoggedIn(userIdLoggedIn);
-  console.log("iddddddd log in",userIdLoggedIn);
-}
+  const saveId = (userIdLoggedIn) => {
+    setUserIdLoggedIn(userIdLoggedIn);
+    console.log("iddddddd log in", userIdLoggedIn);
+  };
 
   async function login() {
     try {
@@ -48,13 +48,12 @@ const saveId =(userIdLoggedIn)=>{
         email,
         password,
       });
-     
+
       saveToken(res.data.token);
-	  saveId(res.data.id)
-	 
+      saveId(res.data.id);
+
       history.push("/");
       setLoggedIn(true);
-    
     } catch (error) {
       setMessage(error.response.data);
     }
