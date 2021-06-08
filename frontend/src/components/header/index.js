@@ -73,20 +73,20 @@ const Header = () => {
               search
             </button>
           </div>
-          <div className="rightNavBar">
-            {loginContext.loggedIn ? (
+
+          {loginContext.loggedIn ? (
+            <div className="accountSettings">
+              {/* instead of welcome it should display first name */}
+              <p>{`welcome `}</p>
               <div>
-                <p>{`welcome `}</p>
-                <div>
-                  <SettingsMenu />
-                </div>
+                <SettingsMenu />
               </div>
-            ) : (
-              <div>
-                <Link to="/login">login</Link>
-              </div>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div className="rightNavBar">
+              <Link to="/login">login</Link>
+            </div>
+          )}
         </div>
       </form>
       {headerContext.message && <div>{headerContext.message}</div>}
