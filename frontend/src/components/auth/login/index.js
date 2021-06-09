@@ -11,32 +11,31 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await loginContext.login();
-     if (loginContext.loggedIn) {
+    if (loginContext.loggedIn) {
       await history.push("/");
     }
   };
   const redirect = () => {
-		if (loginContext.loggedIn) {
-			history.push('/');
-		}}
+    if (loginContext.loggedIn) {
+      history.push("/");
+    }
+  };
   return (
     <div className="login-body">
       <div className="login">
-        <p>website name</p>
+        <p style={{ color: "yellow", fontSize: "30px" }}>Website Name</p>
         <form onSubmit={handleSubmit} className="login-form">
           <input
             className="input"
             type="email"
             placeholder="E-mail"
             onChange={(e) => loginContext.setEmail(e.target.value)}
-            
           />
           <input
             className="input"
             type="password"
             placeholder="Password"
             onChange={(e) => loginContext.setPassword(e.target.value)}
-            
           />
           <button className="done-button">Sign-In</button>
         </form>

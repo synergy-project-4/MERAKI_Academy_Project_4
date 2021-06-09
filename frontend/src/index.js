@@ -9,23 +9,29 @@ import ItemCardProvider from "./contexts/main";
 import ProfileProvider from "./contexts/profile";
 import CreateProductProvider from "./contexts/createProduct";
 import HistoryProvider from "./contexts/history";
+import ShowAndEditProvider from "./contexts/showAndEdit";
+import PendingApprovalProvider from "./contexts/pendingApproval";
 
 ReactDOM.render(
   <Router>
     <LoginProvider>
-      <HistoryProvider>
-        <HeaderProvider>
-          <CreateProductProvider>
-            <ItemCardProvider>
-              <RegisterProvider>
-                <ProfileProvider>
-                  <App />
-                </ProfileProvider>
-              </RegisterProvider>
-            </ItemCardProvider>
-          </CreateProductProvider>
-        </HeaderProvider>
-      </HistoryProvider>
+      <ShowAndEditProvider>
+        <PendingApprovalProvider>
+          <HistoryProvider>
+            <HeaderProvider>
+              <CreateProductProvider>
+                <ItemCardProvider>
+                  <RegisterProvider>
+                    <ProfileProvider>
+                      <App />
+                    </ProfileProvider>
+                  </RegisterProvider>
+                </ItemCardProvider>
+              </CreateProductProvider>
+            </HeaderProvider>
+          </HistoryProvider>
+        </PendingApprovalProvider>
+      </ShowAndEditProvider>
     </LoginProvider>
   </Router>,
   document.getElementById("root")

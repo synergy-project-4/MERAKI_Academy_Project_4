@@ -31,7 +31,21 @@ const deleteProfile = (req, res) => {
             res.send(err);
         });
 };
+
+const getUserById = (req,res)=>{
+    const id = req.query.id;
+    usersModel
+    .findById(id)
+    .then((result) => {
+        res.json(result);
+    })
+    .catch((err) => {
+        res.send(err);
+    });
+}
+
 module.exports = {
     editProfile,
-    deleteProfile
+    deleteProfile,
+    getUserById
 }
