@@ -12,13 +12,15 @@ const HeaderProvider = (props) => {
   const history = useHistory();
   const [filterLocation, setFilterLocation] = useState("");
   const [search, setSearch] = useState("");
-  const [title, setTitle] = useState("");
+  const [filterPrice, setFilterPrice] = useState("");
   const [products, setProducts] = useState([]);
   const [found, setFound] = useState([]);
   const [message, setMessage] = useState("");
   const [name, setName] = useState("")
 
   const state = {
+    filterPrice, 
+    setFilterPrice,
     filterLocation,
     setFilterLocation,
     found,
@@ -44,7 +46,9 @@ const HeaderProvider = (props) => {
       .catch((error) => {
         throw error;
       });
-    // history.push("/search/product");
+
+      history.push("/search/product");
+
   }
   async function filterItem(e) {
     try {

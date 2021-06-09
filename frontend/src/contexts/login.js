@@ -6,24 +6,28 @@ import jwt from "jsonwebtoken";
 export const LoginContext = React.createContext();
 
 const LoginProvider = (props) => {
-  const history = useHistory();
+	const history = useHistory()
+	
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [message, setMessage] = useState('');
+	const [loggedIn, setLoggedIn] = useState(false);
+	const [token, setToken] = useState('');
+	const [userIdLoggedIn, setUserIdLoggedIn] = useState('');
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [token, setToken] = useState("");
-  const [userIdLoggedIn, setUserIdLoggedIn] = useState("");
+	
 
-  const state = {
-    setEmail,
-    setPassword,
-    message,
-    login,
-    token,
-    loggedIn,
-    userIdLoggedIn,
-  };
+	const state = {
+		setEmail,
+		setPassword,
+		message,
+		login,
+		token,
+		loggedIn,
+		logout,
+		userIdLoggedIn
+		
+	};
 
   useEffect(() => {
     saveToken(localStorage.getItem("token"));

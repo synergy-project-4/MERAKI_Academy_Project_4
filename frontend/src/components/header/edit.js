@@ -1,9 +1,9 @@
-import React from 'react'
+import React,{ useContext } from 'react'
 import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
+import {LoginContext} from "./../../contexts/login"
 
-class SettingsMenu extends React.Component {
-  
-    render() {
+const SettingsMenu =()=> {
+  const loginContext = useContext(LoginContext);
         return (
           <DropdownMenu position='left' iconColor='#aabbcc'>
             <MenuItem text='edit profile' location='/profile/edit' />
@@ -13,10 +13,9 @@ class SettingsMenu extends React.Component {
             <MenuItem text='history' location='/product/history' />
             <MenuItem text='pending approval' location='/products/approval' />
             <MenuItem type='separator' />
-            <MenuItem text='signOut' location='/logout' />
+            <MenuItem text='signOut' onClick= {loginContext.logout } />
           </DropdownMenu>
         )
-      }
   }
   
   export default SettingsMenu;

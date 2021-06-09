@@ -8,10 +8,16 @@ const Login = () => {
   const loginContext = useContext(LoginContext);
   const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    loginContext.login();
+    await loginContext.login();
     if (loginContext.loggedIn) {
+      await history.push("/");
+    }
+  };
+  const redirect = () => {
+    if (loginContext.loggedIn) {
+      history.push("/");
     }
   };
   return (
@@ -33,6 +39,7 @@ const Login = () => {
           />
           <button className="done-button">Sign-In</button>
         </form>
+        {redirect()}
         <p style={{ color: "white" }}>
           if you don't have an account, click&nbsp;
           <Link className="register-button" to="/register">

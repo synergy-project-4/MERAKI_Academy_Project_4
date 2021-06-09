@@ -6,7 +6,6 @@ export const CreateProductContext = React.createContext();
 
 const CreateProductProvider = (props) => {
   const loginContext = useContext(LoginContext);
- 
   const [title, setTitle] = useState("");
   const [tags, setTags] = useState("");
   const [description, setDescription] = useState("");
@@ -22,6 +21,7 @@ const CreateProductProvider = (props) => {
   const [messageTrue, setMessageTrue] = useState("");
   const [messageFalse, setMessageFalse] = useState("");
   const [userId, setUserId] = useState("");
+  const [firstTime, setFirstTime] = useState(false);
 
   const state = {
     setTitle,
@@ -39,6 +39,7 @@ const CreateProductProvider = (props) => {
     messageTrue,
     messageFalse,
     createProducts,
+    firstTime,
   };
 
   async function createProducts() {
@@ -87,8 +88,6 @@ const CreateProductProvider = (props) => {
         setMessageFalse("");
       })
       .catch((err) => {
-     
-        console.log(err);
         setMessageFalse("can't create try again please");
         setMessageTrue("");
       });
