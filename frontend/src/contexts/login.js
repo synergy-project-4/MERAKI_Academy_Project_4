@@ -25,7 +25,7 @@ const LoginProvider = (props) => {
 		token,
 		loggedIn,
 		logout,
-		userIdLoggedIn
+		userIdLoggedIn,
 		
 	};
 
@@ -68,6 +68,7 @@ const LoginProvider = (props) => {
 		setLoggedIn(false);
 		localStorage.clear();
 		setToken("")
+		history.push('/');
 	}
 
   return (

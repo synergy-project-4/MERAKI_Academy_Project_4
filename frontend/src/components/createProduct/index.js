@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { CreateProductContext } from "../../contexts/createProduct";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { LoginContext } from "./../../contexts/login";
 import "./createProduct.css";
 
 const CreateProduct = () => {
+  const loginContext = useContext(LoginContext);
   const createProductContext = useContext(CreateProductContext);
   const history = useHistory();
-
+ console.log("loginContext.userIdLoggedIn:",loginContext.userIdLoggedIn)
   return (
     <>
       <div className="create-product-body">
