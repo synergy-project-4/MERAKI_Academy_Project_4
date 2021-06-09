@@ -64,6 +64,11 @@ const LoginProvider = (props) => {
       setMessage(error.response.data);
     }
   }
+  function logout() {
+		setLoggedIn(false);
+		localStorage.clear();
+		setToken("")
+	}
 
   return (
     <LoginContext.Provider value={state}>
