@@ -21,7 +21,7 @@ const CreateProductProvider = (props) => {
   const [messageTrue, setMessageTrue] = useState("");
   const [messageFalse, setMessageFalse] = useState("");
   const [userId, setUserId] = useState("");
-  const [firstTime, setFirstTime] = useState(false);
+
 
   const state = {
     setTitle,
@@ -39,13 +39,10 @@ const CreateProductProvider = (props) => {
     messageTrue,
     messageFalse,
     createProducts,
-    firstTime,
   };
 
   async function createProducts() {
     setUserId(loginContext.userIdLoggedIn);
-    console.log("aaaaaaaaaaa:", loginContext.userIdLoggedIn);
-    console.log("tokeeeeeeeeeeeen:", loginContext.token);
     console.log(  title,
       tags,
       description,

@@ -27,7 +27,6 @@ const HeaderProvider = (props) => {
     setSearch,
     message,
     searchItem,
-    filterItem,
     search,
   };
   async function searchItem() {
@@ -48,24 +47,8 @@ const HeaderProvider = (props) => {
       });
 
       history.push("/search/product");
-
   }
-  async function filterItem(e) {
-    try {
-      await axios.get("http://localhost:5000/filter/product", e.target.value);
-    } catch (error) {
-      setMessage("item not found");
-    }
-  }
-
-  async function filterItem(e) {
-    try {
-      await axios.get("http://localhost:5000/", e.target.value);
-    } catch (error) {
-     
-    }
-  }
-
+ 
   return (
     <HeaderContext.Provider value={state}>
       {props.children}
