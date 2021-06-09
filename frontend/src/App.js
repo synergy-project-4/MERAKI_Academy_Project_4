@@ -28,9 +28,21 @@ const App = () => {
       <Route path="/register" component={Register} />
       <Route exact path="/" component={Main} />
       <Route path="/login" component={Login} />
+<<<<<<< HEAD
       <Route path="/cart" render={() => <Cart item={cartData} />} />
       <Route path="/product/details" render={() => <ProductDetails item={itemCardContext.found} />} />
       <Route path="/search/product" render={() => <SearchProduct item={headerContext.found} />} />
+=======
+      <Route
+        path="/product/details"
+        render={() => <ProductDetails item={itemCardContext.found} />}
+      />
+
+      <Route
+        exact path="/search/product"
+        render={() => <SearchProduct item={headerContext.found} />}
+      />
+>>>>>>> 1ec8f27a4ac4d59956dd4e09195d0a1f9ad197e6
       <Route
         path="/create/product"
         render={() => <CreateProduct item={LoginContext.found} />}

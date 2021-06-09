@@ -4,24 +4,21 @@ import { LoginContext } from "../../../src/contexts/login";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import SettingsMenu from "./../header/edit";
+<<<<<<< HEAD
 import logo from './cart.png'
 
+=======
+>>>>>>> 1ec8f27a4ac4d59956dd4e09195d0a1f9ad197e6
 import "./header.css";
-
 const Header = () => {
   const headerContext = useContext(HeaderContext);
   const history = useHistory();
 
   useEffect(() => {
-    // console.log("AAA", headerContext.filterLocation);
-    // console.log({a:headerContext.filterLocation})
-    if (headerContext.filterLocation !== "") {
-      console.log("RUNNNNNNN");
-      headerContext.searchItem();
+    if(headerContext.filterLocation !== ""){
+       headerContext.searchItem();
     }
-    // if(headerContext.filterLocation === ''){
-    //   console.log('YESSS')
-    // }
+   
   }, [headerContext.filterLocation]);
 
   const loginContext = useContext(LoginContext);
@@ -43,19 +40,21 @@ const Header = () => {
 
             <select
               onChange={(e) => {
-                headerContext.searchItem(e);
+                console.log("e,ee:",e.target.value)
+                headerContext.setFilterPrice(e.target.value);
               }}
               name="filter"
             >
               <option value="">Filter</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
+              <option value="ascending">ascending</option>
+              <option value="descending">descending</option>
             </select>
             <select
-              onChange={(e) => {
+              onChange={ (e) => {
                 console.log("onnn", e.target.value);
-                headerContext.setFilterLocation(e.target.value);
-                headerContext.searchItem();
+                 headerContext.setFilterLocation(e.target.value);
+                 
+                
               }}
               name="location"
             >

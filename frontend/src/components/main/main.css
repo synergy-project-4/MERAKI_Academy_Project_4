@@ -5,7 +5,8 @@
   cursor: pointer;
   padding: 5px;
   background-color: rgba(15, 6, 56, 1);
-  height: 25vh;
+  height: 50vh;
+  width:30vw;
 }
 .mainBody {
   margin: 10px;
