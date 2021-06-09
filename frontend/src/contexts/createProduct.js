@@ -6,7 +6,6 @@ export const CreateProductContext = React.createContext();
 
 const CreateProductProvider = (props) => {
   const loginContext = useContext(LoginContext);
-
   const [title, setTitle] = useState("");
   const [tags, setTags] = useState("");
   const [description, setDescription] = useState("");
@@ -42,14 +41,24 @@ const CreateProductProvider = (props) => {
     createProducts,
     firstTime,
   };
-  if (firstTime === false) {
-    setUserId(loginContext.userIdLoggedIn);
-    setFirstTime(true);
-  }
-  // console.log("aaaaaaaaaaa:",loginContext.userIdLoggedIn);
 
   async function createProducts() {
+    setUserId(loginContext.userIdLoggedIn);
     console.log("aaaaaaaaaaa:", loginContext.userIdLoggedIn);
+    console.log("tokeeeeeeeeeeeen:", loginContext.token);
+    console.log(  title,
+      tags,
+      description,
+      price,
+      quantity,
+      optionsToExchange,
+      itemLength,
+      itemHeight,
+      itemWidth,
+      itemWeight,
+      location,
+      shortDescription,
+      userId);
     await axios
       .post(
         "http://localhost:5000/create/product",
@@ -79,7 +88,6 @@ const CreateProductProvider = (props) => {
         setMessageFalse("");
       })
       .catch((err) => {
-        console.log(loginContext.token);
         setMessageFalse("can't create try again please");
         setMessageTrue("");
       });
