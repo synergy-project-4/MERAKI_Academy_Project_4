@@ -9,7 +9,7 @@ const SettingsMenu =()=> {
             <MenuItem text='edit profile' location='/profile/edit' />
             <MenuItem text='manage product' location='/manage/product' />
             <MenuItem text='create product' location='/create/product' />
-            <MenuItem text='show and edit' location='/main' />
+            <MenuItem text='show and edit' location='/main/my/product' />
             <MenuItem text='history' location='/product/history' />
             <MenuItem text='pending approval' location='/products/approval' />
             <MenuItem type='separator' />

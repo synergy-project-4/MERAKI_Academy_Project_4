@@ -11,11 +11,14 @@ import CreateProductProvider from "./contexts/createProduct";
 import HistoryProvider from "./contexts/history";
 import CartProvider from './contexts/cart'
 import ItemCartProvider from'./contexts/productDetails'
-
+import ShowAndEditProvider from "./contexts/showAndEdit";
+import PendingApprovalProvider from "./contexts/pendingApproval";
 
 ReactDOM.render(
   <Router>
     <LoginProvider>
+      <ShowAndEditProvider>
+      <PendingApprovalProvider>
       <HistoryProvider>
         <HeaderProvider>
           <CreateProductProvider>
@@ -33,6 +36,8 @@ ReactDOM.render(
           </CreateProductProvider>
         </HeaderProvider>
       </HistoryProvider>
+      </PendingApprovalProvider>
+      </ShowAndEditProvider>
     </LoginProvider>
   </Router>,
   document.getElementById("root")

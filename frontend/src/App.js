@@ -14,6 +14,8 @@ import { HeaderContext } from "./contexts/header";
 import { LoginContext } from "./contexts/login";
 import CreateProduct from "./components/createProduct/index";
 import History from "./components/history/index";
+import ShowAndEdit from "./components/showAndEdit/index";
+import PendingApproval from "./components/pendingApproval/index";
 
 const App = () => {
   const itemCardContext = useContext(ItemCardContext);
@@ -35,6 +37,15 @@ const App = () => {
         path="/create/product"
         render={() => <CreateProduct item={LoginContext.found} />}
       />
+       <Route
+        path="/main/my/product"
+        render={() => <ShowAndEdit />}
+      />
+      <Route
+        path="/products/approval"
+        render={() => <PendingApproval />}
+      />
+     
       <Route path="/product/history" render={() => <History />} />
     </div>
   );

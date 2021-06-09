@@ -25,50 +25,57 @@ const LoginProvider = (props) => {
 		token,
 		loggedIn,
 		logout,
-		userIdLoggedIn
+		userIdLoggedIn,
 		
 	};
 
-	useEffect(() => {
-		saveToken(localStorage.getItem('token'));
-	}, []);
+  useEffect(() => {
+    saveToken(localStorage.getItem("token"));
+    saveId(localStorage.getItem("id"));
+  }, []);
 
-	function saveToken(token) {
-		const user = jwt.decode(token);
-		if (user) {
-			setToken(token);
-			localStorage.setItem('token', token);
-		}
-	}
-	const saveId = (userIdLoggedIn) => {
-		setUserIdLoggedIn(userIdLoggedIn);
-		console.log("iddddddd log in", userIdLoggedIn);
-	  };
-	async function login() {
-		try {
-			const res = await axios.post('http://localhost:5000/login', {
-				email,
-				password,
-			});
+  function saveToken(token) {
+    const user = jwt.decode(token);
+    if (user) {
+      setToken(token);
+      localStorage.setItem("token", token);
+    }
+  }
+  const saveId = (id) => {
+    setUserIdLoggedIn(id);
+    localStorage.setItem("id", id);
+    console.log("iddddddd log in", userIdLoggedIn);
+  };
 
-			saveToken(res.data.token);
-			setLoggedIn(true);
-			saveId(res.data.id);
-		} catch (error) {
-			setMessage(error.response.data);
-		}
-	}
-	function logout() {
+  async function login() {
+    try {
+      const res = await axios.post("http://localhost:5000/login", {
+        email,
+        password,
+      });
+      saveId(res.data.id);
+      console.log(res.data.id);
+      saveToken(res.data.token);
+
+
+      history.push("/");
+      setLoggedIn(true);
+    } catch (error) {
+      setMessage(error.response.data);
+    }
+  }
+  function logout() {
 		setLoggedIn(false);
 		localStorage.clear();
 		setToken("")
+		history.push('/');
 	}
 
-	return (
-		<LoginContext.Provider value={state}>
-			{props.children}
-		</LoginContext.Provider>
-	);
+  return (
+    <LoginContext.Provider value={state}>
+      {props.children}
+    </LoginContext.Provider>
+  );
 };
 
 export default LoginProvider;
