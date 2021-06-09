@@ -27,7 +27,6 @@ const HeaderProvider = (props) => {
     setSearch,
     message,
     searchItem,
-    filterItem,
     search,
   };
   async function searchItem() {
