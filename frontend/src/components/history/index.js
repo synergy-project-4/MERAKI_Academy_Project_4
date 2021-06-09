@@ -6,12 +6,25 @@ import { useHistory } from "react-router-dom";
 const History = () => {
   const historyContext = useContext(HistoryContext);
   const history = useHistory();
+ 
+  useEffect(() => {
+    historyContext.showHistory();
+  }, []);
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(historyContext.found);
+  };
 
   return (
     <>
+    <form >
+      {/* {historyContext.found.map(())} */}
       <div>
-       <h3>History</h3>
+       <h3 onClick={handleSubmit}>History</h3>
       </div>
+      </form>
     </>
   );
 };
