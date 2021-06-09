@@ -2,9 +2,13 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import ItemCardContext from "./main";
+import { LoginContext } from "./login";
+
 export const HeaderContext = React.createContext();
 
 const HeaderProvider = (props) => {
+  const loginContext = useContext(LoginContext);
+
   const history = useHistory();
   const [filterLocation, setFilterLocation] = useState("");
   const [search, setSearch] = useState("");
@@ -12,6 +16,7 @@ const HeaderProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [found, setFound] = useState([]);
   const [message, setMessage] = useState("");
+  const [name, setName] = useState("")
 
   const state = {
     filterLocation,
@@ -24,7 +29,6 @@ const HeaderProvider = (props) => {
     search,
   };
   async function searchItem() {
-    console.log("location::", filterLocation);
     await axios
       .get("http://localhost:5000/main")
       .then((result) => {
@@ -34,21 +38,27 @@ const HeaderProvider = (props) => {
             (elem.location == filterLocation || filterLocation == "")
           );
         });
-        console.log(result);
+
         setFound(find);
-        console.log("find:", find.location);
-        console.log("found ;;", found);
       })
       .catch((error) => {
         throw error;
       });
-    history.push("/search/product");
+    // history.push("/search/product");
   }
   async function filterItem(e) {
     try {
       await axios.get("http://localhost:5000/filter/product", e.target.value);
     } catch (error) {
       setMessage("item not found");
+    }
+  }
+
+  async function filterItem(e) {
+    try {
+      await axios.get("http://localhost:5000/", e.target.value);
+    } catch (error) {
+     
     }
   }
 

@@ -27,6 +27,7 @@ const LoginProvider = (props) => {
 
   useEffect(() => {
     saveToken(localStorage.getItem("token"));
+    saveId(localStorage.getItem("id"));
   }, []);
 
   function saveToken(token) {
@@ -34,11 +35,11 @@ const LoginProvider = (props) => {
     if (user) {
       setToken(token);
       localStorage.setItem("token", token);
-      console.log(token);
     }
   }
-  const saveId = (userIdLoggedIn) => {
-    setUserIdLoggedIn(userIdLoggedIn);
+  const saveId = (id) => {
+    setUserIdLoggedIn(id);
+    localStorage.setItem("id", id);
     console.log("iddddddd log in", userIdLoggedIn);
   };
 
@@ -48,9 +49,10 @@ const LoginProvider = (props) => {
         email,
         password,
       });
-
-      saveToken(res.data.token);
       saveId(res.data.id);
+      console.log(res.data.id);
+      saveToken(res.data.token);
+
 
       history.push("/");
       setLoggedIn(true);
