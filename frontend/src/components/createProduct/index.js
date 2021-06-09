@@ -121,10 +121,10 @@ const CreateProduct = () => {
           </button>
 
           {createProductContext.messageTrue && (
-            <div>{createProductContext.messageTrue}</div>
+            <div style={{color:"green"}}>{createProductContext.messageTrue}</div>
           )}
           {createProductContext.messageFalse && (
-            <div>{createProductContext.messageFalse}</div>
+            <div style={{color:"red"}}>{createProductContext.messageFalse}</div>
           )}
         </div>
       </div>
