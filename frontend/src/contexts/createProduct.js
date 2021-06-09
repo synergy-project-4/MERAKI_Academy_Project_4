@@ -22,7 +22,6 @@ const CreateProductProvider = (props) => {
   const [messageFalse, setMessageFalse] = useState("");
   const [userId, setUserId] = useState("");
 
-
   const state = {
     setTitle,
     setTags,
@@ -42,8 +41,8 @@ const CreateProductProvider = (props) => {
   };
 
   async function createProducts() {
-    setUserId(loginContext.userIdLoggedIn);
-    console.log(  title,
+    console.log(
+      title,
       tags,
       description,
       price,
@@ -55,7 +54,8 @@ const CreateProductProvider = (props) => {
       itemWeight,
       location,
       shortDescription,
-      userId);
+      userId
+    );
     await axios
       .post(
         "http://localhost:5000/create/product",
@@ -72,7 +72,7 @@ const CreateProductProvider = (props) => {
           itemWeight,
           location,
           shortDescription,
-          userId,
+          userId: loginContext.userIdLoggedIn,
         },
         {
           headers: {
