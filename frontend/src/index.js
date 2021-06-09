@@ -10,6 +10,7 @@ import ProfileProvider from "./contexts/profile";
 import CreateProductProvider from "./contexts/createProduct";
 import HistoryProvider from "./contexts/history";
 import CartProvider from './contexts/cart'
+import ItemCartProvider from'./contexts/productDetails'
 
 
 ReactDOM.render(
@@ -22,7 +23,9 @@ ReactDOM.render(
               <RegisterProvider>
                 <ProfileProvider>
                 <CartProvider>
+                  <ItemCartProvider>
                   <App />
+                  </ItemCartProvider>
                   </CartProvider>
                 </ProfileProvider>
               </RegisterProvider>

@@ -2,9 +2,11 @@ import React, { useContext, useState } from "react";
 import { LoginContext } from "./../contexts/login";
 import { useHistory } from "react-router-dom";
 import {CartContext} from './../contexts/cart'
+import {ItemCartContext} from './../contexts/productDetails'
 import "./product.css";
 
 const ProductDetails = (props) => {
+    const itemCartContext = useContext(ItemCartContext);
     const cartContext = useContext(CartContext);
     const loginContext = useContext(LoginContext);
     const [notLogged, setNotLogged] = useState(false);
@@ -16,6 +18,7 @@ const ProductDetails = (props) => {
             setNotLogged(false);
             setLogged(true);
             cartContext.setProductId(props.item._id)
+            itemCartContext.setQuantity(itemCartContext.quantity-1)
         } else {
             {
                 setLogged(false);
