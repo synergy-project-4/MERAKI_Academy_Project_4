@@ -41,6 +41,7 @@ const CreateProductProvider = (props) => {
     messageFalse,
     createProducts,
     firstTime,
+    quantity,
   };
   if (firstTime === false) {
     setUserId(loginContext.userIdLoggedIn);

@@ -4,11 +4,8 @@ import { LoginContext } from "../../../src/contexts/login";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import SettingsMenu from "./../header/edit";
-<<<<<<< HEAD
 import logo from './cart.png'
 
-=======
->>>>>>> 1ec8f27a4ac4d59956dd4e09195d0a1f9ad197e6
 import "./header.css";
 const Header = () => {
   const headerContext = useContext(HeaderContext);
