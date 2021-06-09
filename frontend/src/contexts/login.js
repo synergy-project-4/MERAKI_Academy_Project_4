@@ -18,6 +18,7 @@ const LoginProvider = (props) => {
   const [userIdLoggedIn, setUserIdLoggedIn] = useState("");
   const [userName, setUserName] = useState("");
 
+
   const state = {
     setEmail,
     setPassword,
@@ -29,6 +30,7 @@ const LoginProvider = (props) => {
     userIdLoggedIn,
     userName,
   };
+
 
   useEffect(() => {
     saveToken(localStorage.getItem("token"));
@@ -72,10 +74,13 @@ const LoginProvider = (props) => {
     }
   }
   function logout() {
-    setLoggedIn(false);
-    localStorage.clear();
-    setToken("");
-  }
+
+		setLoggedIn(false);
+		localStorage.clear();
+		setToken("")
+		history.push('/');
+	}
+
 
   return (
     <LoginContext.Provider value={state}>

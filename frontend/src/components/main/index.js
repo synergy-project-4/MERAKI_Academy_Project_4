@@ -10,7 +10,6 @@ const Main = () => {
   const itemCardContext = useContext(ItemCardContext);
   const history = useHistory();
   const [postData, setPostData] = useState([]);
-
   useEffect(() => {
     itemCardContext.showProduct();
   }, [itemCardContext.offset]);
@@ -27,7 +26,7 @@ const Main = () => {
     const selectedPage = e.selected;
     itemCardContext.setOffset(selectedPage * itemCardContext.perPage);
   };
-
+ 
   return (
     <>
       <div className="mainBody">
