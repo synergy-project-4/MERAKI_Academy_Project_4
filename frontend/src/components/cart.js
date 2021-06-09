@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import { CartContext } from './../contexts/cart';
 import axios from 'axios'
 
@@ -9,26 +9,33 @@ const Cart = () => {
     let found = ''
     const arr = []
 
-    axios
+    useEffect(() => {
+        axios
         .get("http://localhost:5000/main")
         .then((result) => {
-       found= result.data.find((elem) => {
+            found = result.data.find((elem) => {
                 return elem._id === cartContext.productId
             })
-            setCartData([found])
+            setCartData([...cartData, found])
         })
         .catch((err) => {
             throw err
         })
-        console.log(cartData);
-  /*  arr.push(found)
-    setCartData(arr)*/
+      }, []);
+    
+    console.log(cartData);
     return (
-        
+
         <>
-          <h1>test:: {cartData[0].title}</h1>
+            {cartData.map((elem) => {
+                return <div>
+                    <p> {elem.props.item.title}</p>
+                    <p> {elem.props.item.quantity}</p>
+                    <p> {elem.props.item.price}</p>
+                </div>
+            })
+            }
         </>
     )
 }
-
 export default Cart;

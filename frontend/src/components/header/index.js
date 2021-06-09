@@ -87,7 +87,7 @@ const Header = () => {
             <div className="accountSettings">
               {/* instead of welcome it should display first name */}
               <p>{`welcome `}</p>
-              <img src={logo} onClick={history.push("/cart")} />
+              <img src={logo} onClick={()=>{history.push("/cart")}} />
               <div>
                 <SettingsMenu />
               </div>

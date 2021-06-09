@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import Register from "./components/auth/signUp/index";
@@ -18,7 +18,8 @@ import History from "./components/history/index";
 const App = () => {
   const itemCardContext = useContext(ItemCardContext);
   const headerContext = useContext(HeaderContext);
-
+  const [cartData, setCartData] = useState([])
+  
   return (
     <div className="App">
 
@@ -27,7 +28,7 @@ const App = () => {
       <Route path="/register" component={Register} />
       <Route exact path="/" component={Main} />
       <Route path="/login" component={Login} />
-      <Route path="/cart" component={Cart} />
+      <Route path="/cart" render={() => <Cart item={Cart.cartData} />} />
       <Route path="/product/details" render={() => <ProductDetails item={itemCardContext.found} />} />
       <Route path="/search/product" render={() => <SearchProduct item={headerContext.found} />} />
       <Route
