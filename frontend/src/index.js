@@ -10,7 +10,7 @@ import ProfileProvider from "./contexts/profile";
 import CreateProductProvider from "./contexts/createProduct";
 import HistoryProvider from "./contexts/history";
 import CartProvider from './contexts/cart'
-import ItemCartProvider from'./contexts/productDetails'
+import ItemCartProvider from './contexts/productDetails'
 import ShowAndEditProvider from "./contexts/showAndEdit";
 import PendingApprovalProvider from "./contexts/pendingApproval";
 
@@ -18,25 +18,25 @@ ReactDOM.render(
   <Router>
     <LoginProvider>
       <ShowAndEditProvider>
-      <PendingApprovalProvider>
-      <HistoryProvider>
-        <HeaderProvider>
-          <CreateProductProvider>
-            <ItemCardProvider>
-              <RegisterProvider>
-                <ProfileProvider>
-                <CartProvider>
-                  <ItemCartProvider>
-                  <App />
-                  </ItemCartProvider>
-                  </CartProvider>
-                </ProfileProvider>
-              </RegisterProvider>
-            </ItemCardProvider>
-          </CreateProductProvider>
-        </HeaderProvider>
-      </HistoryProvider>
-      </PendingApprovalProvider>
+        <PendingApprovalProvider>
+          <HistoryProvider>
+            <HeaderProvider>
+              <CreateProductProvider>
+                <ItemCardProvider>
+                  <RegisterProvider>
+                    <ProfileProvider>
+                      <CartProvider>
+                        <ItemCartProvider>
+                          <App />
+                        </ItemCartProvider>
+                      </CartProvider>
+                    </ProfileProvider>
+                  </RegisterProvider>
+                </ItemCardProvider>
+              </CreateProductProvider>
+            </HeaderProvider>
+          </HistoryProvider>
+        </PendingApprovalProvider>
       </ShowAndEditProvider>
     </LoginProvider>
   </Router>,

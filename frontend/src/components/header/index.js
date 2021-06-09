@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import SettingsMenu from "./../header/edit";
 import logo from './cart.png'
+import {CartContext} from './../../contexts/cart'
 
 import "./header.css";
 const Header = () => {
+  const cartContext = useContext(CartContext);
   const headerContext = useContext(HeaderContext);
   const history = useHistory();
 
@@ -83,7 +85,7 @@ const Header = () => {
             <div className="accountSettings">
               {/* instead of welcome it should display first name */}
               <p>{`welcome ${headerContext.name}`}</p>
-              <img src={logo} onClick={()=>{history.push("/cart")}} />
+              <img src={logo} onClick={()=>{cartContext.showCart()}} />
               <div>
                 <SettingsMenu />
               </div>

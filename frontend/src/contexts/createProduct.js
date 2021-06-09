@@ -42,8 +42,7 @@ const CreateProductProvider = (props) => {
   };
 
   async function createProducts() {
-    setUserId(loginContext.userIdLoggedIn);
-    console.log(  title,
+    console.log(title,
       tags,
       description,
       price,
@@ -72,7 +71,7 @@ const CreateProductProvider = (props) => {
           itemWeight,
           location,
           shortDescription,
-          userId,
+          userId:loginContext.userIdLoggedIn,
         },
         {
           headers: {

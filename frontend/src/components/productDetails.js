@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { LoginContext } from "./../contexts/login";
 import { useHistory } from "react-router-dom";
-import {CartContext} from './../contexts/cart'
-import {ItemCartContext} from './../contexts/productDetails'
+import { CartContext } from './../contexts/cart'
+import { ItemCartContext } from './../contexts/productDetails'
 import "./product.css";
 
 const ProductDetails = (props) => {
@@ -11,14 +11,15 @@ const ProductDetails = (props) => {
     const loginContext = useContext(LoginContext);
     const [notLogged, setNotLogged] = useState(false);
     const [logged, setLogged] = useState(false);
+    const [pId, setPId] = useState();
     let history = useHistory();
 
-    const loginR = () => {
+    const  loginAuth = async() => {
         if (loginContext.token) {
+
             setNotLogged(false);
             setLogged(true);
-            cartContext.setProductId(props.item._id)
-            itemCartContext.setQuantity(itemCartContext.quantity-1)
+            cartContext.addToCart()
         } else {
             {
                 setLogged(false);
@@ -40,7 +41,7 @@ const ProductDetails = (props) => {
                     <p className="price">price : {props.item.price}$</p>
                 </div>
                 <div className="add-button">
-                    <button onClick={loginR}>Add to cart</button>
+                    <button onClick={loginAuth}>Add to cart</button>
                     {props.item.optionsToExchange && <button>Exchange</button>}
                     <button onClick={history.goBack}>Go Back</button>
                 </div>

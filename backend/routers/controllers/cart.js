@@ -15,9 +15,9 @@ const sendToCart = (req, res) => {
 };
 
 const showCart = (req, res) => {
-  const id = req.query.id;
+  const { userId } = req.body;
   cartModel
-    .find({ userId: id })
+    .find({})
     .populate("product")
     .exec()
     .then((result) => {

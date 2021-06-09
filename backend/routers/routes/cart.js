@@ -4,7 +4,7 @@ const { showCart, sendToCart } = require("../controllers/cart");
 
 const cartRouter = express.Router();
 
-cartRouter.get("/cart", authentication, showCart);
+cartRouter.get("/show/cart",  showCart);
 cartRouter.post("/cart", authentication, sendToCart);
 
 module.exports = cartRouter;
