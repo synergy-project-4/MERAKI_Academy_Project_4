@@ -68,7 +68,7 @@ const CreateProduct = () => {
           <input
             className="input"
             placeholder="Item Length (for example : 1m , 20cm , 30mm)"
-            type="number"
+            type="text"
             onChange={(e) => {
               createProductContext.setItemLength(e.target.value);
             }}
@@ -76,7 +76,7 @@ const CreateProduct = () => {
           <input
             className="input"
             placeholder="Item Height (for example : 1m , 20cm , 30mm)"
-            type="number"
+            type="text"
             onChange={(e) => {
               createProductContext.setItemHeight(e.target.value);
             }}
@@ -84,7 +84,7 @@ const CreateProduct = () => {
           <input
             className="input"
             placeholder="Item Width (for example : 1m , 20cm , 30mm)  "
-            type="number"
+            type="text"
             onChange={(e) => {
               createProductContext.setItemWidth(e.target.value);
             }}
@@ -92,7 +92,7 @@ const CreateProduct = () => {
           <input
             className="input"
             placeholder="Item Weight (for example : 3kg , 200mg )"
-            type="number"
+            type="text"
             onChange={(e) => {
               createProductContext.setItemWeight(e.target.value);
             }}
