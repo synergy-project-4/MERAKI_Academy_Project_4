@@ -33,13 +33,14 @@ users.statics.authenticateBasic = async function (email, password) {
       const payload = {
         userId: user._id,
         role: user.admin,
+        name : user.firstName
       };
 
       const options = {
         expiresIn: '60m',
       };
 
-      return [jwt.sign(payload, process.env.SECRET, options), 200,payload.userId];
+      return [jwt.sign(payload, process.env.SECRET, options), 200,payload.userId,payload.name];
     }
     return ['The password you’ve entered is incorrect', 403];
   } catch (error) {
