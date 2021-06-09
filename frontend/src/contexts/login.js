@@ -25,7 +25,7 @@ const LoginProvider = (props) => {
 		token,
 		loggedIn,
 		logout,
-		userIdLoggedIn
+		userIdLoggedIn,
 		
 	};
 
@@ -40,10 +40,10 @@ const LoginProvider = (props) => {
 			localStorage.setItem('token', token);
 		}
 	}
-	const saveId = (userIdLoggedIn) => {
-		setUserIdLoggedIn(userIdLoggedIn);
-		console.log("iddddddd log in", userIdLoggedIn);
-	  };
+	// const saveId = (userIdLoggedIn) => {
+	// 	setUserIdLoggedIn(userIdLoggedIn);
+	// 	console.log("iddddddd log in", userIdLoggedIn);
+	//   };
 	async function login() {
 		try {
 			const res = await axios.post('http://localhost:5000/login', {
@@ -53,15 +53,18 @@ const LoginProvider = (props) => {
 
 			saveToken(res.data.token);
 			setLoggedIn(true);
-			saveId(res.data.id);
+			console.log("res:",res)
+			setUserIdLoggedIn(res.data._id);
 		} catch (error) {
 			setMessage(error.response.data);
 		}
+		console.log("userIdLoggedIn",userIdLoggedIn)
 	}
 	function logout() {
 		setLoggedIn(false);
 		localStorage.clear();
 		setToken("")
+		history.push('/');
 	}
 
 	return (
