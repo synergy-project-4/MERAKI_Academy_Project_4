@@ -9,7 +9,7 @@ const SettingsMenu =()=> {
         return (
           <DropdownMenu position='left' iconColor='#aabbcc'>
             <MenuItem text='edit profile' location='/profile/edit' />
-            <MenuItem text='manage product' location='/manage/product' />
+            <MenuItem type='separator' />
             <MenuItem text='create product' location='/create/product' />
             <MenuItem text='show and edit' location='/main/my/product' />
             <MenuItem text='history' location='/product/history' />

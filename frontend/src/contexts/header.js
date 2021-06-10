@@ -28,11 +28,7 @@ const HeaderProvider = (props) => {
     message,
     searchItem,
     search,
-<<<<<<< HEAD
-    
-=======
     name,
->>>>>>> 762be98056b8ff1d9e9ccf37e74766f64dde5100
   };
   async function searchItem() {
     await axios
