@@ -21,7 +21,7 @@ const CreateProduct = () => {
           </p>
           <input
             className="input"
-            placeholder="Title (name of the prodcut)"
+            placeholder="Title (name of the product)"
             type="text"
             onChange={(e) => {
               createProductContext.setTitle(e.target.value);

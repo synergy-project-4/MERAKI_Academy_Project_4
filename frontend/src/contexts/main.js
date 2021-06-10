@@ -10,6 +10,7 @@ const ItemCardProvider = (props) => {
     const [perPage] = useState(3);
     const [pageCount, setPageCount] = useState(0)
     const [slice, setSlice] = useState([])
+   
     const state = {
         products,
         showProduct,
@@ -19,7 +20,7 @@ const ItemCardProvider = (props) => {
         offset,
         setOffset,
         perPage,
-        pageCount
+        pageCount,
     };
     async function showProduct() {
         try {
