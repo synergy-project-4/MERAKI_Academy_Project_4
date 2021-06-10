@@ -9,7 +9,7 @@ const CreateProduct = () => {
   const loginContext = useContext(LoginContext);
   const createProductContext = useContext(CreateProductContext);
   const history = useHistory();
- console.log("loginContext.userIdLoggedIn:",loginContext.userIdLoggedIn)
+  console.log("loginContext.userIdLoggedIn:", loginContext.userIdLoggedIn)
   return (
     <>
       <div className="create-product-body">
@@ -123,10 +123,10 @@ const CreateProduct = () => {
           </button>
 
           {createProductContext.messageTrue && (
-            <div style={{color:"green"}}>{createProductContext.messageTrue}</div>
+            <div style={{ color: "green" }}>{createProductContext.messageTrue}</div>
           )}
           {createProductContext.messageFalse && (
-            <div style={{color:"red"}}>{createProductContext.messageFalse}</div>
+            <div style={{ color: "red" }}>{createProductContext.messageFalse}</div>
           )}
         </div>
       </div>

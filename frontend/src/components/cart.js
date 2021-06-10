@@ -10,8 +10,8 @@ const Cart = (props) => {
     const cartContext = useContext(CartContext);
     const loginContext = useContext(LoginContext)
     const itemCartContext = useContext(ItemCartContext);
-    console.log("itemCartContext.quantity", itemCartContext.quantity);
-    let subTotal = 0;
+    // console.log("itemCartContext.quantity", itemCartContext.quantity);
+    const [subTotal, setSubTotal] = useState(0)
     const [total, setTotal] = useState(0)
 
     const found = cartContext.showData.filter((elem) => {
@@ -29,46 +29,52 @@ const Cart = (props) => {
     const buyCart = () => {
 
     }
+
     return (
         <>
             <div>
                 {findA.map((elem) => {
-                    return <ProductItem elem={elem} subTotal={subTotal} find={find} />
-
+                    return <ProductItem elem={elem} subTotal={subTotal} setSubTotal={setSubTotal} find={find} />
                 })}
-                {/* {setTotal(subTotal)} */}
-                <p>Total :{subTotal}</p>
+                {/* {setTotal(total+subTotal)} */}
+                <p>Total :{total}</p>
                 <button onClick={buyCart}>Buy</button>
 
 
             </div>
+
         </>
     )
 }
-const ProductItem = ({ elem, subTotal, find }) => {
+const ProductItem = ({ elem, subTotal, find, setSubTotal }) => {
     const [qunat, setQunat] = useState(1)
     const itemCartContext = useContext(ItemCartContext);
     const cartContext = useContext(CartContext);
     const [id, setId] = useState('')
+    setSubTotal(elem.price * qunat)
 
     const increase = () => {
         setQunat(qunat + 1)
+        setSubTotal(elem.price * qunat)
+        console.log("sub", subTotal);
+
     }
     const decrease = () => {
         if (itemCartContext.quantity >= 0) {
             setQunat(qunat - 1)
-        }
+        }//3 
+        setSubTotal(subTotal += elem.price * qunat)
+        console.log("sub", subTotal);
     }
     const deleteItem = (id) => {
         const found = find.filter((elem) => {
             return elem.product[0]._id == id
         })
-        console.log("qq", found[0]._id);
         axios
             .delete("http://localhost:5000/show/cart/deleted", {
-                _id: found[0]._id
+                data: { id: found[0]._id }
             })
-            .then((result) => { console.log(result); })
+            .then((result) => { console.log(result.data); })
             .catch((err) => { throw err })
     }
 
@@ -76,14 +82,13 @@ const ProductItem = ({ elem, subTotal, find }) => {
         <>
             <div key={elem._id} >
                 <p>{elem.title} </p>
-                <p>Located in : {elem.location}</p>
                 <button onClick={increase}>+</button>
                 <p>qunat: {qunat}</p>
+                <p>price :{elem.price}</p>
                 <button onClick={decrease}>-</button>
                 <p>In Stock : {elem.quantity}</p>
                 <button onClick={(e) => { deleteItem(elem._id) }}>Delete</button>
-                <p>Price : {elem.price}</p>
-                {/* {tot.subTotal += elem.price * elem.quantity} */}
+                <p>total : {elem.price * qunat}</p>
             </div>
         </>
     );

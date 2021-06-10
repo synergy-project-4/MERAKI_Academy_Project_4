@@ -16,6 +16,11 @@ const product = new mongoose.Schema({
   shortDescription: { type: String, require: true },
   ready: { type: Boolean, default: false },
   sold: { type: Boolean, default: false },
+  img:
+  {
+      data: Buffer,
+      contentType: String
+  },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 
