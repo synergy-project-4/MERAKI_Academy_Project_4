@@ -17,20 +17,20 @@ const ShowAndEdit = () => {
   };
   return (
     <>
-    <form>
-      <div>
-          <h3 onClick={handleSubmit}>Show And Edit</h3>
-      </div>
-      {showAndEditContext.found.map((elem) => {
+      <form>
+        <div>
+          <h1 onClick={handleSubmit}>Show And Edit</h1>
+        </div>
+        {showAndEditContext.found.map((elem) => {
           return (
-            <div>
-              <p>{elem.title}</p>
-              <p>Description :{elem.shortDescription}</p>
-              <p>Located in :{elem.location}</p>
-              <p>In Stock : {elem.quantity}</p>
-              <p>Price :{elem.price}</p>
-              <button>edit</button>
-              <button>delete</button>
+            <div className="manage-product">
+              <p className="title">{elem.title}</p>
+              <p className="info">Description :{elem.shortDescription}</p>
+              <p className="info">Located in :{elem.location}</p>
+              <p className="price">In Stock : {elem.quantity}</p>
+              <p className="price">Price :{elem.price}</p>
+              <button className="acttion-button">edit</button>
+              <button className="acttion-button">delete</button>
               <br></br>
               <br></br>
             </div>

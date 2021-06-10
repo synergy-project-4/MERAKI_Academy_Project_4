@@ -22,7 +22,6 @@ const CreateProductProvider = (props) => {
   const [messageFalse, setMessageFalse] = useState("");
   const [userId, setUserId] = useState("");
 
-
   const state = {
     setTitle,
     setTags,
@@ -58,7 +57,7 @@ const CreateProductProvider = (props) => {
           itemWeight,
           location,
           shortDescription,
-          userId :loginContext.userIdLoggedIn,
+          userId: loginContext.userIdLoggedIn,
         },
         {
           headers: {
