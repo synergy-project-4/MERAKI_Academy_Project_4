@@ -19,36 +19,29 @@ const ShowAndEdit = () => {
     <>
       <form>
         <div>
-          <h3 onClick={handleSubmit}>Show And Edit</h3>
+        
+          <h1 onClick={handleSubmit}>Show And Edit</h1>
         </div>
         {showAndEditContext.found.map((elem) => {
           return (
-            <div key={elem._id}>
-              <p>{elem.title}</p>
-              <p>Description :{elem.shortDescription}</p>
-              <p>Located in :{elem.location}</p>
-              <p>In Stock : {elem.quantity}</p>
-              <p>Price :{elem.price}</p>
-              <button
-                onClick={(e) => {
+            <div className="manage-product" key={elem._id}>
+              <p className="title">{elem.title}</p>
+              <p className="info">Description :{elem.shortDescription}</p>
+              <p className="info">Located in :{elem.location}</p>
+              <p className="price">In Stock : {elem.quantity}</p>
+              <p className="price">Price :{elem.price}</p>
+              <button  onClick={(e) => {
                   e.preventDefault();
                   showAndEditContext.setProductId(elem._id);
                   showAndEditContext.setItem(elem)
                   history.push("/manage/product/edit")
-                }}
-              >
-                edit
-              </button>
-              <button
-                onClick={(e) => {
+                }} className="acttion-button">edit</button>
+              <button  onClick={(e) => {
                   e.preventDefault();
                   showAndEditContext.deleteProduct(elem._id)
-                }}
-              >
-                delete
-              </button>
-              <br></br>
-              <br></br>
+                }} className="acttion-button">delete</button>
+
+              
             </div>
           );
         })}

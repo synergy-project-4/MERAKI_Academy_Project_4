@@ -1,0 +1,24 @@
+.manage-product {
+  background-color: rgb(213, 211, 241);
+
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.acttion-button {
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.acttion-button:hover {
+  background-color: yellow;
+}
+
+h1 {
+  margin: 15px;
+}

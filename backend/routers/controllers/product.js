@@ -33,6 +33,7 @@ const createProduct = (req, res) => {
     shortDescription,
     userId,
   });
+  
   product
     .save()
     .then((result) => {
