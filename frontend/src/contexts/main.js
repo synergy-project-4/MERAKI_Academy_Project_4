@@ -12,6 +12,7 @@ const ItemCardProvider = (props) => {
     const [slice, setSlice] = useState([])
     const [prodId, setProdId] = useState('');
 
+   
     const state = {
         products,
         showProduct,
