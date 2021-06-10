@@ -16,10 +16,10 @@ const HeaderProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [found, setFound] = useState([]);
   const [message, setMessage] = useState("");
-  const [name, setName] = useState("")
+  const [name, setName] = useState("");
 
   const state = {
-    filterPrice, 
+    filterPrice,
     setFilterPrice,
     filterLocation,
     setFilterLocation,
@@ -28,6 +28,7 @@ const HeaderProvider = (props) => {
     message,
     searchItem,
     search,
+    name,
   };
   async function searchItem() {
     await axios
@@ -46,9 +47,9 @@ const HeaderProvider = (props) => {
         throw error;
       });
 
-      history.push("/search/product");
+    history.push("/search/product");
   }
- 
+
   return (
     <HeaderContext.Provider value={state}>
       {props.children}

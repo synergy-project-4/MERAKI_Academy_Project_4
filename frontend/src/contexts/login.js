@@ -1,37 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { HeaderContext } from "./../contexts/header";
 import axios from "axios";
 import jwt from "jsonwebtoken";
 
 export const LoginContext = React.createContext();
 
 const LoginProvider = (props) => {
-	const history = useHistory()
-	
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [message, setMessage] = useState('');
-	const [loggedIn, setLoggedIn] = useState(false);
-	const [token, setToken] = useState('');
-	const [userIdLoggedIn, setUserIdLoggedIn] = useState('');
+  const history = useHistory();
+  const headerContext = useContext(HeaderContext);
 
-	
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [token, setToken] = useState("");
+  const [userIdLoggedIn, setUserIdLoggedIn] = useState("");
+  const [userName, setUserName] = useState("");
 
-	const state = {
-		setEmail,
-		setPassword,
-		message,
-		login,
-		token,
-		loggedIn,
-		logout,
-		userIdLoggedIn,
-		
-	};
+
+  const state = {
+    setEmail,
+    setPassword,
+    message,
+    login,
+    token,
+    loggedIn,
+    logout,
+    userIdLoggedIn,
+    userName,
+  };
+
 
   useEffect(() => {
     saveToken(localStorage.getItem("token"));
     saveId(localStorage.getItem("id"));
+    saveName(localStorage.getItem("name"));
   }, []);
 
   function saveToken(token) {
@@ -44,7 +48,12 @@ const LoginProvider = (props) => {
   const saveId = (id) => {
     setUserIdLoggedIn(id);
     localStorage.setItem("id", id);
-    console.log("iddddddd log in", userIdLoggedIn);
+    console.log("iddddddd login", userIdLoggedIn);
+  };
+  const saveName = (name) => {
+    setUserName(name);
+    localStorage.setItem("name", name);
+    console.log("NAME login", userName);
   };
 
   async function login() {
@@ -56,7 +65,7 @@ const LoginProvider = (props) => {
       saveId(res.data.id);
       console.log(res.data.id);
       saveToken(res.data.token);
-
+      saveName(res.data.name);
 
       history.push("/");
       setLoggedIn(true);
@@ -65,11 +74,13 @@ const LoginProvider = (props) => {
     }
   }
   function logout() {
+
 		setLoggedIn(false);
 		localStorage.clear();
 		setToken("")
 		history.push('/');
 	}
+
 
   return (
     <LoginContext.Provider value={state}>

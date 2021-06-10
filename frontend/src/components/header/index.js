@@ -15,14 +15,15 @@ const Header = () => {
 
   useEffect(() => {
     if(headerContext.filterLocation !== ""){
-       headerContext.searchItem();
+       headerContext.searchItem();   
     }
    
   }, [headerContext.filterLocation]);
 
   const loginContext = useContext(LoginContext);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
   };
   const handleClick = () => {
     history.push("/");
@@ -84,8 +85,8 @@ const Header = () => {
           {loginContext.token ? (
             <div className="accountSettings">
               {/* instead of welcome it should display first name */}
-              <p>{`welcome ${headerContext.name}`}</p>
               <img src={logo} onClick={()=>{cartContext.showCart()}} />
+              <p className="display-name">{`welcome ${loginContext.userName}`}</p>
               <div>
                 <SettingsMenu />
               </div>
