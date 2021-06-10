@@ -1,6 +1,6 @@
-body {
+/* body {
   margin: 0px;
-}
+} */
 
 .rightNavBar a,
 .rightNavBar a,
@@ -20,10 +20,11 @@ select {
   color: black;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 20px;
+  font-weight: 500;
 }
 
 select:hover {
-  background-color: yellow;
   cursor: pointer;
 }
 
@@ -32,16 +33,17 @@ select:hover {
   color: black;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .search-button:hover {
-  background-color: yellow;
   cursor: pointer;
 }
 
 .navBar {
   display: flex;
-  padding: 10px;
+  padding: 15px;
   gap: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   justify-content: space-between;
@@ -81,7 +83,7 @@ select:hover {
 }
 
 .websiteName {
-  margin-right: 10px;
+  margin-right: 40px;
   margin-top: 9px;
   font-size: 18px;
   color: white;
@@ -93,7 +95,7 @@ select:hover {
 }
 
 .search-bar {
-  width: 75vw;
+  width: 25vw;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 }
