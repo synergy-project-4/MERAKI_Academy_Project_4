@@ -9,7 +9,7 @@ const ShowAndEdit = () => {
 
   useEffect(() => {
     showAndEditContext.show();
-  }, []);
+  },[]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,20 +17,36 @@ const ShowAndEdit = () => {
   };
   return (
     <>
-    <form>
-      <div>
+      <form>
+        <div>
           <h3 onClick={handleSubmit}>Show And Edit</h3>
-      </div>
-      {showAndEditContext.found.map((elem) => {
+        </div>
+        {showAndEditContext.found.map((elem) => {
           return (
-            <div>
+            <div key={elem._id}>
               <p>{elem.title}</p>
               <p>Description :{elem.shortDescription}</p>
               <p>Located in :{elem.location}</p>
               <p>In Stock : {elem.quantity}</p>
               <p>Price :{elem.price}</p>
-              <button>edit</button>
-              <button>delete</button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  showAndEditContext.setProductId(elem._id);
+                  showAndEditContext.setItem(elem)
+                  history.push("/manage/product/edit")
+                }}
+              >
+                edit
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  showAndEditContext.deleteProduct(elem._id)
+                }}
+              >
+                delete
+              </button>
               <br></br>
               <br></br>
             </div>
