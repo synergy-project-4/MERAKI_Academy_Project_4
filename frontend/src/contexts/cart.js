@@ -58,7 +58,6 @@ const CartProvider = (props) => {
                 )
                 .then((result) => {
                     setShowData(result.data)
-                    console.log("resultttttt", result.data);
                 })
                 .catch((err) => console.log(err))
         }

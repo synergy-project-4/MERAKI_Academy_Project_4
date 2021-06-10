@@ -19,6 +19,8 @@ const ProductDetails = (props) => {
 
             setNotLogged(false);
             setLogged(true);
+            itemCartContext.setQuantity(props.item.quantity)
+            console.log("auan",itemCartContext.quantity);
             cartContext.addToCart()
         } else {
             {

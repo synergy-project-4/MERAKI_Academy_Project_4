@@ -30,4 +30,12 @@ const showCart = (req, res) => {
     });
 };
 
-module.exports = { showCart, sendToCart };
+const deleteItem = (req, res) => {
+  const { id } = req.body;
+  cartModel
+    .findByIdAndDelete(id)
+    .then((result) => { res.status(200).json("success deleted") })
+    .catch((err) => { res.send(err) })
+}
+
+module.exports = { showCart, sendToCart, deleteItem };
