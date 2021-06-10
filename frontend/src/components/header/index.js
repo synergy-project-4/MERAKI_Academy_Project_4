@@ -81,7 +81,7 @@ const Header = () => {
           {loginContext.token ? (
             <div className="accountSettings">
               {/* instead of welcome it should display first name */}
-              <p>{`welcome ${loginContext.userName}`}</p>
+              <p className="display-name">{`welcome ${loginContext.userName}`}</p>
               <div>
                 <SettingsMenu />
               </div>
