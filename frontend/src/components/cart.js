@@ -10,8 +10,6 @@ const Cart = (props) => {
     const cartContext = useContext(CartContext);
     const loginContext = useContext(LoginContext)
     const itemCartContext = useContext(ItemCartContext);
-    // console.log("itemCartContext.quantity", itemCartContext.quantity);
-    const [subTotal, setSubTotal] = useState(0)
     const [total, setTotal] = useState(0)
 
     const found = cartContext.showData.filter((elem) => {
@@ -27,16 +25,14 @@ const Cart = (props) => {
     })
 
     const buyCart = () => {
-
     }
 
     return (
         <>
             <div>
                 {findA.map((elem) => {
-                    return <ProductItem elem={elem} subTotal={subTotal} setSubTotal={setSubTotal} find={find} />
+                    return <ProductItem findA={findA} elem={elem} find={find} total={total} setTotal={setTotal} buyCart={buyCart} />
                 })}
-                {/* {setTotal(total+subTotal)} */}
                 <p>Total :{total}</p>
                 <button onClick={buyCart}>Buy</button>
 
@@ -46,25 +42,35 @@ const Cart = (props) => {
         </>
     )
 }
-const ProductItem = ({ elem, subTotal, find, setSubTotal }) => {
-    const [qunat, setQunat] = useState(1)
+const ProductItem = ({ elem, find, total, setTotal, findA }) => {
+    const [qunat, setQunat] = useState(0)
     const itemCartContext = useContext(ItemCartContext);
     const cartContext = useContext(CartContext);
+    const [subTotal, setSubTotal] = useState(elem.price * qunat)
     const [id, setId] = useState('')
-    setSubTotal(elem.price * qunat)
+    let totalOf = 0;
 
-    const increase = () => {
+
+    useEffect(() => {
+        let priceElem= findA.reduce(function (acc, elem, i) {
+            return acc + elem.price
+        }, 0)
+        setTotal(priceElem)
+    }, []);
+
+    useEffect(() => {
+        setTotal(total + subTotal)
+    }, [qunat]);
+
+    const increase = (price) => {
         setQunat(qunat + 1)
-        setSubTotal(elem.price * qunat)
-        console.log("sub", subTotal);
-
+        setSubTotal(price)
     }
     const decrease = () => {
         if (itemCartContext.quantity >= 0) {
             setQunat(qunat - 1)
-        }//3 
+        }
         setSubTotal(subTotal += elem.price * qunat)
-        console.log("sub", subTotal);
     }
     const deleteItem = (id) => {
         const found = find.filter((elem) => {
@@ -82,13 +88,13 @@ const ProductItem = ({ elem, subTotal, find, setSubTotal }) => {
         <>
             <div key={elem._id} >
                 <p>{elem.title} </p>
-                <button onClick={increase}>+</button>
+                <button onClick={() => { increase(elem.price) }}>+</button>
                 <p>qunat: {qunat}</p>
-                <p>price :{elem.price}</p>
                 <button onClick={decrease}>-</button>
                 <p>In Stock : {elem.quantity}</p>
                 <button onClick={(e) => { deleteItem(elem._id) }}>Delete</button>
-                <p>total : {elem.price * qunat}</p>
+                <p>Price : {subTotal}</p>
+                <p>price per item {elem.price}</p>
             </div>
         </>
     );
