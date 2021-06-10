@@ -1,17 +1,21 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { LoginContext } from "./../../../contexts/login";
+import { HeaderContext } from "./../../../contexts/header";
 import { Link } from "react-router-dom";
 import "./login.css";
 
 const Login = () => {
   const loginContext = useContext(LoginContext);
+  const headerContext = useContext(HeaderContext);
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     await loginContext.login();
     if (loginContext.loggedIn) {
+     
       await history.push("/");
     }
   };
