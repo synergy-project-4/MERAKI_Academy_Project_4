@@ -20,9 +20,3 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 }
-.mainBody{
-    margin :10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
-    gap: 5px;
-}
