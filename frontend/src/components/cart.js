@@ -87,6 +87,7 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
     return (
         <>
             <div key={elem._id} >
+            <img style={{width:"100px",height:"100px"}}src={elem.image}></img>
                 <p>{elem.title} </p>
                 <button onClick={() => { increase(elem.price) }}>+</button>
                 <p>qunat: {qunat}</p>

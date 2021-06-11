@@ -36,6 +36,7 @@ const SearchProduct = (props) => {
 				{props.item.map((elem) => {
 					return (
 						<div onClick={() => { cardDetails(elem._id) }} className="itemCard" key={elem._id}>
+							<img style={{width:"200px",height:"200px"}}src={elem.image}></img>
 							<p>{elem.title}</p>
 							<p>{elem.shortDescription}</p>
 							<p>{elem.price}</p>
