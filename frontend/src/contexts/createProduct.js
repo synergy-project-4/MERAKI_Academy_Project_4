@@ -10,7 +10,7 @@ const CreateProductProvider = (props) => {
   const [tags, setTags] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(0);
   const [optionsToExchange, setOptionsToExchange] = useState("");
   const [itemLength, setItemLength] = useState("");
   const [itemHeight, setItemHeight] = useState("");
@@ -20,9 +20,11 @@ const CreateProductProvider = (props) => {
   const [shortDescription, setShortDescription] = useState("");
   const [messageTrue, setMessageTrue] = useState("");
   const [messageFalse, setMessageFalse] = useState("");
+  const [image, setImage] = useState("");
   const [userId, setUserId] = useState("");
 
   const state = {
+    setImage,
     setTitle,
     setTags,
     setDescription,
@@ -70,7 +72,8 @@ const CreateProductProvider = (props) => {
           itemWeight,
           location,
           shortDescription,
-          userId:loginContext.userIdLoggedIn,
+          image,
+          userId: loginContext.userIdLoggedIn,
         },
         {
           headers: {
