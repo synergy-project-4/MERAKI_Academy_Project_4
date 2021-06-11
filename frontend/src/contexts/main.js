@@ -44,11 +44,11 @@ const ItemCardProvider = (props) => {
   }
 
 
-return (
-  <ItemCardContext.Provider value={state}>
-    {props.children}
-  </ItemCardContext.Provider>
-);
+  return (
+    <ItemCardContext.Provider value={state}>
+      {props.children}
+    </ItemCardContext.Provider>
+  );
 };
 
 export default ItemCardProvider;

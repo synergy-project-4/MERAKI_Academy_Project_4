@@ -28,7 +28,9 @@ ReactDOM.render(
                   <ItemCardProvider>
                     <RegisterProvider>
                       <ProfileProvider>
+                        <CartProvider>
                         <App />
+                        </CartProvider>
                       </ProfileProvider>
                     </RegisterProvider>
                   </ItemCardProvider>
