@@ -26,7 +26,7 @@ const Main = () => {
     const selectedPage = e.selected;
     itemCardContext.setOffset(selectedPage * itemCardContext.perPage);
   };
- 
+
   return (
     <>
       <div className="mainBody">
