@@ -15,9 +15,13 @@
 } */
 
 .paginate-page {
+  padding-left: 45% ;
   position: fixed;
-  left: 45%;
-  top: 90%;
+  /* left: 45%; */
+  bottom: 0;
+  /* top: 90%; */
+  background-color: rgba(15, 6, 56, 1);
+  width: 100%;
 }
 
 .pagination {

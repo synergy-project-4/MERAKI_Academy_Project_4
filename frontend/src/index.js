@@ -11,27 +11,30 @@ import CreateProductProvider from "./contexts/createProduct";
 import HistoryProvider from "./contexts/history";
 import ShowAndEditProvider from "./contexts/showAndEdit";
 import PendingApprovalProvider from "./contexts/pendingApproval";
+import FooterProvider from "./contexts/footer";
 
 ReactDOM.render(
   <Router>
     <LoginProvider>
-      <ShowAndEditProvider>
-        <PendingApprovalProvider>
-          <HistoryProvider>
-            <HeaderProvider>
-              <CreateProductProvider>
-                <ItemCardProvider>
-                  <RegisterProvider>
-                    <ProfileProvider>
-                      <App />
-                    </ProfileProvider>
-                  </RegisterProvider>
-                </ItemCardProvider>
-              </CreateProductProvider>
-            </HeaderProvider>
-          </HistoryProvider>
-        </PendingApprovalProvider>
-      </ShowAndEditProvider>
+      <FooterProvider>
+        <ShowAndEditProvider>
+          <PendingApprovalProvider>
+            <HistoryProvider>
+              <HeaderProvider>
+                <CreateProductProvider>
+                  <ItemCardProvider>
+                    <RegisterProvider>
+                      <ProfileProvider>
+                        <App />
+                      </ProfileProvider>
+                    </RegisterProvider>
+                  </ItemCardProvider>
+                </CreateProductProvider>
+              </HeaderProvider>
+            </HistoryProvider>
+          </PendingApprovalProvider>
+        </ShowAndEditProvider>
+      </FooterProvider>
     </LoginProvider>
   </Router>,
   document.getElementById("root")

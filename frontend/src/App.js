@@ -16,6 +16,7 @@ import History from "./components/history/index";
 import ShowAndEdit from "./components/showAndEdit/index";
 import EditProduct from "./components/showAndEdit/edit";
 import PendingApproval from "./components/pendingApproval/index";
+import Footer from './components/footer/index'
 
 const App = () => {
   const itemCardContext = useContext(ItemCardContext);
@@ -52,7 +53,7 @@ const App = () => {
      
       <Route path="/product/history" render={() => <History />} />
       <Route path="/manage/product/edit" render={() => <EditProduct />} />
-      
+      {/* <Route path="/" component={Footer} /> */}
     </div>
   );
 };
