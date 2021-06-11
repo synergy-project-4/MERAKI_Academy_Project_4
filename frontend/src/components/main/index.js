@@ -10,11 +10,13 @@ const Main = () => {
   const itemCardContext = useContext(ItemCardContext);
   const history = useHistory();
   const [postData, setPostData] = useState([]);
+
   useEffect(() => {
     itemCardContext.showProduct();
   }, [itemCardContext.offset]);
 
   const cardDetails = async (id) => {
+    itemCardContext.setProdId(id)
     const foundItem = itemCardContext.products.find((elem) => {
       return elem._id == id;
     });
