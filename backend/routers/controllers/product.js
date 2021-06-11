@@ -132,7 +132,7 @@ const searchProduct = (req, res) => {
 };
 
 const filterProduct = (req, res) => {
-  const { greaterPrice, location, lessPrice } = req.body;
+  const { product } = req.body;
   productsModel
     .find({
       $or: [
