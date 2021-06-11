@@ -88,6 +88,7 @@ select:hover {
   margin-right: 40px;
   margin-top: 9px;
   font-size: 18px;
+  font-weight: 500;
   color: white;
 }
 
@@ -105,6 +106,8 @@ select:hover {
 
 .display-name {
   color: white;
+  font-size: 18px;
+  font-weight: 500  ;
 }
 
 .display-name:hover {

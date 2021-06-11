@@ -6,6 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* height need to be fixed */
   height: calc(100vh - 200px);
 }
 
@@ -14,8 +15,8 @@ body {
   grid-template-columns: 1fr;
   justify-items: center;
   justify-content: center;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  background-color: rgb(15, 6, 56, 0.9);
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
+  background-color: rgb(213, 211, 241);
   color: black;
   border-radius: 5px;
   width: 30%;
