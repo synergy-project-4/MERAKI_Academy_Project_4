@@ -20,9 +20,11 @@ const CreateProductProvider = (props) => {
   const [shortDescription, setShortDescription] = useState("");
   const [messageTrue, setMessageTrue] = useState("");
   const [messageFalse, setMessageFalse] = useState("");
+  const [image, setImage] = useState("");
   const [userId, setUserId] = useState("");
 
   const state = {
+    setImage,
     setTitle,
     setTags,
     setDescription,
@@ -57,6 +59,7 @@ const CreateProductProvider = (props) => {
           itemWeight,
           location,
           shortDescription,
+          image,
           userId: loginContext.userIdLoggedIn,
         },
         {

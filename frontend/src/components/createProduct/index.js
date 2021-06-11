@@ -115,6 +115,14 @@ const CreateProduct = () => {
               createProductContext.setShortDescription(e.target.value);
             }}
           />
+           <input
+            className="input"
+            placeholder="Image (insert image url)"
+            type="text"
+            onChange={(e) => {
+              createProductContext.setImage(e.target.value);
+            }}
+          />
           <button
             className="create-button"
             onClick={createProductContext.createProducts}

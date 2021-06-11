@@ -39,6 +39,7 @@ const Main = () => {
               className="itemCard"
               key={elem._id}
             >
+               <img style={{width:"200px",height:"200px"}}src={elem.image}></img>
               <p className="title">{elem.title} </p>
               <p className="info">Description : {elem.shortDescription}</p>
               <p className="info">Located in : {elem.location}</p>
