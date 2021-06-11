@@ -43,7 +43,8 @@ const CreateProductProvider = (props) => {
   };
 
   async function createProducts() {
-    console.log(title,
+    console.log(
+      title,
       tags,
       description,
       price,
@@ -55,7 +56,8 @@ const CreateProductProvider = (props) => {
       itemWeight,
       location,
       shortDescription,
-      userId);
+      userId
+    );
     await axios
       .post(
         "http://localhost:5000/create/product",
@@ -82,11 +84,15 @@ const CreateProductProvider = (props) => {
         }
       )
       .then((result) => {
-        setMessageTrue("your product created");
+        setMessageTrue(
+          "Your Product Creation Has Been sent Successfully, Waiting For Admin's Approval "
+        );
         setMessageFalse("");
       })
       .catch((err) => {
-        setMessageFalse("can't create try again please");
+        setMessageFalse(
+          "An Error Has occurred, Make Sure To Fill-in The Blanks "
+        );
         setMessageTrue("");
       });
   }
