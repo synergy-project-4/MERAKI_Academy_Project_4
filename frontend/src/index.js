@@ -9,6 +9,8 @@ import ItemCardProvider from "./contexts/main";
 import ProfileProvider from "./contexts/profile";
 import CreateProductProvider from "./contexts/createProduct";
 import HistoryProvider from "./contexts/history";
+import CartProvider from './contexts/cart'
+import ItemCartProvider from './contexts/productDetails'
 import ShowAndEditProvider from "./contexts/showAndEdit";
 import PendingApprovalProvider from "./contexts/pendingApproval";
 import FooterProvider from "./contexts/footer";
@@ -16,6 +18,7 @@ import FooterProvider from "./contexts/footer";
 ReactDOM.render(
   <Router>
     <LoginProvider>
+
       <FooterProvider>
         <ShowAndEditProvider>
           <PendingApprovalProvider>
@@ -35,6 +38,7 @@ ReactDOM.render(
           </PendingApprovalProvider>
         </ShowAndEditProvider>
       </FooterProvider>
+
     </LoginProvider>
   </Router>,
   document.getElementById("root")

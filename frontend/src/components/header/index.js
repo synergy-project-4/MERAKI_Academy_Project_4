@@ -4,8 +4,12 @@ import { LoginContext } from "../../../src/contexts/login";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import SettingsMenu from "./../header/edit";
+import logo from './cart.png'
+import {CartContext} from './../../contexts/cart'
+
 import "./header.css";
 const Header = () => {
+  const cartContext = useContext(CartContext);
   const headerContext = useContext(HeaderContext);
   const history = useHistory();
 
@@ -81,6 +85,7 @@ const Header = () => {
           {loginContext.token ? (
             <div className="accountSettings">
               {/* instead of welcome it should display first name */}
+              <img src={logo} onClick={()=>{cartContext.showCart()}} />
               <p className="display-name">{`welcome ${loginContext.userName}`}</p>
               <div>
                 <SettingsMenu />
@@ -92,6 +97,7 @@ const Header = () => {
             </div>
           )}
         </div>
+
       </form>
       {headerContext.message && <div>{headerContext.message}</div>}
     </>
