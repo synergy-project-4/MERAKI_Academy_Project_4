@@ -15,9 +15,9 @@ const sendToCart = (req, res) => {
 };
 
 const showCart = (req, res) => {
-  const id = req.query.id;
+  const { userId } = req.body;
   cartModel
-    .find({ userId: id })
+    .find({})
     .populate("product")
     .exec()
     .then((result) => {
@@ -30,4 +30,12 @@ const showCart = (req, res) => {
     });
 };
 
-module.exports = { showCart, sendToCart };
+const deleteItem = (req, res) => {
+  const { id } = req.body;
+  cartModel
+    .findByIdAndDelete(id)
+    .then((result) => { console.log("res",result); res.status(200).json("success deleted") })
+    .catch((err) => { res.send(err) })
+}
+
+module.exports = { showCart, sendToCart, deleteItem };
