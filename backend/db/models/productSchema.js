@@ -13,6 +13,7 @@ const product = new mongoose.Schema({
   itemWidth: { type: String, require: true },
   itemWeight: { type: String, require: true },
   location: { type: String, require: true },
+  image: { type: String, default:'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg' },
   shortDescription: { type: String, require: true },
   ready: { type: Boolean, default: false },
   sold: { type: Boolean, default: false },

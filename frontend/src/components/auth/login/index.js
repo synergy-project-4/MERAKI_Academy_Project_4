@@ -12,10 +12,9 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     await loginContext.login();
     if (loginContext.loggedIn) {
-     
       await history.push("/");
     }
   };
@@ -27,7 +26,7 @@ const Login = () => {
   return (
     <div className="login-body">
       <div className="login">
-        <p style={{ color: "yellow", fontSize: "30px" }}>Website Name</p>
+        <p style={{ color: "black", fontSize: "30px" }}>Website Name</p>
         <form onSubmit={handleSubmit} className="login-form">
           <input
             className="input"
@@ -44,7 +43,7 @@ const Login = () => {
           <button className="done-button">Sign-In</button>
         </form>
         {redirect()}
-        <p style={{ color: "white" }}>
+        <p style={{ color: "black" }}>
           if you don't have an account, click&nbsp;
           <Link className="register-button" to="/register">
             here

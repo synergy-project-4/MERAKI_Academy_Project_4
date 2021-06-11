@@ -5,10 +5,10 @@ import Register from "./components/auth/signUp/index";
 import Header from "./components/header/index";
 import Main from "./components/main/index";
 import Login from "./components/auth/login/index";
-import ProductDetails from './components/productDetails'
+import ProductDetails from "./components/productDetails";
 import SearchProduct from "./components/searchProduct";
-import Cart from './components/cart'
-import { ItemCardContext } from './../src/contexts/main';
+import Cart from "./components/cart";
+import { ItemCardContext } from "./../src/contexts/main";
 import Profile from "./components/profile/profile";
 import { HeaderContext } from "./contexts/header";
 import { LoginContext } from "./contexts/login";
@@ -17,30 +17,36 @@ import History from "./components/history/index";
 import ShowAndEdit from "./components/showAndEdit/index";
 import EditProduct from "./components/showAndEdit/edit";
 import PendingApproval from "./components/pendingApproval/index";
+import Footer from "./components/footer/index";
 
 const App = () => {
   const itemCardContext = useContext(ItemCardContext);
   const headerContext = useContext(HeaderContext);
-  const [cartData, setCartData] = useState([])
+  const [cartData, setCartData] = useState([]);
 
   return (
     <div className="App">
-
       <Header />
       <Route exact path="/profile/edit" component={Profile} />
       <Route path="/register" component={Register} />
       <Route exact path="/" component={Main} />
       <Route path="/login" component={Login} />
       <Route path="/show/cart" component={Cart} />
-      <Route path="/product/details" render={() => <ProductDetails item={itemCardContext.found} />} />
-      <Route path="/search/product" render={() => <SearchProduct item={headerContext.found} />} />
+      <Route
+        path="/product/details"
+        render={() => <ProductDetails item={itemCardContext.found} />}
+      />
+      <Route
+        path="/search/product"
+        render={() => <SearchProduct item={headerContext.found} />}
+      />
       <Route
         path="/create/product"
         render={() => <CreateProduct item={LoginContext.found} />}
       />
       <Route path="/product/history" render={() => <History />} />
       <Route path="/manage/product/edit" render={() => <EditProduct />} />
-      
+      {/* <Route path="/" component={Footer} /> */}
     </div>
   );
 };

@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { ItemCardContext } from './../../contexts/main';
-import axios from 'axios';
-import ReactPaginate from 'react-paginate';
+import React, { useContext, useEffect, useState } from "react";
+import { ItemCardContext } from "./../../contexts/main";
+import axios from "axios";
+import ReactPaginate from "react-paginate";
 import { useHistory } from "react-router-dom";
-import './main.css'
-
+import "./main.css";
 
 const Main = () => {
   const itemCardContext = useContext(ItemCardContext);
@@ -16,7 +15,7 @@ const Main = () => {
   }, [itemCardContext.offset]);
 
   const cardDetails = async (id) => {
-    itemCardContext.setProdId(id)
+    itemCardContext.setProdId(id);
     const foundItem = itemCardContext.products.find((elem) => {
       return elem._id == id;
     });
@@ -41,11 +40,16 @@ const Main = () => {
               className="itemCard"
               key={elem._id}
             >
-              <p className="title">{elem.title} </p>
-              <p className="info">Description : {elem.shortDescription}</p>
-              <p className="info">Located in : {elem.location}</p>
-              <p className="price">In Stock : {elem.quantity}</p>
-              <p className="price">Price : {elem.price}$</p>
+              <div>
+                <img className="product-img" src={elem.image}></img>
+              </div>
+              <div>
+                <p className="title">{elem.title} </p>
+                <p className="info">Description : {elem.shortDescription}</p>
+                <p className="info">Located in : {elem.location}</p>
+                <p className="price">In Stock : {elem.quantity}</p>
+                <p className="price">Price : {elem.price}$</p>
+              </div>
             </div>
           );
         })}

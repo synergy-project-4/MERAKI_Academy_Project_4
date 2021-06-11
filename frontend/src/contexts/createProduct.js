@@ -10,7 +10,7 @@ const CreateProductProvider = (props) => {
   const [tags, setTags] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(0);
   const [optionsToExchange, setOptionsToExchange] = useState("");
   const [itemLength, setItemLength] = useState("");
   const [itemHeight, setItemHeight] = useState("");
@@ -20,9 +20,11 @@ const CreateProductProvider = (props) => {
   const [shortDescription, setShortDescription] = useState("");
   const [messageTrue, setMessageTrue] = useState("");
   const [messageFalse, setMessageFalse] = useState("");
+  const [image, setImage] = useState("");
   const [userId, setUserId] = useState("");
 
   const state = {
+    setImage,
     setTitle,
     setTags,
     setDescription,
@@ -41,7 +43,8 @@ const CreateProductProvider = (props) => {
   };
 
   async function createProducts() {
-    console.log(title,
+    console.log(
+      title,
       tags,
       description,
       price,
@@ -53,7 +56,8 @@ const CreateProductProvider = (props) => {
       itemWeight,
       location,
       shortDescription,
-      userId);
+      userId
+    );
     await axios
       .post(
         "http://localhost:5000/create/product",
@@ -70,7 +74,8 @@ const CreateProductProvider = (props) => {
           itemWeight,
           location,
           shortDescription,
-          userId:loginContext.userIdLoggedIn,
+          image,
+          userId: loginContext.userIdLoggedIn,
         },
         {
           headers: {
@@ -79,11 +84,15 @@ const CreateProductProvider = (props) => {
         }
       )
       .then((result) => {
-        setMessageTrue("your product created");
+        setMessageTrue(
+          "Your Product Creation Has Been sent Successfully, Waiting For Admin's Approval "
+        );
         setMessageFalse("");
       })
       .catch((err) => {
-        setMessageFalse("can't create try again please");
+        setMessageFalse(
+          "An Error Has occurred, Make Sure To Fill-in The Blanks "
+        );
         setMessageTrue("");
       });
   }

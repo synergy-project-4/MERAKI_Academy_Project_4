@@ -11,6 +11,8 @@ const Cart = (props) => {
     const loginContext = useContext(LoginContext)
     const itemCartContext = useContext(ItemCartContext);
     const [total, setTotal] = useState(0)
+    const [quantityFromCart, setQuantityFromCart] = useState(0)
+
 
     const found = cartContext.showData.filter((elem) => {
         return elem.userId === loginContext.userIdLoggedIn
@@ -25,13 +27,15 @@ const Cart = (props) => {
     })
 
     const buyCart = () => {
+        console.log("setQuantityFromCart ", quantityFromCart);
     }
 
     return (
         <>
             <div>
                 {findA.map((elem) => {
-                    return <ProductItem findA={findA} elem={elem} find={find} total={total} setTotal={setTotal} buyCart={buyCart} />
+                    return <ProductItem findA={findA} elem={elem} find={find} total={total} setTotal={setTotal}
+                        setQuantityFromCart={setQuantityFromCart} />
                 })}
                 <p>Total :{total}</p>
                 <button onClick={buyCart}>Buy</button>
@@ -42,7 +46,7 @@ const Cart = (props) => {
         </>
     )
 }
-const ProductItem = ({ elem, find, total, setTotal, findA }) => {
+const ProductItem = ({ elem, find, total, setTotal, findA, setQuantityFromCart }) => {
     const [qunat, setQunat] = useState(0)
     const itemCartContext = useContext(ItemCartContext);
     const cartContext = useContext(CartContext);
@@ -66,6 +70,7 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
             setTotal(total - subTotal)
         }
         setOldQuantity(qunat)
+        setQuantityFromCart(qunat)
 
     }, [qunat]);
 
@@ -76,11 +81,9 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
         }
     }
     const decrease = () => {
-        console.log("elem.quantity::", elem.quantity);
         if (elem.quantity > 0) {
             if (qunat > 0) {
                 setQunat(qunat - 1)
-                console.log("quant", qunat);
             }
         }
     }
