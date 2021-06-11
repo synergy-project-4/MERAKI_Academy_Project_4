@@ -22,8 +22,10 @@ const ItemCardProvider = (props) => {
         setOffset,
         perPage,
         pageCount,
+
         prodId,
         setProdId
+
     };
     async function showProduct() {
         try {

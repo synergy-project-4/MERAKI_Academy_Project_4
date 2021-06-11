@@ -16,7 +16,6 @@ import CreateProduct from "./components/createProduct/index";
 import History from "./components/history/index";
 import ShowAndEdit from "./components/showAndEdit/index";
 import EditProduct from "./components/showAndEdit/edit";
-import DeleteProduct from "./components/showAndEdit/delete";
 import PendingApproval from "./components/pendingApproval/index";
 
 const App = () => {
@@ -41,7 +40,7 @@ const App = () => {
       />
       <Route path="/product/history" render={() => <History />} />
       <Route path="/manage/product/edit" render={() => <EditProduct />} />
-      <Route path="/manage/product/delete" render={() => <DeleteProduct />} />
+      
     </div>
   );
 };
