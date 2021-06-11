@@ -4,6 +4,7 @@ import { CreateProductContext } from "./../contexts/createProduct";
 import { LoginContext } from "./../contexts/login";
 import { ItemCartContext } from "./../contexts/productDetails";
 import axios from "axios";
+import "./cart.css";
 
 const Cart = (props) => {
   const cartContext = useContext(CartContext);
@@ -27,7 +28,7 @@ const Cart = (props) => {
 
   return (
     <>
-      <div>
+      <div className="checkout">
         {findA.map((elem) => {
           return (
             <ProductItem
@@ -40,8 +41,10 @@ const Cart = (props) => {
             />
           );
         })}
-        <p>Total :{total}</p>
-        <button onClick={buyCart}>Buy</button>
+        <p className="total">Total :{total}</p>
+        <p className="buy-button" onClick={buyCart}>
+          Buy
+        </p>
       </div>
     </>
   );
@@ -92,27 +95,38 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
 
   return (
     <>
-      <div key={elem._id}>
-        <p>{elem.title} </p>
-        <button
-          onClick={() => {
-            increase(elem.price);
-          }}
-        >
-          +
-        </button>
-        <p>qunat: {qunat}</p>
-        <button onClick={decrease}>-</button>
-        <p>In Stock : {elem.quantity}</p>
-        <button
-          onClick={(e) => {
-            deleteItem(elem._id);
-          }}
-        >
-          Delete
-        </button>
-        <p>Price : {subTotal}</p>
-        <p>price per item {elem.price}</p>
+      <div className="cart-per-item-body" key={elem._id}>
+        <div>
+          <p>{elem.title} </p>
+          <p>In Stock : {elem.quantity}</p>
+          <p>Cost Per Unit {elem.price}</p>
+        </div>
+        <div>
+          <button
+            className="quantity-controler"
+            onClick={() => {
+              increase(elem.price);
+            }}
+          >
+            +
+          </button>
+          <p>Item Quantity: {qunat}</p>
+          <button className="quantity-controler" onClick={decrease}>
+            {" "}
+            -{" "}
+          </button>
+        </div>
+        <div>
+          <button
+            className="delete-button"
+            onClick={(e) => {
+              deleteItem(elem._id);
+            }}
+          >
+            Delete
+          </button>
+        </div>
+        <p>Total Cost : {elem.price * qunat}</p>
       </div>
     </>
   );
