@@ -10,7 +10,7 @@ const CreateProductProvider = (props) => {
   const [tags, setTags] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(0);
   const [optionsToExchange, setOptionsToExchange] = useState("");
   const [itemLength, setItemLength] = useState("");
   const [itemHeight, setItemHeight] = useState("");
@@ -42,7 +42,6 @@ const CreateProductProvider = (props) => {
   };
 
   async function createProducts() {
-    setUserId(loginContext.userIdLoggedIn);
     console.log(  title,
       tags,
       description,
@@ -72,7 +71,7 @@ const CreateProductProvider = (props) => {
           itemWeight,
           location,
           shortDescription,
-          userId,
+          userId :loginContext.userIdLoggedIn,
         },
         {
           headers: {
