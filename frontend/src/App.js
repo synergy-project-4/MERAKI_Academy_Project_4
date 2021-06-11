@@ -45,6 +45,7 @@ const App = () => {
         render={() => <CreateProduct item={LoginContext.found} />}
       />
       <Route path="/product/history" render={() => <History />} />
+      <Route path="/main/my/product" render={() => <ShowAndEdit />} />
       <Route path="/manage/product/edit" render={() => <EditProduct />} />
       {/* <Route path="/" component={Footer} /> */}
     </div>
