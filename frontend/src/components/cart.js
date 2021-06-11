@@ -1,56 +1,56 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { CartContext } from './../contexts/cart';
-import { CreateProductContext } from './../contexts/createProduct'
+import React, { useContext, useState, useEffect } from "react";
+import { CartContext } from "./../contexts/cart";
+import { CreateProductContext } from "./../contexts/createProduct";
 import { LoginContext } from "./../contexts/login";
-import { ItemCartContext } from './../contexts/productDetails'
-import axios from 'axios'
-
+import { ItemCartContext } from "./../contexts/productDetails";
+import axios from "axios";
+import "./cart.css";
 
 const Cart = (props) => {
     const cartContext = useContext(CartContext);
-    const loginContext = useContext(LoginContext)
+    const loginContext = useContext(LoginContext);
     const itemCartContext = useContext(ItemCartContext);
-    const [total, setTotal] = useState(0)
-    const [quantityFromCart, setQuantityFromCart] = useState(0)
-
+    const [total, setTotal] = useState(0);
 
     const found = cartContext.showData.filter((elem) => {
-        return elem.userId === loginContext.userIdLoggedIn
-    })
+        return elem.userId === loginContext.userIdLoggedIn;
+    });
 
     const find = found.filter((elem, i) => {
-        return elem.userId === loginContext.userIdLoggedIn
-    })
+        return elem.userId === loginContext.userIdLoggedIn;
+    });
 
     const findA = find.map((elem) => {
-        return elem.product[0]
-    })
-
-    const buyCart = () => {
-        console.log("setQuantityFromCart ", quantityFromCart);
-    }
+        return elem.product[0];
+    });
 
     return (
         <>
-            <div>
+            <div className="checkout">
                 {findA.map((elem) => {
-                    return <ProductItem findA={findA} elem={elem} find={find} total={total} setTotal={setTotal}
-                        setQuantityFromCart={setQuantityFromCart} />
+                    return (
+                        <ProductItem
+                            findA={findA}
+                            elem={elem}
+                            find={find}
+                            total={total}
+                            setTotal={setTotal}
+                        />
+                    );
                 })}
-                <p>Total :{total}</p>
-                <button onClick={buyCart}>Buy</button>
-
-
+                <p className="total">Total :{total}</p>
+                <p className="buy-button">
+                    Buy
+                </p>
             </div>
-
         </>
-    )
-}
-const ProductItem = ({ elem, find, total, setTotal, findA, setQuantityFromCart }) => {
-    const [qunat, setQunat] = useState(0)
+    );
+};
+const ProductItem = ({ elem, find, total, setTotal, findA }) => {
+    const [qunat, setQunat] = useState(0);
     const itemCartContext = useContext(ItemCartContext);
     const cartContext = useContext(CartContext);
-    const [subTotal, setSubTotal] = useState(elem.price * qunat)
+    const [subTotal, setSubTotal] = useState(elem.price * qunat);
     const [oldQuantity, setOldQuantity] = useState(0)
 
 
@@ -70,7 +70,6 @@ const ProductItem = ({ elem, find, total, setTotal, findA, setQuantityFromCart }
             setTotal(total - subTotal)
         }
         setOldQuantity(qunat)
-        setQuantityFromCart(qunat)
 
     }, [qunat]);
 
@@ -100,21 +99,44 @@ const ProductItem = ({ elem, find, total, setTotal, findA, setQuantityFromCart }
             .catch((err) => { throw err })
     }
 
+
     return (
         <>
-            <div key={elem._id} >
-                <p>{elem.title} </p>
-                <button onClick={() => { increase(elem.price) }}>+</button>
-                <p>qunat: {qunat}</p>
-                <button onClick={decrease}>-</button>
-                <p>In Stock : {elem.quantity}</p>
-                <button onClick={(e) => { deleteItem(elem._id) }}>Delete</button>
-                <p>Price : {elem.price * qunat}</p>
-                <p>price per item {elem.price}</p>
+            <div className="cart-per-item-body" key={elem._id}>
+                <div>
+                    <p>{elem.title} </p>
+                    <p>In Stock : {elem.quantity}</p>
+                    <p>Cost Per Unit {elem.price}</p>
+                </div>
+                <div>
+                    <button
+                        className="quantity-controler"
+                        onClick={() => {
+                            increase(elem.price);
+                        }}
+                    >
+                        +
+                    </button>
+                    <p>Item Quantity: {qunat}</p>
+                    <button className="quantity-controler" onClick={decrease}>
+                        {" "}
+                        -{" "}
+                    </button>
+                </div>
+                <div>
+                    <button
+                        className="delete-button"
+                        onClick={(e) => {
+                            deleteItem(elem._id);
+                        }}
+                    >
+                        Delete
+                    </button>
+                </div>
+                <p>Total Cost : {elem.price * qunat}</p>
             </div>
         </>
     );
-}
-
+};
 
 export default Cart;

@@ -7,30 +7,33 @@ const Edit = () => {
   const showAndEditContext = useContext(ShowAndEditContext);
   const history = useHistory();
 
-    useEffect(() => {
-      // showAndEditContext.show();
-      setAllInput()
-    }, [showAndEditContext.item]);
+  useEffect(() => {
+    // showAndEditContext.show();
+    setAllInput();
+  }, [showAndEditContext.item]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(showAndEditContext.found);
   };
-  const setAllInput = ()=>{
-  
-    showAndEditContext.setTitle(showAndEditContext.item.title)
-    showAndEditContext.setTags(showAndEditContext.item.tags)
-    showAndEditContext.setDescription(showAndEditContext.item.description)
-    showAndEditContext.setPrice(showAndEditContext.item.price)
-    showAndEditContext.setQuantity(showAndEditContext.item.quantity)
-    showAndEditContext.setOptionsToExchange(showAndEditContext.item.optionsToExchange)
-    showAndEditContext.setItemLength(showAndEditContext.item.itemLength)
-    showAndEditContext.setItemHeight(showAndEditContext.item.itemHeight)
-    showAndEditContext.setItemWidth(showAndEditContext.item.itemWidth)
-    showAndEditContext.setItemWeight(showAndEditContext.item.itemWeight)
-    showAndEditContext.setLocation(showAndEditContext.item.location)
-    showAndEditContext.setShortDescription(showAndEditContext.item.shortDescription)
-  }
+  const setAllInput = () => {
+    showAndEditContext.setTitle(showAndEditContext.item.title);
+    showAndEditContext.setTags(showAndEditContext.item.tags);
+    showAndEditContext.setDescription(showAndEditContext.item.description);
+    showAndEditContext.setPrice(showAndEditContext.item.price);
+    showAndEditContext.setQuantity(showAndEditContext.item.quantity);
+    showAndEditContext.setOptionsToExchange(
+      showAndEditContext.item.optionsToExchange
+    );
+    showAndEditContext.setItemLength(showAndEditContext.item.itemLength);
+    showAndEditContext.setItemHeight(showAndEditContext.item.itemHeight);
+    showAndEditContext.setItemWidth(showAndEditContext.item.itemWidth);
+    showAndEditContext.setItemWeight(showAndEditContext.item.itemWeight);
+    showAndEditContext.setLocation(showAndEditContext.item.location);
+    showAndEditContext.setShortDescription(
+      showAndEditContext.item.shortDescription
+    );
+  };
 
   return (
     <>
@@ -38,13 +41,13 @@ const Edit = () => {
         <div onClick={handleSubmit}>edit product</div>
         <div>
           <div>
-            <div>
+            {/* <div>
               <p>{showAndEditContext.item.title}</p>
               <p>Description :{showAndEditContext.item.shortDescription}</p>
               <p>Located in :{showAndEditContext.item.location}</p>
               <p>In Stock : {showAndEditContext.item.quantity}</p>
               <p>Price :{showAndEditContext.item.price}</p>
-            </div>
+            </div> */}
             <div>
               <input
                 placeholder="Title (name of the product)"
@@ -91,7 +94,9 @@ const Edit = () => {
                 type="boolean"
                 defaultValue={showAndEditContext.item.optionsToExchange}
                 onChange={(e) => {
-                  showAndEditContext.setOptionsToExchange(Boolean(e.target.value));
+                  showAndEditContext.setOptionsToExchange(
+                    Boolean(e.target.value)
+                  );
                 }}
               />
               <input
