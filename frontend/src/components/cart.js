@@ -4,12 +4,14 @@ import { CreateProductContext } from "./../contexts/createProduct";
 import { LoginContext } from "./../contexts/login";
 import { ItemCartContext } from "./../contexts/productDetails";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 import "./cart.css";
 
 const Cart = (props) => {
     const cartContext = useContext(CartContext);
     const loginContext = useContext(LoginContext);
     const itemCartContext = useContext(ItemCartContext);
+    const history = useHistory();
     const [total, setTotal] = useState(0);
 
     const found = cartContext.showData.filter((elem) => {
@@ -97,6 +99,8 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
             })
             .then((result) => { console.log(result.data); })
             .catch((err) => { throw err })
+            setTotal(total - subTotal*qunat)
+            cartContext.showCart()
     }
 
 
