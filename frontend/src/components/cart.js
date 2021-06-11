@@ -47,31 +47,44 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
     const itemCartContext = useContext(ItemCartContext);
     const cartContext = useContext(CartContext);
     const [subTotal, setSubTotal] = useState(elem.price * qunat)
-    const [id, setId] = useState('')
-    let totalOf = 0;
+    const [oldQuantity, setOldQuantity] = useState(0)
 
 
     useEffect(() => {
-        let priceElem= findA.reduce(function (acc, elem, i) {
+        let priceElem = findA.reduce(function (acc, elem, i) {
             return acc + elem.price
         }, 0)
         setTotal(priceElem)
     }, []);
 
     useEffect(() => {
-        setTotal(total + subTotal)
+        if (oldQuantity <= qunat) {
+            setTotal(total + subTotal)
+        } else {
+            let x = oldQuantity * elem.price
+            setTotal(total - x)
+            setTotal(total - subTotal)
+        }
+        setOldQuantity(qunat)
+
     }, [qunat]);
 
     const increase = (price) => {
-        setQunat(qunat + 1)
-        setSubTotal(price)
+        if (qunat < elem.quantity) {
+            setQunat(qunat + 1)
+            setSubTotal(price)
+        }
     }
     const decrease = () => {
-        if (itemCartContext.quantity >= 0) {
-            setQunat(qunat - 1)
+        console.log("elem.quantity::", elem.quantity);
+        if (elem.quantity > 0) {
+            if (qunat > 0) {
+                setQunat(qunat - 1)
+                console.log("quant", qunat);
+            }
         }
-        setSubTotal(subTotal += elem.price * qunat)
     }
+
     const deleteItem = (id) => {
         const found = find.filter((elem) => {
             return elem.product[0]._id == id
@@ -93,7 +106,7 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
                 <button onClick={decrease}>-</button>
                 <p>In Stock : {elem.quantity}</p>
                 <button onClick={(e) => { deleteItem(elem._id) }}>Delete</button>
-                <p>Price : {subTotal}</p>
+                <p>Price : {elem.price * qunat}</p>
                 <p>price per item {elem.price}</p>
             </div>
         </>
