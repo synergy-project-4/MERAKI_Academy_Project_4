@@ -16,6 +16,7 @@ const createProduct = (req, res) => {
     location,
     shortDescription,
     userId,
+    image,
   } = req.body;
 
   const product = new productsModel({
@@ -32,6 +33,7 @@ const createProduct = (req, res) => {
     location,
     shortDescription,
     userId,
+    image,
   });
   
   product
