@@ -10,16 +10,14 @@ const Header = () => {
   const history = useHistory();
 
   useEffect(() => {
-    if(headerContext.filterLocation !== ""){
-       headerContext.searchItem();   
+    if (headerContext.filterLocation !== "") {
+      headerContext.searchItem();
     }
-   
   }, [headerContext.filterLocation]);
 
   const loginContext = useContext(LoginContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
   };
   const handleClick = () => {
     history.push("/");
@@ -36,7 +34,7 @@ const Header = () => {
 
             <select
               onChange={(e) => {
-                console.log("e,ee:",e.target.value)
+                console.log("e,ee:", e.target.value);
                 headerContext.setFilterPrice(e.target.value);
               }}
               name="filter"
@@ -46,11 +44,9 @@ const Header = () => {
               <option value="descending">descending</option>
             </select>
             <select
-              onChange={ (e) => {
+              onChange={(e) => {
                 console.log("onnn", e.target.value);
-                 headerContext.setFilterLocation(e.target.value);
-                 
-                
+                headerContext.setFilterLocation(e.target.value);
               }}
               name="location"
             >

@@ -100,6 +100,7 @@ select:hover {
   width: 25vw;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
+  font-size: 20px;
 }
 
 .display-name {
