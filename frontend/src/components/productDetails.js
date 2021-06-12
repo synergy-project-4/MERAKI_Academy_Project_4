@@ -46,7 +46,7 @@ const ProductDetails = (props) => {
           <button onClick={history.goBack}>Go Back</button>
         </div>
         <div>
-          {notLogged ? <p className="failMessage">You must login</p> : ""}
+          {notLogged ? <p className="failMessage">Login Is Required</p> : ""}
           {logged ? <p className="successMessage">Added to cart</p> : ""}
         </div>
       </div>

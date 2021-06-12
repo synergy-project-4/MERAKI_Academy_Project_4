@@ -12,7 +12,7 @@
 
 .rightNavBar a:hover {
   text-decoration: none;
-  color: yellow;
+  color: #c59640;
 }
 
 select {
@@ -85,16 +85,17 @@ select:hover {
 }
 
 .websiteName {
+  margin-top: 0;
+  margin-bottom: 0;
   margin-right: 40px;
-  margin-top: 9px;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 600;
   color: white;
 }
 
 .websiteName:hover {
   cursor: pointer;
-  color: yellow;
+  color: #c59640;
 }
 
 .search-bar {
@@ -112,5 +113,5 @@ select:hover {
 }
 
 .display-name:hover {
-  color: yellow;
+  color: #c59640;
 }

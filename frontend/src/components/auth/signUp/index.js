@@ -14,7 +14,7 @@ const Register = () => {
     <>
       <div className="sign-up-body">
         <div className="sign-up">
-          <p style={{ color: "black", fontSize: "30px" }}>WebSite Name</p>
+          <p style={{ color: "black", fontSize: "30px" }}>Jordan Commerce</p>
           <p style={{ color: "black", fontSize: "25px" }}>Sign-up</p>
           <form onSubmit={handleSubmit} className="sign-up-form">
             <input
