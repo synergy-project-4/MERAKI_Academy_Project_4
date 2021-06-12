@@ -15,7 +15,6 @@ const Edit = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(showAndEditContext.found);
   };
   const setAllInput = () => {
     showAndEditContext.setTitle(showAndEditContext.item.title);
@@ -34,8 +33,7 @@ const Edit = () => {
     showAndEditContext.setShortDescription(
       showAndEditContext.item.shortDescription
     );
-    showAndEditContext.setImage(showAndEditContext.item.image)
-
+    showAndEditContext.setImage(showAndEditContext.item.image);
   };
 
   return (

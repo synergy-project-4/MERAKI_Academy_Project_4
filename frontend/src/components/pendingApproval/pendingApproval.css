@@ -1,13 +1,13 @@
 .manage-product {
   background-color: rgb(213, 211, 241);
-
+  padding: 10px;
   margin: 10px;
   border-radius: 5px;
 }
 
 .acttion-button {
   padding: 10px;
-  margin-left: 10px;
+  margin-right: 10px;
   margin-bottom: 5px;
   font-size: 20px;
   background-color: white;
