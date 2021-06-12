@@ -4,6 +4,10 @@ import { useHistory } from "react-router-dom";
 import { CartContext } from './../contexts/cart'
 import { ItemCartContext } from './../contexts/productDetails'
 import "./product.css";
+import addToCart from './addCart.png'
+import backIcon from "./back.png"
+import exchangeIcon from "./exchange.png"
+
 
 const ProductDetails = (props) => {
     const itemCartContext = useContext(ItemCartContext);
@@ -43,9 +47,11 @@ const ProductDetails = (props) => {
                     <p className="price">price : {props.item.price}$</p>
                 </div>
                 <div className="add-button">
-                    <button onClick={loginAuth}>Add to cart</button>
-                    {props.item.optionsToExchange && <button>Exchange</button>}
-                    <button onClick={history.goBack}>Go Back</button>
+                <img src={addToCart}  onClick={loginAuth}/>
+                    {/* <button onClick={loginAuth}>Add to cart</button> */}
+                    {props.item.optionsToExchange &&  <img src={exchangeIcon} />}
+                    <img src={backIcon}  onClick={history.goBack}/>
+                    {/* <button onClick={history.goBack}>Go Back</button> */}
                 </div>
                 <div>
                     {notLogged ? <p className="failMessage">You must login</p> : ""}

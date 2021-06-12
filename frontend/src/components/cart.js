@@ -117,40 +117,16 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
         <img src={plusIcon}   onClick={() => {
               increase(elem.price);
             }} /></div>
-          {/* <button
-            className="quantity-controler"
-            onClick={() => {
-              increase(elem.price);
-            }}
-          >
-            +
-          </button> */}
           <p>Item Quantity: {qunat}</p>
           <div className="quantity-controler">
         <img src={minusIcon}   onClick={() => {
               decrease(elem.price);
             }} /></div>
-          {/* <button
-            className="quantity-controler"
-            onClick={() => {
-              decrease(elem.price);
-            }}
-          >
-            -
-          </button> */}
         </div>
         <div  className="delete-button">
         <img src={deleteIcon}   onClick={(e) => {
               deleteItem(elem._id);
             }} />
-          {/* <button
-            className="delete-button"
-            onClick={(e) => {
-              deleteItem(elem._id);
-            }}
-          >
-            Delete
-          </button> */}
         </div>
         <p>Total Cost : {elem.price * qunat}</p>
       </div>
