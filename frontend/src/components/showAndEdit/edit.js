@@ -38,14 +38,13 @@ const Edit = () => {
 
   return (
     <>
-      <div className="edit-page">
-        <div className="edit-info">
-          <form>
-            <div onClick={handleSubmit}>edit product</div>
-            <div>
-              <div>
-                <div>
+      
+          <div className="edit-product-body"> 
+           
+                <div className="edit-product">
+                <h1 onClick={handleSubmit}>Edit Product</h1>
                   <input
+                  className="input"
                     placeholder="Title (name of the product)"
                     type="text"
                     defaultValue={showAndEditContext.item.title}
@@ -54,6 +53,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Tags (item category)"
                     type="text"
                     defaultValue={showAndEditContext.item.tags}
@@ -62,6 +62,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Description (describe the item)"
                     type="text"
                     defaultValue={showAndEditContext.item.description}
@@ -70,6 +71,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Price (item cost)"
                     type="text"
                     defaultValue={showAndEditContext.item.price}
@@ -78,6 +80,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Quantity (number of items for sale )"
                     type="number"
                     defaultValue={showAndEditContext.item.quantity}
@@ -86,6 +89,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Open For Exchange (true or false)"
                     type="boolean"
                     defaultValue={showAndEditContext.item.optionsToExchange}
@@ -96,6 +100,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Item Length (for example : 1m , 20cm , 30mm)"
                     type="text"
                     defaultValue={showAndEditContext.item.itemLength}
@@ -104,6 +109,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Item Height (for example : 1m , 20cm , 30mm)"
                     type="text"
                     defaultValue={showAndEditContext.item.itemHeight}
@@ -112,6 +118,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Item Width (for example : 1m , 20cm , 30mm)"
                     type="text"
                     defaultValue={showAndEditContext.item.itemWidth}
@@ -120,6 +127,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Item Weight (for example : 3kg , 200mg )"
                     type="text"
                     defaultValue={showAndEditContext.item.itemWeight}
@@ -128,6 +136,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Location (Pick One: Amman, Irbid, Madaba, Zarqa, Aqaba)"
                     type="text"
                     defaultValue={showAndEditContext.item.location}
@@ -136,6 +145,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Short Description (Add a Short Description For The Item)"
                     type="text"
                     defaultValue={showAndEditContext.item.shortDescription}
@@ -144,6 +154,7 @@ const Edit = () => {
                     }}
                   />
                   <input
+                  className="input"
                     placeholder="Image (insert image url)"
                     type="text"
                     defaultValue={showAndEditContext.item.image}
@@ -151,8 +162,8 @@ const Edit = () => {
                       showAndEditContext.setImage(e.target.value);
                     }}
                   />
-                </div>
-                <button
+                   <button
+                   className="edit-product-button"
                   onClick={(e) => {
                     e.preventDefault();
                     showAndEditContext.editProduct(showAndEditContext.item._id);
@@ -161,16 +172,14 @@ const Edit = () => {
                   done
                 </button>
                 {showAndEditContext.messageTrue && (
-                  <div>{showAndEditContext.messageTrue}</div>
+                  <div style={{ backgroundColor: "green" }}>{showAndEditContext.messageTrue}</div>
                 )}
                 {showAndEditContext.messageFalse && (
-                  <div>{showAndEditContext.messageFalse}</div>
+                  <div style={{ backgroundColor: "red" }}>{showAndEditContext.messageFalse}</div>
                 )}
               </div>
-            </div>
-          </form>
-        </div>
-      </div>
+                </div>
+               
     </>
   );
 };
