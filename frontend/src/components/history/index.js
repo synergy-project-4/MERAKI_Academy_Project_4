@@ -21,17 +21,19 @@ const History = () => {
   return (
     <>
       <form>
-        <div>
-          <h3 onClick={handleSubmit}>History</h3>
-        </div>
+        <div className="">
+          <h1 onClick={handleSubmit}>History</h1>
+        </div >
         {historyContext.found.map((elem) => {
           return (
-            <div>
-              <p>{elem.title}</p>
-              <p>Description :{elem.shortDescription}</p>
-              <p>Located in :{elem.location}</p>
-              <p>In Stock : {elem.quantity}</p>
-              <p>Price :{elem.price}</p>
+
+            <div  className="manage-product">
+            <img className="product-img" src={elem.image} />
+              <p className="title" >{elem.title}</p>
+              <p className="info" >Description :{elem.shortDescription}</p>
+              <p className="info" >Located in :{elem.location}</p>
+              {/* <p className="price" >In Stock : {elem.quantity}</p> */}
+              <p className="price" >Price :{elem.price}</p>
               <br></br>
             </div>
           );
