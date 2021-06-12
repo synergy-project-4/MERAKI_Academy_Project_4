@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import SettingsMenu from "./../header/edit";
 import logo from './cart.png'
+import searchIcon from './search.png'
 import {CartContext} from './../../contexts/cart'
 
 import "./header.css";
@@ -68,14 +69,17 @@ const Header = () => {
               }}
               placeholder="Search"
             />
-            <button
+             <img src={searchIcon}  onClick={(e) => {
+                headerContext.searchItem();
+              }} />
+            {/* <button
               className="search-button"
               onClick={(e) => {
                 headerContext.searchItem();
               }}
             >
               search
-            </button>
+            </button> */}
           </div>
 
           {loginContext.token ? (

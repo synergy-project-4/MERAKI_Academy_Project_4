@@ -6,6 +6,9 @@ import { ItemCartContext } from "./../contexts/productDetails";
 import axios from "axios";
 import "./cart.css";
 import { useHistory } from "react-router-dom";
+import plusIcon from "./plus.png"
+import minusIcon from "./minus.png"
+import deleteIcon from "./delete.png"
 
 const Cart = (props) => {
     const cartContext = useContext(CartContext);
@@ -106,48 +109,59 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
         cartContext.showCart()
     };
 
-    return (
-        <>
-            <div className="cart-per-item-body" key={elem._id}>
-                <img className="product-img" src={elem.image}></img>
-                <div>
-                    <p>{elem.title} </p>
-                    <p>In Stock : {elem.quantity}</p>
-                    <p>Cost Per Unit {elem.price}</p>
-                </div>
-                <div>
-                    <button
-                        className="quantity-controler"
-                        onClick={() => {
-                            increase(elem.price);
-                        }}
-                    >
-                        +
-                    </button>
-                    <p>Item Quantity: {qunat}</p>
-                    <button
-                        className="quantity-controler"
-                        onClick={() => {
-                            decrease(elem.price);
-                        }}
-                    >
-                        -
-                    </button>
-                </div>
-                <div>
-                    <button
-                        className="delete-button"
-                        onClick={(e) => {
-                            deleteItem(elem._id);
-                        }}
-                    >
-                        Delete
-                    </button>
-                </div>
-                <p>Total Cost : {elem.price * qunat}</p>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="cart-per-item-body" key={elem._id}>
+      <img className="product-img" src={elem.image}></img>
+        <div>
+          <p>{elem.title} </p>
+          <p>In Stock : {elem.quantity}</p>
+          <p>Cost Per Unit {elem.price}</p>
+        </div>
+        <div>
+          <div className="quantity-controler">
+        <img src={plusIcon}   onClick={() => {
+              increase(elem.price);
+            }} /></div>
+          {/* <button
+            className="quantity-controler"
+            onClick={() => {
+              increase(elem.price);
+            }}
+          >
+            +
+          </button> */}
+          <p>Item Quantity: {qunat}</p>
+          <div className="quantity-controler">
+        <img src={minusIcon}   onClick={() => {
+              decrease(elem.price);
+            }} /></div>
+          {/* <button
+            className="quantity-controler"
+            onClick={() => {
+              decrease(elem.price);
+            }}
+          >
+            -
+          </button> */}
+        </div>
+        <div  className="delete-button">
+        <img src={deleteIcon}   onClick={(e) => {
+              deleteItem(elem._id);
+            }} />
+          {/* <button
+            className="delete-button"
+            onClick={(e) => {
+              deleteItem(elem._id);
+            }}
+          >
+            Delete
+          </button> */}
+        </div>
+        <p>Total Cost : {elem.price * qunat}</p>
+      </div>
+    </>
+  );
 };
 
 export default Cart;
