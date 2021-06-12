@@ -109,21 +109,21 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
         cartContext.showCart()
     };
 
-  return (
-    <>
-      <div className="cart-per-item-body" key={elem._id}>
-      <img className="product-img" src={elem.image}></img>
-        <div>
-          <p>{elem.title} </p>
-          <p>In Stock : {elem.quantity}</p>
-          <p>Cost Per Unit {elem.price}</p>
-        </div>
-        <div>
-          <div className="quantity-controler">
-        <img src={plusIcon}   onClick={() => {
-              increase(elem.price);
-            }} /></div>
-          {/* <button
+    return (
+        <>
+            <div className="cart-per-item-body" key={elem._id}>
+                <img className="product-img" src={elem.image}></img>
+                <div>
+                    <p>{elem.title} </p>
+                    <p>In Stock : {elem.quantity}</p>
+                    <p>Cost Per Unit {elem.price}</p>
+                </div>
+                <div>
+                    <div className="quantity-controler">
+                        <img src={plusIcon} onClick={() => {
+                            increase(elem.price);
+                        }} /></div>
+                    {/* <button
             className="quantity-controler"
             onClick={() => {
               increase(elem.price);
@@ -131,12 +131,12 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
           >
             +
           </button> */}
-          <p>Item Quantity: {qunat}</p>
-          <div className="quantity-controler">
-        <img src={minusIcon}   onClick={() => {
-              decrease(elem.price);
-            }} /></div>
-          {/* <button
+                    <p>Item Quantity: {qunat}</p>
+                    <div className="quantity-controler">
+                        <img src={minusIcon} onClick={() => {
+                            decrease(elem.price);
+                        }} /></div>
+                    {/* <button
             className="quantity-controler"
             onClick={() => {
               decrease(elem.price);
@@ -144,12 +144,12 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
           >
             -
           </button> */}
-        </div>
-        <div  className="delete-button">
-        <img src={deleteIcon}   onClick={(e) => {
-              deleteItem(elem._id);
-            }} />
-          {/* <button
+                </div>
+                <div className="delete-button">
+                    <img src={deleteIcon} onClick={(e) => {
+                        deleteItem(elem._id);
+                    }} />
+                    {/* <button
             className="delete-button"
             onClick={(e) => {
               deleteItem(elem._id);
@@ -157,11 +157,11 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
           >
             Delete
           </button> */}
-        </div>
-        <p>Total Cost : {elem.price * qunat}</p>
-      </div>
-    </>
-  );
+                </div>
+                <p>Total Cost : {elem.price * qunat}</p>
+            </div>
+        </>
+    );
 };
 
 export default Cart;
