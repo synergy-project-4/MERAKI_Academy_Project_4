@@ -28,7 +28,7 @@ const Cart = (props) => {
     return elem.product[0];
   });
 
-  const buyCart = () => {};
+  const buyCart = () => { };
 
   return (
     <>
@@ -123,14 +123,6 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
               }}
             />
           </div>
-          {/* <button
-            className="quantity-controler"
-            onClick={() => {
-              increase(elem.price);
-            }}
-          >
-            +
-          </button> */}
           <p>Item Quantity: {qunat}</p>
           <div className="quantity-controler">
             <img
@@ -140,14 +132,6 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
               }}
             />
           </div>
-          {/* <button
-            className="quantity-controler"
-            onClick={() => {
-              decrease(elem.price);
-            }}
-          >
-            -
-          </button> */}
         </div>
         <div className="delete-button">
           <img
@@ -156,14 +140,6 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
               deleteItem(elem._id);
             }}
           />
-          {/* <button
-            className="delete-button"
-            onClick={(e) => {
-              deleteItem(elem._id);
-            }}
-          >
-            Delete
-          </button> */}
         </div>
         <p>Total Cost : {elem.price * qunat}</p>
       </div>
