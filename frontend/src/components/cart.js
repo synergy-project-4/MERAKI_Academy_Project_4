@@ -9,27 +9,21 @@ import { useHistory } from "react-router-dom";
 import plusIcon from "./plus.png";
 import minusIcon from "./minus.png";
 import deleteIcon from "./delete.png";
-
 const Cart = (props) => {
   const cartContext = useContext(CartContext);
   const loginContext = useContext(LoginContext);
   const itemCartContext = useContext(ItemCartContext);
   const [total, setTotal] = useState(0);
-
   const found = cartContext.showData.filter((elem) => {
     return elem.userId === loginContext.userIdLoggedIn;
   });
-
   const find = found.filter((elem, i) => {
     return elem.userId === loginContext.userIdLoggedIn;
   });
-
   const findA = find.map((elem) => {
     return elem.product[0];
   });
-
-  const buyCart = () => { };
-
+  const buyCart = () => {};
   return (
     <>
       <div className="checkout">
@@ -59,18 +53,15 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
   const cartContext = useContext(CartContext);
   const [subTotal, setSubTotal] = useState(elem.price * qunat);
   const [id, setId] = useState("");
-
   useEffect(() => {
     let priceElem = findA.reduce(function (acc, elem, i) {
       return acc + elem.price;
     }, 0);
     setTotal(priceElem);
   }, []);
-
   useEffect(() => {
     setTotal(total + subTotal);
   }, [qunat]);
-
   const increase = (price) => {
     if (qunat < elem.quantity) {
       setQunat(qunat + 1);
@@ -83,9 +74,7 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
     }
     setSubTotal(-price);
   };
-
   const history = useHistory();
-
   const deleteItem = (id) => {
     const found = find.filter((elem) => {
       return elem.product[0]._id == id;
@@ -94,9 +83,7 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
       .delete("http://localhost:5000/show/cart/deleted", {
         data: { id: found[0]._id },
       })
-      .then((result) => {
-        console.log(result.data);
-      })
+      .then((result) => {})
       .catch((err) => {
         throw err;
       });
@@ -104,7 +91,6 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
     cartContext.showCart();
     cartContext.showCart();
   };
-
   return (
     <>
       <div className="cart-per-item-body" key={elem._id}>
@@ -146,5 +132,4 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
     </>
   );
 };
-
 export default Cart;

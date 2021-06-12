@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom";
 import { CartContext } from "./../contexts/cart";
 import { ItemCartContext } from "./../contexts/productDetails";
 import "./product.css";
-import addToCart from './addCart.png'
-import backIcon from "./back.png"
-import exchangeIcon from "./exchange.png"
+import addToCart from "./addCart.png";
+import backIcon from "./back.png";
+import exchangeIcon from "./exchange.png";
 
 const ProductDetails = (props) => {
   const itemCartContext = useContext(ItemCartContext);
@@ -34,6 +34,8 @@ const ProductDetails = (props) => {
     <>
       <div className="itemDetails">
         <div key={props.item._id}>
+          <img className="product-img" src={props.item.image}></img>
+
           <p className="title">
             {props.item.title} ({props.item.shortDescription})
           </p>
@@ -56,7 +58,6 @@ const ProductDetails = (props) => {
       </div>
     </>
   );
-
 };
 
 export default ProductDetails;
