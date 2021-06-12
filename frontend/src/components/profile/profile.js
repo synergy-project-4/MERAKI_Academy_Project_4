@@ -61,10 +61,10 @@ const Profile = () => {
           }}>delete profile</button>
         </div>
         {profileContext.messageTrue && (
-                  <div>{profileContext.messageTrue}</div>
+                  <div style={{ backgroundColor: "green" }}>{profileContext.messageTrue}</div>
                 )}
                 {profileContext.messageFalse && (
-                  <div>{profileContext.messageFalse}</div>
+                  <div style={{ backgroundColor: "red" }}>{profileContext.messageFalse}</div>
                 )}
       </div>
     </>
