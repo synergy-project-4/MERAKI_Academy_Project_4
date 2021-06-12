@@ -102,6 +102,7 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
             .catch((err) => {
                 throw err;
             });
+        setTotal(total - (elem.price * qunat))
         cartContext.showCart()
     };
 
