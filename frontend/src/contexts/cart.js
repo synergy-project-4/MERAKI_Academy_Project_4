@@ -4,7 +4,6 @@ import { ItemCardContext } from "./../../src/contexts/main";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-
 export const CartContext = React.createContext();
 
 const CartProvider = (props) => {
@@ -37,12 +36,9 @@ const CartProvider = (props) => {
             },
           }
         )
-        .then((result) => {
-          console.log("resultttttt", result.data);
-        })
-        .catch((err) => console.log(err.data));
+        .then((result) => {})
+        .catch((err) => res.send(err));
     } catch (error) {
-      console.log(error);
       throw error;
     }
   }
@@ -56,9 +52,8 @@ const CartProvider = (props) => {
         .then((result) => {
           setShowData(result.data);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => res.send(err));
     } catch (error) {
-      console.log(error);
       throw error;
     }
   }

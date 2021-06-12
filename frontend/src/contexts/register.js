@@ -46,7 +46,6 @@ const RegisterProvider = (props) => {
           confirmPassword,
         })
         .then((result) => {
-          console.log(result);
           if (result.status === 201) {
             setMessage("Your Account Is Ready");
             history.push("/login");

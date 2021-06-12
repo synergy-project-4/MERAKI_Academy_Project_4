@@ -5,7 +5,6 @@ import axios from "axios";
 export const ShowAndEditContext = React.createContext();
 
 const ShowAndEditProvider = (props) => {
-  console.log("props",props)
   const loginContext = useContext(LoginContext);
   let id;
   let token;
@@ -24,7 +23,7 @@ const ShowAndEditProvider = (props) => {
   const [itemWeight, setItemWeight] = useState("");
   const [location, setLocation] = useState("");
   const [shortDescription, setShortDescription] = useState("");
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState("");
   const [messageTrue, setMessageTrue] = useState("");
   const [messageFalse, setMessageFalse] = useState("");
 
@@ -73,43 +72,47 @@ const ShowAndEditProvider = (props) => {
   }
 
   async function editProduct(product) {
-    console.log(product);
     token = localStorage.getItem("token");
     try {
       await axios
-        .put(`http://localhost:5000/manage/product?id=${product}`,{title
-        ,tags
-        ,description
-        ,price
-        ,quantity
-        ,optionsToExchange
-        ,itemLength
-        ,itemHeight
-        ,itemWidth
-        ,itemWeight
-        ,location
-        ,shortDescription,image},{
-          headers: {
-            Authorization: `Bearer ${token}`,
+        .put(
+          `http://localhost:5000/manage/product?id=${product}`,
+          {
+            title,
+            tags,
+            description,
+            price,
+            quantity,
+            optionsToExchange,
+            itemLength,
+            itemHeight,
+            itemWidth,
+            itemWeight,
+            location,
+            shortDescription,
+            image,
           },
-        })
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((result) => {
           // setFound(result.data);
-          show()
-          console.log("result::::::::" ,result.data);
-          setMessageTrue("done the product edited")
-          setMessageFalse("")
+          show();
+          setMessageTrue("done the product edited");
+          setMessageFalse("");
         });
     } catch (error) {
-      setMessageTrue("")
-      setMessageFalse("cant edits try again please")
+      setMessageTrue("");
+      setMessageFalse("cant edits try again please");
       throw error;
     }
   }
 
   async function deleteProduct(product) {
     token = localStorage.getItem("token");
-    console.log("", product);
     try {
       await axios
         .delete(`http://localhost:5000/manage/product?id=${product}`, {

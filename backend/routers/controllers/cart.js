@@ -21,11 +21,9 @@ const showCart = (req, res) => {
     .populate("product")
     .exec()
     .then((result) => {
-      res
-        .status(200)
-        .json(result)
-
-    }).catch((err) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
       res.send(err);
     });
 };
@@ -34,8 +32,12 @@ const deleteItem = (req, res) => {
   const { id } = req.body;
   cartModel
     .findByIdAndDelete(id)
-    .then((result) => { console.log("res",result); res.status(200).json("success deleted") })
-    .catch((err) => { res.send(err) })
-}
+    .then((result) => {
+      res.status(200).json("success deleted");
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
 
 module.exports = { showCart, sendToCart, deleteItem };
