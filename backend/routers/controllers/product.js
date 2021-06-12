@@ -35,14 +35,13 @@ const createProduct = (req, res) => {
     userId,
     image,
   });
-  
+
   product
     .save()
     .then((result) => {
       res.status(201).json(result);
     })
     .catch((err) => {
-      console.log(err);
       res.status(404).send(err);
     });
 };
@@ -99,7 +98,6 @@ const updateProduct = (req, res) => {
   productsModel
     .findByIdAndUpdate(id, req.body, { new: true })
     .then((result) => {
-      console.log(result);
       res.status(200).json(result);
     })
     .catch((err) => {

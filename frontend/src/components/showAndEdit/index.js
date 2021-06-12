@@ -9,17 +9,15 @@ const ShowAndEdit = () => {
 
   useEffect(() => {
     showAndEditContext.show();
-  },[]);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(showAndEditContext.found);
   };
   return (
     <>
       <form>
         <div>
-        
           <h1 onClick={handleSubmit}>Show And Edit</h1>
         </div>
         {showAndEditContext.found.map((elem) => {
@@ -30,18 +28,26 @@ const ShowAndEdit = () => {
               <p className="info">Located in :{elem.location}</p>
               <p className="price">In Stock : {elem.quantity}</p>
               <p className="price">Price :{elem.price}</p>
-              <button  onClick={(e) => {
+              <button
+                onClick={(e) => {
                   e.preventDefault();
                   showAndEditContext.setProductId(elem._id);
-                  showAndEditContext.setItem(elem)
-                  history.push("/manage/product/edit")
-                }} className="acttion-button">edit</button>
-              <button  onClick={(e) => {
+                  showAndEditContext.setItem(elem);
+                  history.push("/manage/product/edit");
+                }}
+                className="acttion-button"
+              >
+                edit
+              </button>
+              <button
+                onClick={(e) => {
                   e.preventDefault();
-                  showAndEditContext.deleteProduct(elem._id)
-                }} className="acttion-button">delete</button>
-
-              
+                  showAndEditContext.deleteProduct(elem._id);
+                }}
+                className="acttion-button"
+              >
+                delete
+              </button>
             </div>
           );
         })}

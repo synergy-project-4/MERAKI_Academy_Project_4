@@ -9,7 +9,6 @@ const CreateProduct = () => {
   const loginContext = useContext(LoginContext);
   const createProductContext = useContext(CreateProductContext);
   const history = useHistory();
-  console.log("loginContext.userIdLoggedIn:", loginContext.userIdLoggedIn);
   return (
     <>
       <div className="create-product-body">

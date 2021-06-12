@@ -29,17 +29,13 @@ select:hover {
 }
 
 .search-button {
-  background-color: white;
-  color: black;
+  margin-left: 2px;
+  border: 1px solid white;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  font-size: 20px;
-  font-weight: 500;
 }
 
 .search-button:hover {
   cursor: pointer;
-  background-color: yellow;
 }
 
 .navBar {
@@ -84,6 +80,10 @@ select:hover {
   color: red;
 }
 
+.accountSettings img:hover {
+  cursor: pointer;
+}
+
 .websiteName {
   margin-right: 40px;
   margin-top: 9px;
@@ -106,7 +106,7 @@ select:hover {
 
 .display-name {
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   margin-right: 20px;
 }
