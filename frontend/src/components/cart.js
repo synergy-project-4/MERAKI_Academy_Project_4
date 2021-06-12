@@ -75,7 +75,6 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
     setSubTotal(price);
   };
   const decrease = (price) => {
-    console.log(qunat);
     if (qunat > 0) {
       setQunat(qunat - 1);
     }
@@ -98,6 +97,9 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
       .catch((err) => {
         throw err;
       });
+    setTotal(total - elem.price * qunat);
+    cartContext.showCart();
+    cartContext.showCart();
   };
 
   return (
