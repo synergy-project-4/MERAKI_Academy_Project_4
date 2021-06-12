@@ -47,6 +47,7 @@ const App = () => {
       <Route path="/product/history" render={() => <History />} />
       <Route path="/main/my/product" render={() => <ShowAndEdit />} />
       <Route path="/manage/product/edit" render={() => <EditProduct />} />
+      <Route path="/products/approval" render={() => <PendingApproval />} />
       {/* <Route path="/" component={Footer} /> */}
     </div>
   );
