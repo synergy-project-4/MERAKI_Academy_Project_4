@@ -48,10 +48,8 @@ const ProductDetails = (props) => {
                 </div>
                 <div className="add-button">
                 <img src={addToCart}  onClick={loginAuth}/>
-                    {/* <button onClick={loginAuth}>Add to cart</button> */}
                     {props.item.optionsToExchange &&  <img src={exchangeIcon} />}
                     <img src={backIcon}  onClick={history.goBack}/>
-                    {/* <button onClick={history.goBack}>Go Back</button> */}
                 </div>
                 <div>
                     {notLogged ? <p className="failMessage">You must login</p> : ""}
