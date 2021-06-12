@@ -8,7 +8,6 @@ const SettingsMenu = () => {
   const loginContext = useContext(LoginContext);
   const historyContext = useContext(HistoryContext);
 
-
   return (
     <DropdownMenu position="left" iconColor="#FFFFFF">
       <MenuItem text="edit profile" location="/profile/edit" />
