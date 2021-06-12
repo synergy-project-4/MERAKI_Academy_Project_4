@@ -37,24 +37,26 @@ const ProductDetails = (props) => {
           <p className="title">
             {props.item.title} ({props.item.shortDescription})
           </p>
-                    <p className="info">Tags : {props.item.tags}</p>
-                    <p className="info">Description :{props.item.description}</p>
-                    <p className="info">Located in: {props.item.location}</p>
-                    <p className="price">In Stock : {props.item.quantity}</p>
-                    <p className="price">price : {props.item.price}$</p>
-                </div>
-                <div className="add-button">
-                <img src={addToCart}  onClick={loginAuth}/>
-                    {props.item.optionsToExchange &&  <img src={exchangeIcon} />}
-                    <img src={backIcon}  onClick={history.goBack}/>
-                </div>
-                <div>
-                    {notLogged ? <p className="failMessage">You must login</p> : ""}
-                    {logged ? <p className="successMessage">Added to cart</p> : ""}
-                </div>
-            </div>
-        </>
-    );
+
+          <p className="info">Tags : {props.item.tags}</p>
+          <p className="info">Description :{props.item.description}</p>
+          <p className="info">Located in: {props.item.location}</p>
+          <p className="price">In Stock : {props.item.quantity}</p>
+          <p className="price">price : {props.item.price}$</p>
+        </div>
+        <div className="add-button">
+          <button onClick={loginAuth}>Add to cart</button>
+          {props.item.optionsToExchange && <button>Exchange</button>}
+          <button onClick={history.goBack}>Go Back</button>
+        </div>
+        <div>
+          {notLogged ? <p className="failMessage">Login Is Required</p> : ""}
+          {logged ? <p className="successMessage">Added to cart</p> : ""}
+        </div>
+      </div>
+    </>
+  );
+
 };
 
 export default ProductDetails;

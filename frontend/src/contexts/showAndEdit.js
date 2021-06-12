@@ -101,12 +101,12 @@ const ShowAndEditProvider = (props) => {
         .then((result) => {
           // setFound(result.data);
           show();
-          setMessageTrue("done the product edited");
+          setMessageTrue("Product Has Been Updated");
           setMessageFalse("");
         });
     } catch (error) {
       setMessageTrue("");
-      setMessageFalse("cant edits try again please");
+      setMessageFalse("An Error Has Occured, Please Fill in the Blanks");
       throw error;
     }
   }

@@ -34,7 +34,7 @@ const Header = () => {
         <div className="navBar">
           <div className="leftNavBar">
             <p onClick={handleClick} className="websiteName">
-              WebsiteName
+              Jordan Commerce
             </p>
 
             <select
@@ -93,7 +93,7 @@ const Header = () => {
                   cartContext.showCart();
                 }}
               /> */}
-              <p className="display-name">{`Welcome Home, ${loginContext.userName}`}</p>
+              <p className="display-name">{`Welcome, ${loginContext.userName}`}</p>
               <img
                 src={logo}
                 onClick={() => {
