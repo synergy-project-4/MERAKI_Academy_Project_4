@@ -6,9 +6,9 @@ import { ItemCartContext } from "./../contexts/productDetails";
 import axios from "axios";
 import "./cart.css";
 import { useHistory } from "react-router-dom";
-import plusIcon from "./plus.png"
-import minusIcon from "./minus.png"
-import deleteIcon from "./delete.png"
+import plusIcon from "./plus.png";
+import minusIcon from "./minus.png";
+import deleteIcon from "./delete.png";
 
 const Cart = (props) => {
   const cartContext = useContext(CartContext);
@@ -28,7 +28,7 @@ const Cart = (props) => {
     return elem.product[0];
   });
 
-  const buyCart = () => {};
+  const buyCart = () => { };
 
   return (
     <>
@@ -78,7 +78,6 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
     setSubTotal(price);
   };
   const decrease = (price) => {
-    console.log(qunat);
     if (qunat > 0) {
       setQunat(qunat - 1);
     }
@@ -95,18 +94,19 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
       .delete("http://localhost:5000/show/cart/deleted", {
         data: { id: found[0]._id },
       })
-      .then((result) => {
-        console.log(result.data);
-      })
+      .then((result) => { })
       .catch((err) => {
         throw err;
       });
+    setTotal(total - elem.price * qunat);
+    cartContext.showCart();
+    cartContext.showCart();
   };
 
   return (
     <>
       <div className="cart-per-item-body" key={elem._id}>
-      <img className="product-img" src={elem.image}></img>
+        <img className="product-img" src={elem.image}></img>
         <div>
           <p>{elem.title} </p>
           <p>In Stock : {elem.quantity}</p>
@@ -114,19 +114,30 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
         </div>
         <div>
           <div className="quantity-controler">
-        <img src={plusIcon}   onClick={() => {
-              increase(elem.price);
-            }} /></div>
+            <img
+              src={plusIcon}
+              onClick={() => {
+                increase(elem.price);
+              }}
+            />
+          </div>
           <p>Item Quantity: {qunat}</p>
           <div className="quantity-controler">
-        <img src={minusIcon}   onClick={() => {
-              decrease(elem.price);
-            }} /></div>
+            <img
+              src={minusIcon}
+              onClick={() => {
+                decrease(elem.price);
+              }}
+            />
+          </div>
         </div>
-        <div  className="delete-button">
-        <img src={deleteIcon}   onClick={(e) => {
+        <div className="delete-button">
+          <img
+            src={deleteIcon}
+            onClick={(e) => {
               deleteItem(elem._id);
-            }} />
+            }}
+          />
         </div>
         <p>Total Cost : {elem.price * qunat}</p>
       </div>
