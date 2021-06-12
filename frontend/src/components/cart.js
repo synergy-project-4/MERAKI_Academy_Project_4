@@ -5,6 +5,7 @@ import { LoginContext } from "./../contexts/login";
 import { ItemCartContext } from "./../contexts/productDetails";
 import axios from "axios";
 import "./cart.css";
+import { useHistory } from "react-router-dom";
 
 const Cart = (props) => {
   const cartContext = useContext(CartContext);
@@ -68,15 +69,21 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
   }, [qunat]);
 
   const increase = (price) => {
-    setQunat(qunat + 1);
+    if (qunat < elem.quantity) {
+      setQunat(qunat + 1);
+    }
     setSubTotal(price);
   };
-  const decrease = () => {
-    if (itemCartContext.quantity >= 0) {
+  const decrease = (price) => {
+    console.log(qunat);
+    if (qunat > 0) {
       setQunat(qunat - 1);
     }
-    setSubTotal((subTotal += elem.price * qunat));
+    setSubTotal(-price);
   };
+
+  const history = useHistory();
+
   const deleteItem = (id) => {
     const found = find.filter((elem) => {
       return elem.product[0]._id == id;
@@ -112,9 +119,13 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
             +
           </button>
           <p>Item Quantity: {qunat}</p>
-          <button className="quantity-controler" onClick={decrease}>
-            {" "}
-            -{" "}
+          <button
+            className="quantity-controler"
+            onClick={() => {
+              decrease(elem.price);
+            }}
+          >
+            -
           </button>
         </div>
         <div>
