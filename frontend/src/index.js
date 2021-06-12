@@ -28,7 +28,9 @@ ReactDOM.render(
                     <RegisterProvider>
                       <ProfileProvider>
                         <CartProvider>
-                        <App />
+                          <ItemCartProvider>
+                            <App />
+                          </ItemCartProvider>
                         </CartProvider>
                       </ProfileProvider>
                     </RegisterProvider>
@@ -41,5 +43,6 @@ ReactDOM.render(
       </FooterProvider>
     </LoginProvider>
   </Router>,
+
   document.getElementById("root")
 );

@@ -102,12 +102,13 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
             .catch((err) => {
                 throw err;
             });
-            cartContext.showCart()
+        cartContext.showCart()
     };
 
     return (
         <>
             <div className="cart-per-item-body" key={elem._id}>
+                <img className="product-img" src={elem.image}></img>
                 <div>
                     <p>{elem.title} </p>
                     <p>In Stock : {elem.quantity}</p>

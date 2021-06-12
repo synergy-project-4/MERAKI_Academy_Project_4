@@ -5,6 +5,7 @@ import axios from "axios";
 export const ShowAndEditContext = React.createContext();
 
 const ShowAndEditProvider = (props) => {
+  console.log("props",props)
   const loginContext = useContext(LoginContext);
   let id;
   let token;
