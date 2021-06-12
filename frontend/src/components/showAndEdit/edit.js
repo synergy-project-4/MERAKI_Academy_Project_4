@@ -34,6 +34,8 @@ const Edit = () => {
     showAndEditContext.setShortDescription(
       showAndEditContext.item.shortDescription
     );
+    showAndEditContext.setImage(showAndEditContext.item.image)
+
   };
 
   return (
@@ -141,6 +143,14 @@ const Edit = () => {
                     defaultValue={showAndEditContext.item.shortDescription}
                     onChange={(e) => {
                       showAndEditContext.setShortDescription(e.target.value);
+                    }}
+                  />
+                  <input
+                    placeholder="Image (insert image url)"
+                    type="text"
+                    defaultValue={showAndEditContext.item.image}
+                    onChange={(e) => {
+                      showAndEditContext.setImage(e.target.value);
                     }}
                   />
                 </div>
