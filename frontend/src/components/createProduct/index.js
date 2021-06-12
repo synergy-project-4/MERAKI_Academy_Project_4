@@ -9,14 +9,12 @@ const CreateProduct = () => {
   const loginContext = useContext(LoginContext);
   const createProductContext = useContext(CreateProductContext);
   const history = useHistory();
-  console.log("loginContext.userIdLoggedIn:", loginContext.userIdLoggedIn)
+  console.log("loginContext.userIdLoggedIn:", loginContext.userIdLoggedIn);
   return (
     <>
       <div className="create-product-body">
         <div className="create-product">
-          <p
-            style={{ color: "yellow", fontSize: "30px", marginBottom: "20px" }}
-          >
+          <p style={{ color: "black", fontSize: "30px", marginBottom: "20px" }}>
             Product Creation
           </p>
           <input
@@ -115,7 +113,7 @@ const CreateProduct = () => {
               createProductContext.setShortDescription(e.target.value);
             }}
           />
-           <input
+          <input
             className="input"
             placeholder="Image (insert image url)"
             type="text"
@@ -131,10 +129,14 @@ const CreateProduct = () => {
           </button>
 
           {createProductContext.messageTrue && (
-            <div style={{ color: "green" }}>{createProductContext.messageTrue}</div>
+            <div style={{ color: "green" }}>
+              {createProductContext.messageTrue}
+            </div>
           )}
           {createProductContext.messageFalse && (
-            <div style={{ color: "red" }}>{createProductContext.messageFalse}</div>
+            <div style={{ color: "red" }}>
+              {createProductContext.messageFalse}
+            </div>
           )}
         </div>
       </div>
