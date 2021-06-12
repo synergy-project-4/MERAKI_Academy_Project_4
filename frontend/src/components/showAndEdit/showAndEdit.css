@@ -1,0 +1,15 @@
+.edit-page {
+  background-color: rgb(213, 211, 241);
+  margin: 10px;
+  padding: 10px;
+}
+
+.edit-info {
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-info input {
+  display: grid;
+  grid-template-columns: 1fr;
+}
