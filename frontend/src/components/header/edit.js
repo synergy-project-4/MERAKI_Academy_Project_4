@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { DropdownMenu, MenuItem } from "react-bootstrap-dropdown-menu";
 import { LoginContext } from "./../../contexts/login";
 import { HistoryContext } from "../../contexts/history";
+import { ProfileContext } from "../../contexts/profile";
 
 const SettingsMenu = () => {
   const loginContext = useContext(LoginContext);
   const historyContext = useContext(HistoryContext);
+
   return (
     <DropdownMenu position="left" iconColor="#FFFFFF">
       <MenuItem text="edit profile" location="/profile/edit" />
@@ -21,3 +23,4 @@ const SettingsMenu = () => {
 };
 
 export default SettingsMenu;
+

@@ -4,43 +4,95 @@ import axios from "axios";
 export const ProfileContext = React.createContext();
 
 const ProfileProvider = (props) => {
-  const [newName, setNewName] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [message, setMessage] = useState("");
+  let id;
+  let token;
+  
+  const [found, setFound] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [city, setCity] = useState("");
+  const [password, setPassword] = useState("");
+  const [messageTrue, setMessageTrue] = useState("");
+  const [messageFalse, setMessageFalse] = useState("");
+  const [i, setI] = useState(false)
+  const [confirmPassword, setConfirmPassword] = useState("")
 
   const state = {
-    setNewName,
-    setNewPassword,
-    message,
+    setFname,
+    setLname,
+    setCity,
+    setPassword,
     editProfile,
-    logOut,
-    deleteProfile
+    messageTrue,
+    messageFalse,
+    deleteProfile,
+    getUser,
+    found,confirmPassword,
+    setConfirmPassword
   };
-   
-  async function editProfile(e) {
+
+  async function getUser() {
+    id = localStorage.getItem("id");
+    token = localStorage.getItem("token");
+    console.log("hereeeeeeee",id);
     try {
-      await axios.put("http://localhost:5000/profile/edit", e.target.value);
-      setMessage("Done the changes")
+      await axios.get(`http://localhost:5000/profile?id=${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((result)=>{
+        setFound(
+          result.data
+        )
+        console.log(result.data);
+      })
     } catch (error) {
-      setMessage("try again please");
+    }
+  }
+if(i ===false){
+  getUser()
+  setI(true)
+} 
+  // getUser()
+  async function editProfile() {
+    token = localStorage.getItem("token");
+    id = localStorage.getItem("id");
+    try {
+      await axios
+        .put(
+          `http://localhost:5000/profile/edit?id=${id}`,
+          { fname, lname, city, password },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((result) => {
+          console.log(result);
+          setMessageTrue("Done the changes");
+          setMessageFalse("");
+        });
+    } catch (error) {
+      setMessageFalse("try again please");
+      setMessageTrue("");
     }
   }
 
-  async function deleteProfile(e) {
+  async function deleteProfile() {
+    token = localStorage.getItem("token");
+    id = localStorage.getItem("id");
     try {
-      await axios.delete("http://localhost:5000/profile/edit", e.target.value);
-      setMessage("account deleted")
+      await axios.delete(`http://localhost:5000/profile/edit?id=${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      } );
+      setMessageTrue("account deleted");
+      setMessageFalse("");
     } catch (error) {
-      setMessage("try again please");
-    }
-  }
-
-  async function logOut(e) {
-    try {
-      await axios.get("http://localhost:5000/profile/edit", e.target.value);
-      setMessage("done")
-    } catch (error) {
-      setMessage("try again please");
+      setMessageFalse("try again please");
+      setMessageTrue("");
     }
   }
 
