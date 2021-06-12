@@ -6,6 +6,9 @@ import { ItemCartContext } from "./../contexts/productDetails";
 import axios from "axios";
 import "./cart.css";
 import { useHistory } from "react-router-dom";
+import plusIcon from "./plus.png"
+import minusIcon from "./minus.png"
+import deleteIcon from "./delete.png"
 
 const Cart = (props) => {
   const cartContext = useContext(CartContext);
@@ -112,33 +115,44 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
           <p>Cost Per Unit {elem.price}</p>
         </div>
         <div>
-          <button
+          <div className="quantity-controler">
+        <img src={plusIcon}   onClick={() => {
+              increase(elem.price);
+            }} /></div>
+          {/* <button
             className="quantity-controler"
             onClick={() => {
               increase(elem.price);
             }}
           >
             +
-          </button>
+          </button> */}
           <p>Item Quantity: {qunat}</p>
-          <button
+          <div className="quantity-controler">
+        <img src={minusIcon}   onClick={() => {
+              decrease(elem.price);
+            }} /></div>
+          {/* <button
             className="quantity-controler"
             onClick={() => {
               decrease(elem.price);
             }}
           >
             -
-          </button>
+          </button> */}
         </div>
-        <div>
-          <button
+        <div  className="delete-button">
+        <img src={deleteIcon}   onClick={(e) => {
+              deleteItem(elem._id);
+            }} />
+          {/* <button
             className="delete-button"
             onClick={(e) => {
               deleteItem(elem._id);
             }}
           >
             Delete
-          </button>
+          </button> */}
         </div>
         <p>Total Cost : {elem.price * qunat}</p>
       </div>
