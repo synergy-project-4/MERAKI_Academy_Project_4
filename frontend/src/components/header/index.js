@@ -79,13 +79,19 @@ const Header = () => {
           {loginContext.token ? (
             <div className="accountSettings">
               {/* instead of welcome it should display first name */}
+              {/* <img
+                src={logo}
+                onClick={() => {
+                  cartContext.showCart();
+                }}
+              /> */}
+              <p className="display-name">{`Welcome, ${loginContext.userName}`}</p>
               <img
                 src={logo}
                 onClick={() => {
                   cartContext.showCart();
                 }}
               />
-              <p className="display-name">{`Welcome, ${loginContext.userName}`}</p>
               <div>
                 <SettingsMenu />
               </div>

@@ -5,6 +5,7 @@ import axios from "axios";
 export const ShowAndEditContext = React.createContext();
 
 const ShowAndEditProvider = (props) => {
+  console.log("props",props)
   const loginContext = useContext(LoginContext);
   let id;
   let token;
@@ -23,6 +24,7 @@ const ShowAndEditProvider = (props) => {
   const [itemWeight, setItemWeight] = useState("");
   const [location, setLocation] = useState("");
   const [shortDescription, setShortDescription] = useState("");
+  const [image, setImage] = useState("")
   const [messageTrue, setMessageTrue] = useState("");
   const [messageFalse, setMessageFalse] = useState("");
 
@@ -49,6 +51,8 @@ const ShowAndEditProvider = (props) => {
     setShortDescription,
     setMessageTrue,
     setMessageFalse,
+    setImage,
+    image,
     messageTrue,
     messageFalse,
   };
@@ -84,7 +88,7 @@ const ShowAndEditProvider = (props) => {
         ,itemWidth
         ,itemWeight
         ,location
-        ,shortDescription},{
+        ,shortDescription,image},{
           headers: {
             Authorization: `Bearer ${token}`,
           },
