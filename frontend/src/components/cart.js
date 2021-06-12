@@ -94,7 +94,7 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
       .delete("http://localhost:5000/show/cart/deleted", {
         data: { id: found[0]._id },
       })
-      .then((result) => { })
+      .then((result) => {})
       .catch((err) => {
         throw err;
       });
