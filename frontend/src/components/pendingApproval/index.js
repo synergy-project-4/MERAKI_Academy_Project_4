@@ -29,8 +29,8 @@ const PendingApproval = () => {
               <p className="info">Located in :{elem.location}</p>
               <p className="info">In Stock : {elem.quantity}</p>
               <p className="info">Price :{elem.price}</p>
-              <button className="acttion-button">Approve</button>
-              <button className="acttion-button">Remove</button>
+            {pendingApprovalContext.admin && <button className="acttion-button">Approve</button> }  
+             {pendingApprovalContext.admin && <button className="acttion-button">Remove</button>} 
             </div>
           );
         })}

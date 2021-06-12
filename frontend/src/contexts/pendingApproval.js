@@ -9,13 +9,33 @@ const PendingApprovalProvider = (props) => {
   let id;
   let token;
   const [found, setFound] = useState([]);
+  const [admin, setAdmin] = useState(false);
 
   const state = {
     found,
     showApproval,
+    admin
   };
+  async function getUser() {
+    id = localStorage.getItem("id");
+    token = localStorage.getItem("token");
+    console.log("hereeeeeeee", id);
+    try {
+      await axios
+        .get(`http://localhost:5000/profile?id=${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((result) => {
+          setAdmin(result.data.admin);
+          console.log(result.data.admin);
+        });
+    } catch (error) {}
+  }
 
   async function showApproval() {
+    getUser();
     id = localStorage.getItem("id");
     token = localStorage.getItem("token");
     try {
