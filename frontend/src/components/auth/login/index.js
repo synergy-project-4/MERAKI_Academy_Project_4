@@ -26,7 +26,7 @@ const Login = () => {
   return (
     <div className="login-body">
       <div className="login">
-        <p style={{ color: "black", fontSize: "30px" }}>Website Name</p>
+        <p style={{ color: "black", fontSize: "30px" }}>Jordan Commerce</p>
         <form onSubmit={handleSubmit} className="login-form">
           <input
             className="input"
@@ -51,7 +51,20 @@ const Login = () => {
         </p>
         {/* to fix the message to have succes and failure so each message would have a differnet color */}
         {loginContext.message && (
-          <div style={{ backgroundColor: "red" }}>{loginContext.message}</div>
+          <div
+            style={{
+              backgroundColor: "rgb(226, 54, 48)",
+              display: "flex",
+              borderRadius: "5px",
+              color: "white",
+              paddingTop: "10px",
+              paddingBottom: "10px",
+              paddingLeft: "25px",
+              paddingRight: "25px",
+            }}
+          >
+            {loginContext.message}
+          </div>
         )}
       </div>
     </div>

@@ -1,18 +1,23 @@
 .itemCard {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
   /* border: 1px solid rgba(0, 0, 0, 0.3); */
   cursor: pointer;
   /* padding: 5px; */
   background-color: rgb(213, 211, 241);
   border-radius: 5px;
   transition: 1s;
+<<<<<<< HEAD
   margin: 5px;
   gap: 10px;
+=======
+  min-width: 700px;
+>>>>>>> c1b2f48e677351a9993640fc12a4a00f04dc5b3e
 }
 
 .itemCard:hover {
-  background-color: #ffff99;
+  background-color: #c59640;
   -ms-transform: scale(1.08);
   -webkit-transform: scale(1.08);
   transform: scale(1.08);
@@ -21,7 +26,6 @@
 .mainBody {
   margin: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
   padding: 20px;
 }
@@ -29,4 +33,19 @@
 .product-img {
   width: 340px;
   height: 305px;
+}
+
+.title {
+  margin-top: 20px;
+}
+
+@media (min-width: 992px) {
+  .mainBody {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .mainBody {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

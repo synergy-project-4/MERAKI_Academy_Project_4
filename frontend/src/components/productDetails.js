@@ -4,6 +4,9 @@ import { useHistory } from "react-router-dom";
 import { CartContext } from "./../contexts/cart";
 import { ItemCartContext } from "./../contexts/productDetails";
 import "./product.css";
+import addToCart from './addCart.png'
+import backIcon from "./back.png"
+import exchangeIcon from "./exchange.png"
 
 const ProductDetails = (props) => {
   const itemCartContext = useContext(ItemCartContext);
@@ -34,6 +37,7 @@ const ProductDetails = (props) => {
           <p className="title">
             {props.item.title} ({props.item.shortDescription})
           </p>
+
           <p className="info">Tags : {props.item.tags}</p>
           <p className="info">Description :{props.item.description}</p>
           <p className="info">Located in: {props.item.location}</p>
@@ -46,12 +50,13 @@ const ProductDetails = (props) => {
           <button onClick={history.goBack}>Go Back</button>
         </div>
         <div>
-          {notLogged ? <p className="failMessage">You must login</p> : ""}
+          {notLogged ? <p className="failMessage">Login Is Required</p> : ""}
           {logged ? <p className="successMessage">Added to cart</p> : ""}
         </div>
       </div>
     </>
   );
+
 };
 
 export default ProductDetails;
