@@ -6,9 +6,9 @@ import { ItemCartContext } from "./../contexts/productDetails";
 import axios from "axios";
 import "./cart.css";
 import { useHistory } from "react-router-dom";
-import plusIcon from "./plus.png"
-import minusIcon from "./minus.png"
-import deleteIcon from "./delete.png"
+import plusIcon from "./plus.png";
+import minusIcon from "./minus.png";
+import deleteIcon from "./delete.png";
 
 const Cart = (props) => {
     const cartContext = useContext(CartContext);
@@ -27,6 +27,7 @@ const Cart = (props) => {
     const findA = find.map((elem) => {
         return elem.product[0];
     });
+  const buyCart = () => { };
 
     return (
         <>
@@ -74,6 +75,18 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
             setTotal(total - subTotal)
         }
         setOldQuantity(qunat)
+  const increase = (price) => {
+    if (qunat < elem.quantity) {
+      setQunat(qunat + 1);
+    }
+    setSubTotal(price);
+  };
+  const decrease = (price) => {
+    if (qunat > 0) {
+      setQunat(qunat - 1);
+    }
+    setSubTotal(-price);
+  };
 
     }, [qunat]);
 

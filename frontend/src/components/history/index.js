@@ -3,6 +3,7 @@ import { HistoryContext } from "../../contexts/history";
 import { LoginContext } from "../../contexts/login";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import "./history.css";
 
 const History = () => {
   const historyContext = useContext(HistoryContext);
@@ -13,32 +14,29 @@ const History = () => {
     historyContext.showHistory();
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(historyContext.found);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(historyContext.found);
+  // };
 
   return (
     <>
-      <form>
-        <div className="">
-          <h1 onClick={handleSubmit}>History</h1>
-        </div >
+      <div className="History-body">
+        <h1>History</h1>
+
         {historyContext.found.map((elem) => {
           return (
-
-            <div  className="manage-product">
-            <img className="product-img" src={elem.image} />
-              <p className="title" >{elem.title}</p>
-              <p className="info" >Description :{elem.shortDescription}</p>
-              <p className="info" >Located in :{elem.location}</p>
+            <div className="manage-product">
+              <img className="product-img" src={elem.image} />
+              <p className="title">{elem.title}</p>
+              <p className="info">Description :{elem.shortDescription}</p>
+              <p className="info">Located in :{elem.location}</p>
               {/* <p className="price" >In Stock : {elem.quantity}</p> */}
-              <p className="price" >Price :{elem.price}</p>
-              <br></br>
+              <p className="price">Price :{elem.price}</p>
             </div>
           );
         })}
-      </form>
+      </div>
     </>
   );
 };

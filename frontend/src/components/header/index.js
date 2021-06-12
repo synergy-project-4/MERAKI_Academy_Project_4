@@ -4,9 +4,9 @@ import { LoginContext } from "../../../src/contexts/login";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import SettingsMenu from "./../header/edit";
-import logo from './cart.png'
-import searchIcon from './search.png'
-import {CartContext} from './../../contexts/cart'
+import logo from "./cart.png";
+import searchIcon from "./search.png";
+import { CartContext } from "./../../contexts/cart";
 
 import "./header.css";
 const Header = () => {
@@ -39,7 +39,6 @@ const Header = () => {
 
             <select
               onChange={(e) => {
-                console.log("e,ee:", e.target.value);
                 headerContext.setFilterPrice(e.target.value);
               }}
               name="filter"
@@ -50,7 +49,6 @@ const Header = () => {
             </select>
             <select
               onChange={(e) => {
-                console.log("onnn", e.target.value);
                 headerContext.setFilterLocation(e.target.value);
               }}
               name="location"
@@ -69,9 +67,13 @@ const Header = () => {
               }}
               placeholder="Search"
             />
-             <img src={searchIcon}  onClick={(e) => {
+            <img
+              className="search-button"
+              src={searchIcon}
+              onClick={(e) => {
                 headerContext.searchItem();
-              }} />
+              }}
+            />
             {/* <button
               className="search-button"
               onClick={(e) => {
@@ -85,8 +87,19 @@ const Header = () => {
           {loginContext.token ? (
             <div className="accountSettings">
               {/* instead of welcome it should display first name */}
-              <p className="display-name">{`Welcome, ${loginContext.userName}`}</p>
-              <img src={logo} onClick={()=>{cartContext.showCart()}} />
+              {/* <img
+                src={logo}
+                onClick={() => {
+                  cartContext.showCart();
+                }}
+              /> */}
+              <p className="display-name">{`Welcome Home, ${loginContext.userName}`}</p>
+              <img
+                src={logo}
+                onClick={() => {
+                  cartContext.showCart();
+                }}
+              />
               <div>
                 <SettingsMenu />
               </div>
@@ -97,7 +110,6 @@ const Header = () => {
             </div>
           )}
         </div>
-
       </form>
       {headerContext.message && <div>{headerContext.message}</div>}
     </>

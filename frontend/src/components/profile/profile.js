@@ -1,43 +1,74 @@
-import React, { useState, useContext } from "react";
+import React, { useEffect ,useState, useContext } from "react";
 import { ProfileContext } from "../../../src/contexts/profile";
 import { Link } from "react-router-dom";
 import "./profile.css";
 
-const Header = () => {
+const Profile = () => {
   const profileContext = useContext(ProfileContext);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   profileContext.getUser()
+  // };
+ useEffect(() => {
+    setAllInput();
+  }, [profileContext.found]);
+
+  const setAllInput = () => {
+    profileContext.setFname(profileContext.found.firstName)
+    profileContext.setLname(profileContext.found.lastName)
+    profileContext.setPassword(profileContext.found.password)
+    profileContext.setCity(profileContext.found.city)
+  }
 
   return (
     <>
-      <form className="profile" onSubmit={handleSubmit}>
-        <div>
-          <Link className="link" to="/profile/edit">
-            edit profile
-          </Link>
-          <Link className="link" to="/profile/edit">
-            manage product
-          </Link>
-          <Link className="link" to="/profile/edit">
-            create product
-          </Link>
-          <Link className="link" to="/profile/edit">
-            show and edit
-          </Link>
-          <Link className="link" to="/profile/edit">
-            history
-          </Link>
-          <Link className="link" to="/profile/edit">
-            pending approval
-          </Link>
-          <Link className="link" to="/logout">
-            signOut
-          </Link>
+      <div className="edit-profile-body">
+       
+        <div className="edit-profile">
+        <h1>Edit profile</h1>
+          <input className="input" placeholder="First Name" type="text"
+           defaultValue={profileContext.found.firstName}
+           onChange={(e) => {
+            profileContext.setFname(e.target.value);
+           }} />
+          <input className="input" placeholder="Last Name" type="text" defaultValue={profileContext.found.lastName}
+           onChange={(e) => {
+            profileContext.setLname(e.target.value);
+           }}/>
+          <input className="input" placeholder="City" type="text" defaultValue={profileContext.found.city}
+           onChange={(e) => {
+            profileContext.setCity(e.target.value);
+           }} />
+          <input className="input" placeholder="Password" type="text" 
+           onChange={(e) => {
+            profileContext.setPassword(e.target.value);
+           }}/>
+            <input className="input" placeholder="Confirm Password" type="text" 
+           onChange={(e) => {
+            profileContext.setConfirmPassword(e.target.value);
+           }}/>
+          <button
+           className="edit-profile-button"
+           onClick={(e) => {
+            e.preventDefault();
+            profileContext.editProfile();
+          }}>done</button>
+          <button
+           className="edit-profile-button"
+           onClick={(e) => {
+            e.preventDefault();
+            profileContext.deleteProfile();
+          }}>delete profile</button>
         </div>
-      </form>
+        {profileContext.messageTrue && (
+                  <div style={{ backgroundColor: "green" }}>{profileContext.messageTrue}</div>
+                )}
+                {profileContext.messageFalse && (
+                  <div style={{ backgroundColor: "red" }}>{profileContext.messageFalse}</div>
+                )}
+      </div>
     </>
   );
 };
 
-export default Header;
+export default Profile;

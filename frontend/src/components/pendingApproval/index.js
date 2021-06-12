@@ -14,7 +14,6 @@ const PendingApproval = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(pendingApprovalContext.found);
   };
   return (
     <>

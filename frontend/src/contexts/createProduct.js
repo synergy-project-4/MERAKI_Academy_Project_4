@@ -43,21 +43,6 @@ const CreateProductProvider = (props) => {
   };
 
   async function createProducts() {
-    console.log(
-      title,
-      tags,
-      description,
-      price,
-      quantity,
-      optionsToExchange,
-      itemLength,
-      itemHeight,
-      itemWidth,
-      itemWeight,
-      location,
-      shortDescription,
-      userId
-    );
     await axios
       .post(
         "http://localhost:5000/create/product",
