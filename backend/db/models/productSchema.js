@@ -8,12 +8,16 @@ const product = new mongoose.Schema({
   quantity: { type: Number, require: true },
   date: { type: Date, default: Date.now },
   location: { type: String, require: true },
-  image: { type: String, default:'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg' },
+  image: { type: String, default: 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg' },
   shortDescription: { type: String, require: true },
   ready: { type: Boolean, default: false },
   rejected: { type: Boolean, default: false },
   sold: { type: Boolean, default: false },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+});
+
+product.pre("save", async function () {
+  this.location = this.location.toLowerCase();
 });
 
 module.exports = mongoose.model("Product", product);
