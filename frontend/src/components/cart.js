@@ -90,6 +90,7 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
 
     }, [qunat]);
 
+<<<<<<< HEAD
     const increase = (price) => {
         if (qunat < elem.quantity) {
             setQunat(qunat + 1);
@@ -121,6 +122,26 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
         setTotal(total - (elem.price * qunat))
         cartContext.showCart()
     };
+=======
+  const deleteItem = (id) => {
+    const found = find.filter((elem) => {
+      return elem.product[0]._id == id;
+    });
+    axios
+      .delete("http://localhost:5000/show/cart/deleted", {
+        data: { id: found[0]._id },
+      })
+      .then((result) => {
+        console.log(result.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
+    setTotal(total - elem.price * qunat);
+    cartContext.showCart();
+    cartContext.showCart();
+  };
+>>>>>>> 9342bc070f8e5b296ebabd2b78eccf5440ab471d
 
     return (
         <>

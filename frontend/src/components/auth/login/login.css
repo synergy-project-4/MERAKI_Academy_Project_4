@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: rgb(250, 250, 250);
+  background-color: rgba(213, 211, 241, 0.7);
 }
 
 .register-button {
@@ -53,5 +53,5 @@ body {
 }
 
 .done-button:hover {
-  background-color: yellow;
+  background-color: #c59640;
 }
