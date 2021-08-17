@@ -17,6 +17,7 @@ const ProductDetails = (props) => {
     const [pId, setPId] = useState();
     let history = useHistory();
 
+<<<<<<< HEAD
     const loginAuth = async () => {
         if (loginContext.token) {
             setNotLogged(false);
@@ -59,6 +60,48 @@ const ProductDetails = (props) => {
             </div>
         </>
     );
+=======
+  const loginAuth = async () => {
+    if (loginContext.token) {
+      setNotLogged(false);
+      setLogged(true);
+      itemCartContext.setQuantity(props.item.quantity);
+      cartContext.addToCart();
+    } else {
+      {
+        setLogged(false);
+        setNotLogged(true);
+      }
+    }
+  };
+  return (
+    <>
+      <div className="itemDetails">
+        <div key={props.item._id}>
+          <p className="title">
+            {props.item.title} ({props.item.shortDescription})
+          </p>
+
+          <p className="info">Tags : {props.item.tags}</p>
+          <p className="info">Description :{props.item.description}</p>
+          <p className="info">Located in: {props.item.location}</p>
+          <p className="price">In Stock : {props.item.quantity}</p>
+          <p className="price">price : {props.item.price}$</p>
+        </div>
+        <div className="add-button">
+          <button onClick={loginAuth}>Add to cart</button>
+          {props.item.optionsToExchange && <button>Exchange</button>}
+          <button onClick={history.goBack}>Go Back</button>
+        </div>
+        <div>
+          {notLogged ? <p className="failMessage">Login Is Required</p> : ""}
+          {logged ? <p className="successMessage">Added to cart</p> : ""}
+        </div>
+      </div>
+    </>
+  );
+
+>>>>>>> 9342bc070f8e5b296ebabd2b78eccf5440ab471d
 };
 
 export default ProductDetails;

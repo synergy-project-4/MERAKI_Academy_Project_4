@@ -1,6 +1,6 @@
 .cart-per-item-body {
   display: grid;
-  grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   margin: 20px;
   /* padding: 10px; */
   background-color: rgb(213, 211, 241);
@@ -19,18 +19,20 @@
   margin: 20px;
   padding: 10px;
   font-size: 40px;
-  background-color: #ffff99;
+  background-color: #c59640;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .checkout .buy-button {
   margin: 20px;
   padding: 10px;
   font-size: 40px;
-  background-color: #ffff99;
+  background-color: #c59640;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .checkout .buy-button:hover {
@@ -40,12 +42,12 @@
 .cart-per-item-body .quantity-controler {
   margin-bottom: 10px;
   margin-left: 60px;
- 
 }
-.cart-per-item-body .quantity-controler img:hover{cursor:pointer;}
+.cart-per-item-body .quantity-controler img:hover {
+  cursor: pointer;
+}
 
 .cart-per-item-body .delete-button:hover {
   cursor: pointer;
-  margin-bottom:15px;
-
+  margin-bottom: 15px;
 }

@@ -37,7 +37,7 @@ const CartProvider = (props) => {
           }
         )
         .then((result) => {})
-        .catch((err) =>{});
+        .catch((err) => {});
     } catch (error) {
       throw error;
     }
@@ -52,7 +52,7 @@ const CartProvider = (props) => {
         .then((result) => {
           setShowData(result.data);
         })
-        .catch((err) =>{});
+        .catch((err) => {});
     } catch (error) {
       throw error;
     }
