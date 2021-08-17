@@ -91,7 +91,6 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
 
     }, [qunat]);
 
-<<<<<<< HEAD
     const increase = (price) => {
         if (qunat < elem.quantity) {
             setQunat(qunat + 1);
@@ -123,25 +122,7 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
         setTotal(total - (elem.price * qunat))
         cartContext.showCart()
     };
-=======
-  const deleteItem = (id) => {
-    const found = find.filter((elem) => {
-      return elem.product[0]._id == id;
-    });
-    axios
-      .delete("http://localhost:5000/show/cart/deleted", {
-        data: { id: found[0]._id },
-      })
-      .then((result) => {
-        console.log(result.data);
-      })
-      .catch((err) => {
-        throw err;
-      });
-  };
->>>>>>> 9342bc070f8e5b296ebabd2b78eccf5440ab471d
 
-<<<<<<< HEAD
     return (
         <>
             <div className="cart-per-item-body" key={elem._id}>
@@ -185,38 +166,6 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
                     {/* <button
             className="delete-button"
             onClick={(e) => {
-=======
-  return (
-    <>
-      <div className="cart-per-item-body" key={elem._id}>
-      <img className="product-img" src={elem.image}></img>
-        <div>
-          <p>{elem.title} </p>
-          <p>In Stock : {elem.quantity}</p>
-          <p>Cost Per Unit {elem.price}</p>
-        </div>
-        <div>
-          <div className="quantity-controler">
-            <img
-              src={plusIcon}
-              onClick={() => {
-                increase(elem.price);
-              }}
-            />
-          </div>
-          <p>Item Quantity: {qunat}</p>
-          <div className="quantity-controler">
-            <img
-              src={minusIcon}
-              onClick={() => {
-                decrease(elem.price);
-              }}
-            />
-          </div>
-        </div>
-        <div  className="delete-button">
-        <img src={deleteIcon}   onClick={(e) => {
->>>>>>> 4371686731c1a28f6c4cea20f6f86aadf3709ccc
               deleteItem(elem._id);
             }}
           >
