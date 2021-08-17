@@ -11,11 +11,6 @@ const CreateProductProvider = (props) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
-  const [optionsToExchange, setOptionsToExchange] = useState("");
-  const [itemLength, setItemLength] = useState("");
-  const [itemHeight, setItemHeight] = useState("");
-  const [itemWidth, setItemWidth] = useState("");
-  const [itemWeight, setItemWeight] = useState("");
   const [location, setLocation] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [messageTrue, setMessageTrue] = useState("");
@@ -30,11 +25,6 @@ const CreateProductProvider = (props) => {
     setDescription,
     setPrice,
     setQuantity,
-    setOptionsToExchange,
-    setItemLength,
-    setItemHeight,
-    setItemWidth,
-    setItemWeight,
     setLocation,
     setShortDescription,
     messageTrue,
@@ -52,11 +42,6 @@ const CreateProductProvider = (props) => {
           description,
           price,
           quantity,
-          optionsToExchange,
-          itemLength,
-          itemHeight,
-          itemWidth,
-          itemWeight,
           location,
           shortDescription,
           image,

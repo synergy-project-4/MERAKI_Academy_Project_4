@@ -6,9 +6,9 @@ import { ItemCartContext } from "./../contexts/productDetails";
 import axios from "axios";
 import "./cart.css";
 import { useHistory } from "react-router-dom";
-import plusIcon from "./plus.png";
-import minusIcon from "./minus.png";
-import deleteIcon from "./delete.png";
+import plusIcon from "./plus.png"
+import minusIcon from "./minus.png"
+import deleteIcon from "./delete.png"
 
 const Cart = (props) => {
     const cartContext = useContext(CartContext);
@@ -82,6 +82,7 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
     setSubTotal(price);
   };
   const decrease = (price) => {
+    console.log(qunat);
     if (qunat > 0) {
       setQunat(qunat - 1);
     }
@@ -137,12 +138,10 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
       .catch((err) => {
         throw err;
       });
-    setTotal(total - elem.price * qunat);
-    cartContext.showCart();
-    cartContext.showCart();
   };
 >>>>>>> 9342bc070f8e5b296ebabd2b78eccf5440ab471d
 
+<<<<<<< HEAD
     return (
         <>
             <div className="cart-per-item-body" key={elem._id}>
@@ -186,6 +185,38 @@ const ProductItem = ({ elem, find, total, setTotal, findA }) => {
                     {/* <button
             className="delete-button"
             onClick={(e) => {
+=======
+  return (
+    <>
+      <div className="cart-per-item-body" key={elem._id}>
+      <img className="product-img" src={elem.image}></img>
+        <div>
+          <p>{elem.title} </p>
+          <p>In Stock : {elem.quantity}</p>
+          <p>Cost Per Unit {elem.price}</p>
+        </div>
+        <div>
+          <div className="quantity-controler">
+            <img
+              src={plusIcon}
+              onClick={() => {
+                increase(elem.price);
+              }}
+            />
+          </div>
+          <p>Item Quantity: {qunat}</p>
+          <div className="quantity-controler">
+            <img
+              src={minusIcon}
+              onClick={() => {
+                decrease(elem.price);
+              }}
+            />
+          </div>
+        </div>
+        <div  className="delete-button">
+        <img src={deleteIcon}   onClick={(e) => {
+>>>>>>> 4371686731c1a28f6c4cea20f6f86aadf3709ccc
               deleteItem(elem._id);
             }}
           >

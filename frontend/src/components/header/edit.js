@@ -16,6 +16,7 @@ const SettingsMenu = () => {
       <MenuItem text="show and edit" location="/main/my/product" />
       <MenuItem text="history" location="/product/history" />
       <MenuItem text="pending approval" location="/products/approval" />
+      <MenuItem text="rejected" location="/products/rejected" />
       <MenuItem type="separator" />
       <MenuItem text="signOut" onClick={loginContext.logout} />
     </DropdownMenu>

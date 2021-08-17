@@ -14,6 +14,8 @@ import ItemCartProvider from "./contexts/productDetails";
 import ShowAndEditProvider from "./contexts/showAndEdit";
 import PendingApprovalProvider from "./contexts/pendingApproval";
 import FooterProvider from "./contexts/footer";
+import RejectedProvider from "./contexts/rejected";
+
 
 ReactDOM.render(
   <Router>
@@ -29,7 +31,9 @@ ReactDOM.render(
                       <ProfileProvider>
                         <CartProvider>
                           <ItemCartProvider>
+                            <RejectedProvider>
                             <App />
+                            </RejectedProvider>
                           </ItemCartProvider>
                         </CartProvider>
                       </ProfileProvider>

@@ -8,6 +8,8 @@
   background-color: rgb(213, 211, 241);
   border-radius: 5px;
   transition: 1s;
+  margin: 5px;
+  gap: 10px;
   min-width: 700px;
 }
 
