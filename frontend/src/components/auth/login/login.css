@@ -30,7 +30,6 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-
   border-radius: 5px;
   width: 30%;
   background-color: rgb(213, 211, 241);
