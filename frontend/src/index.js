@@ -47,5 +47,6 @@ ReactDOM.render(
       </FooterProvider>
     </LoginProvider>
   </Router>,
+
   document.getElementById("root")
 );

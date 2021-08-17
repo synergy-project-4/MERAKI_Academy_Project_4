@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ItemCardContext } from "./../contexts/main";
 import { HeaderContext } from "../contexts/header";
+import Pagination from "../components/pagination/pagination"
 import "./main.css";
 
 const SearchProduct = (props) => {
@@ -51,6 +52,7 @@ const SearchProduct = (props) => {
           );
         })}
       </div>
+      <Pagination/>
       <div></div>
     </>
   );
