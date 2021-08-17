@@ -22,14 +22,6 @@ const Edit = () => {
     showAndEditContext.setDescription(showAndEditContext.item.description);
     showAndEditContext.setPrice(showAndEditContext.item.price);
     showAndEditContext.setQuantity(showAndEditContext.item.quantity);
-    showAndEditContext.setOptionsToExchange(
-      showAndEditContext.item.optionsToExchange
-    );
-    showAndEditContext.setItemLength(showAndEditContext.item.itemLength);
-    showAndEditContext.setItemHeight(showAndEditContext.item.itemHeight);
-    showAndEditContext.setItemWidth(showAndEditContext.item.itemWidth);
-    showAndEditContext.setItemWeight(showAndEditContext.item.itemWeight);
-    showAndEditContext.setLocation(showAndEditContext.item.location);
     showAndEditContext.setShortDescription(
       showAndEditContext.item.shortDescription
     );
@@ -84,51 +76,6 @@ const Edit = () => {
             defaultValue={showAndEditContext.item.quantity}
             onChange={(e) => {
               showAndEditContext.setQuantity(e.target.value);
-            }}
-          />
-          <input
-            className="input"
-            placeholder="Open For Exchange (true or false)"
-            type="boolean"
-            defaultValue={showAndEditContext.item.optionsToExchange}
-            onChange={(e) => {
-              showAndEditContext.setOptionsToExchange(Boolean(e.target.value));
-            }}
-          />
-          <input
-            className="input"
-            placeholder="Item Length (for example : 1m , 20cm , 30mm)"
-            type="text"
-            defaultValue={showAndEditContext.item.itemLength}
-            onChange={(e) => {
-              showAndEditContext.setItemLength(e.target.value);
-            }}
-          />
-          <input
-            className="input"
-            placeholder="Item Height (for example : 1m , 20cm , 30mm)"
-            type="text"
-            defaultValue={showAndEditContext.item.itemHeight}
-            onChange={(e) => {
-              showAndEditContext.setItemHeight(e.target.value);
-            }}
-          />
-          <input
-            className="input"
-            placeholder="Item Width (for example : 1m , 20cm , 30mm)"
-            type="text"
-            defaultValue={showAndEditContext.item.itemWidth}
-            onChange={(e) => {
-              showAndEditContext.setItemWidth(e.target.value);
-            }}
-          />
-          <input
-            className="input"
-            placeholder="Item Weight (for example : 3kg , 200mg )"
-            type="text"
-            defaultValue={showAndEditContext.item.itemWeight}
-            onChange={(e) => {
-              showAndEditContext.setItemWeight(e.target.value);
             }}
           />
           <input
