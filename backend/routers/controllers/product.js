@@ -8,11 +8,6 @@ const createProduct = (req, res) => {
     description,
     price,
     quantity,
-    optionsToExchange,
-    itemLength,
-    itemHeight,
-    itemWidth,
-    itemWeight,
     location,
     shortDescription,
     userId,
@@ -25,11 +20,6 @@ const createProduct = (req, res) => {
     description,
     price,
     quantity,
-    optionsToExchange,
-    itemLength,
-    itemHeight,
-    itemWidth,
-    itemWeight,
     location,
     shortDescription,
     userId,
@@ -151,6 +141,17 @@ const filterProduct = (req, res) => {
     });
 };
 
+const getRejectedProduct = (req, res) => {
+  productsModel
+    .find({ rejected: true })
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
 module.exports = {
   createProduct,
   deleteProduct,
@@ -160,4 +161,5 @@ module.exports = {
   pendingApproval,
   searchProduct,
   filterProduct,
+  getRejectedProduct
 };

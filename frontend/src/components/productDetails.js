@@ -48,7 +48,6 @@ const ProductDetails = (props) => {
         </div>
         <div className="add-button">
           <button onClick={loginAuth}>Add to cart</button>
-          {props.item.optionsToExchange && <button>Exchange</button>}
           <button onClick={history.goBack}>Go Back</button>
         </div>
         <div>
