@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { HeaderContext } from "./header"
 export const ItemCardContext = React.createContext();
 
 const ItemCardProvider = (props) => {
+  const headerContext = useContext(HeaderContext);
   const [products, setProducts] = useState([]);
   const [found, setFound] = useState("");
   const [offset, setOffset] = useState(0);
@@ -36,7 +38,7 @@ const ItemCardProvider = (props) => {
           })
           const setOfdata = data.slice(offset, offset + perPage)
           setProducts(setOfdata);
-          setPageCount(Math.ceil(result.data.length / perPage))
+          headerContext.setPage(Math.ceil(result.data.length / perPage))
         })
     } catch (error) {
       throw error;
