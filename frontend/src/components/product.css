@@ -24,21 +24,27 @@
 }
 
 .itemDetails {
-  margin: 50px;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+  margin: 20px;
+  /* padding: 10px; */
   background-color: rgb(213, 211, 241);
+  font-size: 25px;
   border-radius: 5px;
+  align-items: center;
+  
 }
 
-.add-button button {
-  margin: 10px;
+.add-button img {
+  margin-left: 20px;
   background-color: white;
-  font-size: 20px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 10px;
 }
 
-.add-button button:hover {
-  background-color: yellow;
+.add-button img:hover {
+  cursor:pointer;
+  background-color: #ffff99;
+ 
 }
