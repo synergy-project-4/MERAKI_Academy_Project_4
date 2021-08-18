@@ -17,7 +17,7 @@ const HeaderProvider = (props) => {
   const [found, setFound] = useState([]);
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
-
+  const [page, setPage] = useState(0)
   const state = {
     filterPrice,
     setFilterPrice,
@@ -29,6 +29,8 @@ const HeaderProvider = (props) => {
     searchItem,
     search,
     name,
+    page,
+    setPage
   };
   async function searchItem() {
     await axios
@@ -40,7 +42,7 @@ const HeaderProvider = (props) => {
             (elem.location == filterLocation || filterLocation == "")
           );
         });
-
+        setPage(Math.ceil(find.length / 9))
         setFound(find);
       })
       .catch((error) => {

@@ -17,6 +17,7 @@ import History from "./components/history/index";
 import ShowAndEdit from "./components/showAndEdit/index";
 import EditProduct from "./components/showAndEdit/edit";
 import PendingApproval from "./components/pendingApproval/index";
+import Rejected from "./components/rejected/index";
 import Footer from "./components/footer/index";
 
 const App = () => {
@@ -49,6 +50,8 @@ const App = () => {
       <Route path="/manage/product/edit" render={() => <EditProduct />} />
       <Route path="/products/approval" render={() => <PendingApproval />} />
       {/* <Route path="/" component={Footer} /> */}
+      <Route exact path="/product/rejected" component={Rejected} />
+
     </div>
   );
 };

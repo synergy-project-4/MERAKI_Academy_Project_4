@@ -8,6 +8,7 @@ const {
   pendingApproval,
   searchProduct,
   filterProduct,
+  getRejectedProduct
 } = require("../controllers/product");
 const productRouter = express.Router();
 const authentication = require("./../middlewares/authentication");
@@ -21,5 +22,6 @@ productRouter.get("/product/history", authentication, getProductToHistory);
 productRouter.get("/main", getAllProducts);
 productRouter.get("/search/product", searchProduct);
 productRouter.get("/filter/product", filterProduct);
+productRouter.get("/product/rejected",   getRejectedProduct);
 
 module.exports = productRouter;
