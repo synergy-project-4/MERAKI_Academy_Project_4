@@ -3,6 +3,7 @@ import { ItemCardContext } from "./../../contexts/main";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { useHistory } from "react-router-dom";
+import Pagination from "../pagination/pagination";
 import "./main.css";
 
 const Main = () => {
@@ -21,11 +22,6 @@ const Main = () => {
     });
     itemCardContext.setFound(foundItem);
     history.push("/product/details");
-  };
-
-  const handlePageClick = (e) => {
-    const selectedPage = e.selected;
-    itemCardContext.setOffset(selectedPage * itemCardContext.perPage);
   };
 
   return (
@@ -54,21 +50,7 @@ const Main = () => {
           );
         })}
       </div>
-      <div className="paginate-page">
-        <ReactPaginate
-          previousLabel={"prev"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={itemCardContext.pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"active"}
-        />
-      </div>
+      <Pagination/>
     </>
   );
 };
