@@ -33,8 +33,7 @@ const SearchProduct = (props) => {
     <>
       <div className="mainBody">
         {props.item.map((elem) => {
-          if (elem.quantity !== 0 || elem.sold == false) {
-
+          if (elem.quantity !== 0) {
             return (
               <div
                 onClick={() => {
