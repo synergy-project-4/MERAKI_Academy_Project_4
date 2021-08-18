@@ -28,33 +28,37 @@ const SearchProduct = (props) => {
     itemCardContext.setFound(foundItem);
     history.push("/product/details");
   };
-
   return (
     <>
-      <div className="mainBody">
-        {props.item.map((elem) => {
-          if (elem.quantity !== 0) {
-            return (
-              <div
-                onClick={() => {
-                  cardDetails(elem._id);
-                }}
-                className="itemCard"
-                key={elem._id}
-              >
-                <div>
-                  <img className="product-img" src={elem.image}></img>
+      {props.item.length !==0 ? (
+        <div className="mainBody">
+          {console.log(props)}
+          {props.item.map((elem) => {
+            if (elem.quantity !== 0) {
+              return (
+                <div
+                  onClick={() => {
+                    cardDetails(elem._id);
+                  }}
+                  className="itemCard"
+                  key={elem._id}
+                >
+                  <div>
+                    <img className="product-img" src={elem.image}></img>
+                  </div>
+                  <div>
+                    <p className="title">{elem.title}</p>
+                    <p className="info">{elem.shortDescription}</p>
+                    <p className="info">Located in: {elem.location}</p>
+                    <p className="price">In Stock : {elem.quantity}</p>
+                    <p className="price">price : {elem.price}$</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="title">{elem.title}</p>
-                  <p className="info">{elem.shortDescription}</p>
-                  <p className="price">{elem.price}</p>
-                </div>
-              </div>
-            );
-          }
-        })}
-      </div>
+              );
+            }
+          })}
+        </div>) : (<h2>there no items to display at the moment</h2>
+      )}
       <Pagination />
       <div></div>
     </>

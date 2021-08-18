@@ -48,27 +48,15 @@
   
 }
 
-<<<<<<< HEAD
-.add-button img {
-  margin-left: 20px;
-=======
 .add-button button {
   margin-bottom: 10px;
   margin-top: 10px;
->>>>>>> 9342bc070f8e5b296ebabd2b78eccf5440ab471d
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 10px;
 }
 
-<<<<<<< HEAD
-.add-button img:hover {
-  cursor:pointer;
-  background-color: #ffff99;
- 
-=======
 .add-button button:hover {
   background-color: #c59640;
->>>>>>> 9342bc070f8e5b296ebabd2b78eccf5440ab471d
 }
