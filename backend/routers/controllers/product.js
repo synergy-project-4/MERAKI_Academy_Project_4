@@ -64,7 +64,7 @@ const pendingApproval = (req, res) => {
     .findOne({ _id: id })
     .then((result_user) => {
       if (result_user.admin === true) {
-        productsModel.find({ ready: false }).then((result_product) => {
+        productsModel.find({ ready: false , rejected: false}).then((result_product) => {
           res.json(result_product);
         });
       } else {
@@ -157,7 +157,7 @@ const getRejectedProduct = (req, res) => {
 const rejectedProduct = (req, res) => {
   const id = req.query.id;
   productsModel
-    .findByIdAndUpdate(id, req.body , {new :true})
+    .findByIdAndUpdate(id, req.body, { new: true })
     .then((result) => {
       res.status(200).json(result);
     })
@@ -169,7 +169,7 @@ const rejectedProduct = (req, res) => {
 const approveProduct = (req, res) => {
   const id = req.query.id;
   productsModel
-    .findByIdAndUpdate(id, req.body , {new :true})
+    .findByIdAndUpdate(id, req.body, { new: true })
     .then((result) => {
       res.status(200).json(result);
     })
@@ -177,7 +177,6 @@ const approveProduct = (req, res) => {
       res.send(err);
     });
 };
-
 
 module.exports = {
   createProduct,
@@ -190,5 +189,5 @@ module.exports = {
   filterProduct,
   getRejectedProduct,
   rejectedProduct,
-  approveProduct
+  approveProduct,
 };
