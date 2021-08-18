@@ -88,6 +88,8 @@ const updateProduct = (req, res) => {
   productsModel
     .findByIdAndUpdate(id, req.body, { new: true })
     .then((result) => {
+      console.log(req.body);
+      console.log(result);
       res.status(200).json(result);
     })
     .catch((err) => {
@@ -152,6 +154,31 @@ const getRejectedProduct = (req, res) => {
     });
 };
 
+const rejectedProduct = (req, res) => {
+  const id = req.query.id;
+  productsModel
+    .findByIdAndUpdate(id, req.body , {new :true})
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
+const approveProduct = (req, res) => {
+  const id = req.query.id;
+  productsModel
+    .findByIdAndUpdate(id, req.body , {new :true})
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
+
 module.exports = {
   createProduct,
   deleteProduct,
@@ -161,5 +188,7 @@ module.exports = {
   pendingApproval,
   searchProduct,
   filterProduct,
-  getRejectedProduct
+  getRejectedProduct,
+  rejectedProduct,
+  approveProduct
 };
