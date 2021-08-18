@@ -28,31 +28,34 @@ const SearchProduct = (props) => {
     itemCardContext.setFound(foundItem);
     history.push("/product/details");
   };
+
   return (
     <>
       <div className="mainBody">
         {props.item.map((elem) => {
-          return (
-            <div
-              onClick={() => {
-                cardDetails(elem._id);
-              }}
-              className="itemCard"
-              key={elem._id}
-            >
-              <div>
-                <img className="product-img" src={elem.image}></img>
+          if (elem.quantity !== 0) {
+            return (
+              <div
+                onClick={() => {
+                  cardDetails(elem._id);
+                }}
+                className="itemCard"
+                key={elem._id}
+              >
+                <div>
+                  <img className="product-img" src={elem.image}></img>
+                </div>
+                <div>
+                  <p className="title">{elem.title}</p>
+                  <p className="info">{elem.shortDescription}</p>
+                  <p className="price">{elem.price}</p>
+                </div>
               </div>
-              <div>
-                <p className="title">{elem.title}</p>
-                <p className="info">{elem.shortDescription}</p>
-                <p className="price">{elem.price}</p>
-              </div>
-            </div>
-          );
+            );
+          }
         })}
       </div>
-      <Pagination/>
+      <Pagination />
       <div></div>
     </>
   );
