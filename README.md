@@ -1,7 +1,5 @@
 # MERAKI_Academy_Project_4
 
-# MERAKI_Academy_Project_4
-
 name of the website : Jordan Commerce
 
 about : on this website users can interact with each other to buy, exchange and sell items.
