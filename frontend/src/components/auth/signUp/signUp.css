@@ -16,7 +16,7 @@ body {
   justify-items: center;
   justify-content: center;
   /* border: 1px solid rgba(0, 0, 0, 0.3); */
-  background-color: rgb(213, 211, 241);
+  background-color: var(--secondary-bg-color);
   color: black;
   border-radius: 5px;
   width: 30%;

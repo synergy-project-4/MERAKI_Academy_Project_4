@@ -14,13 +14,25 @@
   gap: 5px;
 } */
 
+:root {
+  /* rgba(15, 6, 56, 1) */
+  --main-bg-color: rgb(22, 22, 22);
+  /* rgb(213, 211, 241) */
+  --secondary-bg-color: rgb(238, 238, 238);
+  /* white */
+  --main-bg-button-color: #c59640;
+  --main-bg-button-color-hover: rgb(22, 22, 22);
+  --main-text-color: brown;
+  --secondary-text-color: white;
+}
+
 .paginate-page {
   padding-left: 45%;
   position: fixed;
   /* left: 45%; */
   bottom: 0;
   /* top: 90%; */
-  background-color: rgba(15, 6, 56, 1);
+  background-color: var(--main-bg-color);
   width: 100%;
 }
 
@@ -32,13 +44,13 @@
 }
 
 .pagination > .active > a {
-  background-color: rgba(15, 6, 56, 1);
-  border-color: rgba(15, 6, 56, 1);
-  color: white;
+  background-color: var(--main-bg-color);
+  border-color: var(--main-bg-color);
+  color: black;
 }
 
 .pagination > li > a {
-  border: 1px solid rgba(15, 6, 56, 1);
+  border: 1px solid var(--main-bg-color);
   padding: 5px 10px;
   outline: none;
   cursor: pointer;
@@ -49,13 +61,14 @@
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background-color: rgb(213, 211, 241);
-  border-color: rgba(15, 6, 56, 1);
+  background-color: var(--main-bg-button-color);
+  border-color: var(--main-bg-color);
   outline: none;
+  color: black;
 }
 .pagination > li > a,
 .pagination > li > span {
-  color: rgba(15, 6, 56, 1);
+  color: var(--main-bg-color);
 }
 .pagination > li:first-child > a,
 .pagination > li:first-child > span,
