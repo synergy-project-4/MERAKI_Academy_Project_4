@@ -29,9 +29,10 @@ select:hover {
 }
 
 .search-button {
-  margin-left: 2px;
+  /* margin-left: 2px; */
   border: 1px solid white;
   border-radius: 5px;
+  height: 33px;
 }
 
 .search-button:hover {
@@ -39,9 +40,10 @@ select:hover {
 }
 
 .navBar {
+  height: 70px;
   display: flex;
   padding: 15px;
-  gap: 10px;
+  /* gap: 10px; */
   border: 1px solid rgba(0, 0, 0, 0.3);
   justify-content: space-between;
   align-items: center;
@@ -54,11 +56,16 @@ select:hover {
   gap: 3px;
   padding-left: 15px;
   /* height: 30px; */
+  align-items: center;
+}
+
+.leftNavBar select {
+  height: 34px;
 }
 
 .rightNavBar {
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   font-size: 18px;
   padding-right: 15px;
   align-items: center;
@@ -101,7 +108,7 @@ select:hover {
 
 .search-bar {
   width: 25vw;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
   border-radius: 5px;
   font-size: 20px;
 }
