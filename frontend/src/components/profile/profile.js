@@ -14,8 +14,8 @@ const Profile = () => {
   }, [profileContext.found]);
 
   const setAllInput = () => {
-    profileContext.setFname(profileContext.found.firstName);
-    profileContext.setLname(profileContext.found.lastName);
+    profileContext.setFirstName(profileContext.found.firstName);
+    profileContext.setLastName(profileContext.found.lastName);
     profileContext.setPassword(profileContext.found.password);
     profileContext.setCity(profileContext.found.city);
   };
@@ -31,7 +31,7 @@ const Profile = () => {
             type="text"
             defaultValue={profileContext.found.firstName}
             onChange={(e) => {
-              profileContext.setFname(e.target.value);
+              profileContext.setFirstName(e.target.value);
             }}
           />
           <input
@@ -40,7 +40,7 @@ const Profile = () => {
             type="text"
             defaultValue={profileContext.found.lastName}
             onChange={(e) => {
-              profileContext.setLname(e.target.value);
+              profileContext.setLastName(e.target.value);
             }}
           />
           <input
