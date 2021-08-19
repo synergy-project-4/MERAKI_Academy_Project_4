@@ -1,14 +1,14 @@
 .itemCard {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 16px;
+  /* gap: 16px; */
   /* border: 1px solid rgba(0, 0, 0, 0.3); */
   cursor: pointer;
   /* padding: 5px; */
   background-color: var(--secondary-bg-color);
   border-radius: 5px;
   transition: 1s;
-  margin: 5px;
+  /* margin: 5px; */
   gap: 10px;
   min-width: 700px;
 }
@@ -21,10 +21,10 @@
 }
 
 .mainBody {
-  margin: 10px;
+  /* margin: auto; */
   display: grid;
-  gap: 10px;
-  padding: 20px;
+  gap: 20px;
+  padding: 40px;
 }
 
 .product-img {
@@ -33,7 +33,7 @@
 }
 
 .title {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 @media (min-width: 992px) {
