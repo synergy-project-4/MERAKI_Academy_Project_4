@@ -17,6 +17,7 @@
   width: 260px;
   height: 50px;
   background-color: rgb(22, 11, 68);
+  /* here ? */
   color: rgb(255, 255, 255);
   border-radius: 5px;
   font-size: 20px;
@@ -30,6 +31,7 @@
   width: 260px;
   height: 50px;
   background-color: rgb(226, 54, 48);
+  /* here? */
   color: rgb(255, 255, 255);
   border-radius: 5px;
   font-size: 20px;
@@ -39,14 +41,14 @@
 .itemDetails {
   margin: 50px;
   padding: 10px;
-  background-color: rgb(213, 211, 241);
+  background-color: var(--secondary-bg-color);
   border-radius: 5px;
 }
 
 .add-button button {
   margin-bottom: 10px;
   margin-top: 10px;
-  background-color: white;
+  background-color: var(--main-bg-button-color);
   font-size: 20px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
@@ -54,5 +56,6 @@
 }
 
 .add-button button:hover {
-  background-color: #c59640;
+  background-color: var(--main-bg-button-color-hover);
+  color: var(--secondary-text-color);
 }
