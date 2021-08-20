@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { RejectedContext } from "../../contexts/rejected";
+import "../createProduct/createProduct.css";
+
 
 const Rejected = () => {
   const rejectedContext = useContext(RejectedContext);
