@@ -3,21 +3,26 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import ItemCardContext from "./main";
 import { LoginContext } from "./login";
+import { HistoryContext } from "./history"
 
 export const HeaderContext = React.createContext();
 
 const HeaderProvider = (props) => {
   const loginContext = useContext(LoginContext);
+  const itemCardContext = useContext(ItemCardContext);
+  const historyContext = useContext(HistoryContext);
 
   const history = useHistory();
   const [filterLocation, setFilterLocation] = useState("");
   const [search, setSearch] = useState("");
   const [filterPrice, setFilterPrice] = useState("");
-  const [products, setProducts] = useState([]);
   const [found, setFound] = useState([]);
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
   const [page, setPage] = useState(0)
+  const [offset, setOffset] = useState(0);
+  const [perPage] = useState(9);
+
   const state = {
     filterPrice,
     setFilterPrice,
@@ -30,7 +35,10 @@ const HeaderProvider = (props) => {
     search,
     name,
     page,
-    setPage
+    setPage,
+    offset,
+    setOffset,
+    searchItem,
   };
   async function searchItem() {
     await axios
@@ -42,7 +50,9 @@ const HeaderProvider = (props) => {
             (elem.location == filterLocation || filterLocation == "")
           );
         });
-        setPage(Math.ceil(find.length / 9))
+        const setOfData = find.slice(offset, offset + perPage)
+        historyContext.setSearchResult(setOfData);
+        setPage(Math.ceil(find.length / perPage))
         setFound(find);
       })
       .catch((error) => {

@@ -9,7 +9,8 @@ const Pagination = () => {
 
     const handlePageClick = (e) => {
         const selectedPage = e.selected;
-        itemCardContext.setOffset(selectedPage * headerContext.page);
+        itemCardContext.setOffset(selectedPage * itemCardContext.perPage);
+        // headerContext.setOffset(selectedPage * headerContext.perPage);
     };
 
     return (

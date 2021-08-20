@@ -14,7 +14,6 @@ const ItemCardProvider = (props) => {
   const [slice, setSlice] = useState([]);
   const [prodId, setProdId] = useState("");
 
-
   const state = {
     products,
     showProduct,
@@ -26,7 +25,7 @@ const ItemCardProvider = (props) => {
     perPage,
     pageCount,
     prodId,
-    setProdId
+    setProdId,
   };
   async function showProduct() {
     try {

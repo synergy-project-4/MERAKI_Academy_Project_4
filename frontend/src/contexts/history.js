@@ -8,10 +8,13 @@ const HistoryProvider = (props) => {
   const loginContext = useContext(LoginContext);
   let id;
   const [found, setFound] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
 
   const state = {
     found,
     showHistory,
+    setSearchResult,
+    searchResult
   };
 
   async function showHistory() {
