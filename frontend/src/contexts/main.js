@@ -14,7 +14,6 @@ const ItemCardProvider = (props) => {
   const [slice, setSlice] = useState([]);
   const [prodId, setProdId] = useState("");
 
-
   const state = {
     products,
     showProduct,
@@ -26,12 +25,13 @@ const ItemCardProvider = (props) => {
     perPage,
     pageCount,
     prodId,
-    setProdId
+    setProdId,
   };
   async function showProduct() {
     try {
       await axios.get('http://localhost:5000/main')
         .then((result) => {
+          console.log("result",result);
           const data1 = result.data.reverse()
           const data = data1.filter((elem) => {
             return elem.quantity !== 0;

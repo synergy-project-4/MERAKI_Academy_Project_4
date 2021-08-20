@@ -50,7 +50,7 @@ const App = () => {
       <Route path="/manage/product/edit" render={() => <EditProduct />} />
       <Route path="/products/approval" render={() => <PendingApproval />} />
       {/* <Route path="/" component={Footer} /> */}
-      <Route exact path="/products/rejected" component={Rejected} />
+      <Route exact path="/product/rejected" component={Rejected} />
 
     </div>
   );

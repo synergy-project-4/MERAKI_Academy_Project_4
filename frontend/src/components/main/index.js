@@ -50,7 +50,7 @@ const Main = () => {
           );
         })}
       </div>
-      <Pagination/>
+      <Pagination />
     </>
   );
 };

@@ -1,28 +1,35 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { ItemCardContext } from "./../contexts/main";
 import { HeaderContext } from "../contexts/header";
-import Pagination from "../components/pagination/pagination";
+import Pagination from "../components/pagination/pagination"
+import { HistoryContext } from "../contexts/history"
 import "./main.css";
 
 const SearchProduct = (props) => {
   const headerContext = useContext(HeaderContext);
   const itemCardContext = useContext(ItemCardContext);
+  const historyContext = useContext(HistoryContext);
   const history = useHistory();
 
+  useEffect(() => {
+    headerContext.searchItem();
+  }, [headerContext.offset]);
+
+
   if (headerContext.filterPrice == "ascending") {
-    const f = props.item.sort(function (a, b) {
+    const f = historyContext.searchResult.sort(function (a, b) {
       return a.price - b.price;
     });
   }
   if (headerContext.filterPrice == "descending") {
-    props.item.sort(function (a, b) {
+    historyContext.searchResult.sort(function (a, b) {
       return b.price - a.price;
     });
   }
 
   const cardDetails = async (id) => {
-    const foundItem = props.item.find((elem) => {
+    const foundItem = historyContext.searchResult.find((elem) => {
       return elem._id == id;
     });
     itemCardContext.setFound(foundItem);
@@ -30,10 +37,10 @@ const SearchProduct = (props) => {
   };
   return (
     <>
-      {props.item.length !== 0 ? (
+      {historyContext.searchResult.length !== 0 ? (
         <div className="mainBody">
           {console.log(props)}
-          {props.item.map((elem) => {
+          {historyContext.searchResult.map((elem) => {
             if (elem.quantity !== 0) {
               return (
                 <div
