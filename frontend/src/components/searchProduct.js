@@ -39,7 +39,6 @@ const SearchProduct = (props) => {
   return (
     <>
       <div className="mainBody">
-        {console.log("history", historyContext.searchResult)}
         {historyContext.searchResult.map((elem) => {
           if (elem.quantity !== 0) {
             return (
