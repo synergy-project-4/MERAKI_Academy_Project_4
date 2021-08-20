@@ -44,13 +44,16 @@ const HeaderProvider = (props) => {
     await axios
       .get("http://localhost:5000/main")
       .then((result) => {
+        console.log("resultTwo", result);
         const find = result.data.filter((elem) => {
           return (
             (elem.title == search || search == "" || elem.tags == search) &&
-            (elem.location == filterLocation || filterLocation == "")
+            (elem.location == filterLocation || filterLocation == "") && elem.quantity != 0
           );
         });
+        console.log("find", find);
         const setOfData = find.slice(offset, offset + perPage)
+        console.log("setOf", setOfData);
         historyContext.setSearchResult(setOfData);
         setPage(Math.ceil(find.length / perPage))
         setFound(find);

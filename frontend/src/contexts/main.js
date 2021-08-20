@@ -31,6 +31,7 @@ const ItemCardProvider = (props) => {
     try {
       await axios.get('http://localhost:5000/main')
         .then((result) => {
+          console.log("result",result);
           const data1 = result.data.reverse()
           const data = data1.filter((elem) => {
             return elem.quantity !== 0;

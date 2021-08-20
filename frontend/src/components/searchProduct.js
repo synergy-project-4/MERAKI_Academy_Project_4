@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { ItemCardContext } from "./../contexts/main";
 import { HeaderContext } from "../contexts/header";
 import Pagination from "../components/pagination/pagination"
-import {HistoryContext} from "../contexts/history"
+import { HistoryContext } from "../contexts/history"
 import "./main.css";
 
 const SearchProduct = (props) => {
@@ -15,7 +15,7 @@ const SearchProduct = (props) => {
   useEffect(() => {
     headerContext.searchItem();
   }, [headerContext.offset]);
-  
+
 
   if (headerContext.filterPrice == "ascending") {
     const f = props.item.sort(function (a, b) {
@@ -39,6 +39,7 @@ const SearchProduct = (props) => {
   return (
     <>
       <div className="mainBody">
+        {console.log("history", historyContext.searchResult)}
         {historyContext.searchResult.map((elem) => {
           if (elem.quantity !== 0) {
             return (
