@@ -35,7 +35,8 @@ const ProductDetails = (props) => {
       <div className="itemDetails">
         <div key={props.item._id}>
           <img className="product-img" src={props.item.image}></img>
-
+        </div>
+        <div className="itemDetails_info">
           <p className="title">
             {props.item.title} ({props.item.shortDescription})
           </p>
@@ -45,14 +46,15 @@ const ProductDetails = (props) => {
           <p className="info">Located in: {props.item.location}</p>
           <p className="price">In Stock : {props.item.quantity}</p>
           <p className="price">price : {props.item.price}$</p>
-        </div>
-        <div className="add-button">
-          <button onClick={loginAuth}>Add to cart</button>
-          <button onClick={history.goBack}>Go Back</button>
-        </div>
-        <div>
-          {notLogged ? <p className="failMessage">Login Is Required</p> : ""}
-          {logged ? <p className="successMessage">Added to cart</p> : ""}
+
+          <div className="add-button">
+            <button onClick={loginAuth}>Add to cart</button>
+            <button onClick={history.goBack}>Go Back</button>
+          </div>
+          <div>
+            {notLogged ? <p className="failMessage">Login Is Required</p> : ""}
+            {logged ? <p className="successMessage">Added to cart</p> : ""}
+          </div>
         </div>
       </div>
     </>
