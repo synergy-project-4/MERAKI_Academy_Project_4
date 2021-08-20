@@ -4,10 +4,6 @@ import { useHistory } from "react-router-dom";
 import { CartContext } from "./../contexts/cart";
 import { ItemCartContext } from "./../contexts/productDetails";
 import "./product.css";
-import addToCart from "./addCart.png";
-import backIcon from "./back.png";
-import exchangeIcon from "./exchange.png";
-
 const ProductDetails = (props) => {
   const itemCartContext = useContext(ItemCartContext);
   const cartContext = useContext(CartContext);

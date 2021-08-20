@@ -15,6 +15,8 @@ const users = new mongoose.Schema({
   admin: { type: Boolean, default: false },
   notification: [{ type: String }],
   followed: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  cart: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
+
 });
 
 // Hashed the password

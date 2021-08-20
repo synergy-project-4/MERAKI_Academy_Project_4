@@ -7,7 +7,7 @@ import Main from "./components/main/index";
 import Login from "./components/auth/login/index";
 import ProductDetails from "./components/productDetails";
 import SearchProduct from "./components/searchProduct";
-import Cart from "./components/cart";
+import Cart from "./components/cart/cart";
 import { ItemCardContext } from "./../src/contexts/main";
 import Profile from "./components/profile/profile";
 import { HeaderContext } from "./contexts/header";
