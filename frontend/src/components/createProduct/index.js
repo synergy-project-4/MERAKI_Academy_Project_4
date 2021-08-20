@@ -56,14 +56,27 @@ const CreateProduct = () => {
               createProductContext.setQuantity(e.target.value);
             }}
           />
-          <input
+          <select
+            onChange={(e) => {
+              createProductContext.setLocation(e.target.value);
+            }}
+            name="location"
+          >
+            <option value="">Location</option>
+            <option value="irbid">Irbid</option>
+            <option value="amman">Amman</option>
+            <option value="madaba">Madaba</option>
+            <option value="zarqa">Zarqa</option>
+            <option value="aqaba">Aqaba</option>
+          </select>
+          {/* <input
             className="input"
             placeholder="Location (Pick One: Amman, Irbid, Madaba, Zarqa, Aqaba)"
             type="text"
             onChange={(e) => {
               createProductContext.setLocation(e.target.value);
             }}
-          />
+          /> */}
           <input
             className="input"
             placeholder="Short Description (Add a Short Description For The Item)"
