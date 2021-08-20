@@ -35,7 +35,6 @@ const SearchProduct = (props) => {
     itemCardContext.setFound(foundItem);
     history.push("/product/details");
   };
-
   return (
     <>
       {historyContext.searchResult.length !== 0 ? (
@@ -76,5 +75,4 @@ const SearchProduct = (props) => {
     </>
   );
 };
-
 export default SearchProduct;
