@@ -43,7 +43,8 @@ const CreateProduct = () => {
           <input
             className="input"
             placeholder="Price (item cost)"
-            type="text"
+            type="number"
+            min="1"
             onChange={(e) => {
               createProductContext.setPrice(e.target.value);
             }}
@@ -52,6 +53,7 @@ const CreateProduct = () => {
             className="input"
             placeholder="Quantity (number of items for sale )"
             type="number"
+            min="1"
             onChange={(e) => {
               createProductContext.setQuantity(e.target.value);
             }}
