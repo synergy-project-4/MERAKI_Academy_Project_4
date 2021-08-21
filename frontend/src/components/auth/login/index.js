@@ -52,15 +52,17 @@ const Login = () => {
         {/* to fix the message to have succes and failure so each message would have a differnet color */}
         {loginContext.message && (
           <div
+            className="failMessage"
             style={{
-              backgroundColor: "rgb(226, 54, 48)",
-              display: "flex",
-              borderRadius: "5px",
-              color: "white",
-              paddingTop: "10px",
-              paddingBottom: "10px",
-              paddingLeft: "25px",
-              paddingRight: "25px",
+              marginTop: "0px",
+              // backgroundColor: "rgb(226, 54, 48)",
+              // display: "flex",
+              // borderRadius: "5px",
+              // color: "white",
+              // paddingTop: "10px",
+              // paddingBottom: "10px",
+              // paddingLeft: "25px",
+              // paddingRight: "25px",
             }}
           >
             {loginContext.message}
