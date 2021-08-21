@@ -33,9 +33,8 @@ const CartProvider = (props) => {
 
   async function showCart() {
     let userId = loginContext.userIdLoggedIn;
-    
-        history.push("/show/cart");
-      
+
+    history.push("/show/cart");
   }
 
   async function deleteItem() {
@@ -44,7 +43,7 @@ const CartProvider = (props) => {
         "http://localhost:5000/show/cart/deleted",
         {
           productId,
-          userId: loginContext.userIdLoggedIn,
+          userId,
         },
         {
           headers: {
