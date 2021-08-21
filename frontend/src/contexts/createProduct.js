@@ -30,6 +30,7 @@ const CreateProductProvider = (props) => {
     messageTrue,
     messageFalse,
     createProducts,
+    location,
   };
 
   async function createProducts() {

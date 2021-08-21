@@ -9,6 +9,7 @@ const CreateProduct = () => {
   const loginContext = useContext(LoginContext);
   const createProductContext = useContext(CreateProductContext);
   const history = useHistory();
+
   return (
     <>
       <div className="create-product-body">
@@ -97,6 +98,9 @@ const CreateProduct = () => {
           />
           <button
             className="create-button"
+            onChange={(e) => {
+              createProductContext.setLocation(e.target.value);
+            }}
             onClick={createProductContext.createProducts}
           >
             Submit Product Creation
