@@ -1,4 +1,4 @@
-const cartModel = require("./../../db/models/cartSchema");
+// const cartModel = require("./../../db/models/cartSchema");
 
 const sendToCart = (req, res) => {
   const { product, userId } = req.body;
