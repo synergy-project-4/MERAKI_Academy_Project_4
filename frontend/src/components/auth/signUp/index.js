@@ -33,14 +33,27 @@ const Register = () => {
                 registerContext.setLastName(e.target.value);
               }}
             ></input>
-            <input
+            <select
+              onChange={(e) => {
+                registerContext.setCity(e.target.value);
+              }}
+              name="location"
+            >
+              <option value="">Location</option>
+              <option value="irbid">Irbid</option>
+              <option value="amman">Amman</option>
+              <option value="madaba">Madaba</option>
+              <option value="zarqa">Zarqa</option>
+              <option value="aqaba">Aqaba</option>
+            </select>
+            {/* <input
               className="input"
               type="text"
               placeholder="City"
               onChange={(e) => {
                 registerContext.setCity(e.target.value);
               }}
-            ></input>
+            ></input> */}
             <input
               className="input"
               type="email"

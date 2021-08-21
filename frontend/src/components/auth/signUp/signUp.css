@@ -27,3 +27,9 @@ body {
 .sign-up-form {
   display: grid;
 }
+
+.sign-up select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+}

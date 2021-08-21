@@ -43,7 +43,20 @@ const Profile = () => {
               profileContext.setLastName(e.target.value);
             }}
           />
-          <input
+          <select
+            onChange={(e) => {
+              profileContext.setCity(e.target.value);
+            }}
+            name="location"
+          >
+            <option value="">Location</option>
+            <option value="irbid">Irbid</option>
+            <option value="amman">Amman</option>
+            <option value="madaba">Madaba</option>
+            <option value="zarqa">Zarqa</option>
+            <option value="aqaba">Aqaba</option>
+          </select>
+          {/* <input
             className="input"
             placeholder="City"
             type="text"
@@ -51,7 +64,7 @@ const Profile = () => {
             onChange={(e) => {
               profileContext.setCity(e.target.value);
             }}
-          />
+          /> */}
           <input
             className="input"
             placeholder="Password"
@@ -79,6 +92,9 @@ const Profile = () => {
           </button>
           <button
             className="edit-profile-button"
+            onChange={(e) => {
+              profileContext.setCity(e.target.value);
+            }}
             onClick={(e) => {
               e.preventDefault();
               profileContext.deleteProfile();
@@ -86,13 +102,13 @@ const Profile = () => {
           >
             delete profile
           </button>
+          {profileContext.messageTrue && (
+            <div style={{ color: "green" }}>{profileContext.messageTrue}</div>
+          )}
+          {profileContext.messageFalse && (
+            <div style={{ color: "red" }}>{profileContext.messageFalse}</div>
+          )}
         </div>
-        {profileContext.messageTrue && (
-          <div style={{ color: "green" }}>{profileContext.messageTrue}</div>
-        )}
-        {profileContext.messageFalse && (
-          <div style={{ color: "red" }}>{profileContext.messageFalse}</div>
-        )}
       </div>
     </>
   );

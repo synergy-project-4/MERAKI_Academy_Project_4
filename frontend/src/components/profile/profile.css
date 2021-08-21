@@ -43,3 +43,9 @@
   background-color: var(--main-bg-button-color-hover);
   color: var(--secondary-text-color);
 }
+
+.edit-profile select {
+  width: 75%;
+  margin-bottom: 5px;
+  padding: 5px;
+}
