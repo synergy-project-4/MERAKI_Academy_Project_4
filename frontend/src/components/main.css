@@ -21,7 +21,7 @@
 }
 
 .mainBody {
-  /* margin: auto; */
+  margin-top: 50px;
   display: grid;
   gap: 20px;
   padding: 40px;
