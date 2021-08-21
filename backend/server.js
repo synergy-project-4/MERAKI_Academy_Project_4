@@ -1,10 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-const db = require("./db/db");
+// const db = require("./db/db");
 const userRouter = require("./routers/routes/auth/signUp");
 
 const productRouter = require("./routers/routes/product")
-const editProfileRouter=require("./routers/routes/user")
+const editProfileRouter = require("./routers/routes/user")
 const cartRouter = require("./routers/routes/cart");
 const authRouter = require("./routers/routes/auth/login");
 
@@ -27,7 +27,6 @@ app.use(cartRouter);
 app.use(authRouter);
 
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server On ${PORT}`);
-});
+
+
+module.exports = app
