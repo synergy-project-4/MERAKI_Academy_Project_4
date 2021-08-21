@@ -4,7 +4,7 @@ const { showCart, sendToCart, deleteItem } = require("../controllers/cart");
 
 const cartRouter = express.Router();
 
-cartRouter.get("/show/cart", showCart);
+cartRouter.get("/show/cart/:userId", showCart);
 cartRouter.delete("/show/cart/deleted", deleteItem);
 // cartRouter.post("/cart", authentication, sendToCart);
 cartRouter.post("/cart", sendToCart);

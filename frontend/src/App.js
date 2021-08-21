@@ -32,7 +32,7 @@ const App = () => {
       <Route path="/register" component={Register} />
       <Route exact path="/" component={Main} />
       <Route path="/login" component={Login} />
-      <Route path="/show/cart" component={Cart} />
+      <Route path="/show/cart" render={() => <Cart item={itemCardContext.found} />}  />
       <Route
         path="/product/details"
         render={() => <ProductDetails item={itemCardContext.found} />}

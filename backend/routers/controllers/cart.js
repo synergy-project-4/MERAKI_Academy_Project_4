@@ -1,9 +1,8 @@
 const usersModel = require("./../../db/models/user");
 
-
 const sendToCart = (req, res) => {
   const { productId, userId } = req.body;
-  console.log("add to cart", productId, userId);
+
   // const item = new cartModel({ product, userId });
 
   usersModel
@@ -24,10 +23,12 @@ const sendToCart = (req, res) => {
 };
 
 const showCart = (req, res) => {
-  const { userId } = req.body;
+  const { userId } = req.params;
 
   usersModel
     .findById({ _id: userId })
+    .populate("cart")
+    .exec()
     .then((result) => {
       res.json(result.cart);
     })
@@ -48,7 +49,7 @@ const showCart = (req, res) => {
 
 const deleteItem = (req, res) => {
   const { productId, userId } = req.body;
-  
+
   usersModel
     .updateOne({ _id: userId }, { $pull: { cart: productId } })
     .then((result) => {
