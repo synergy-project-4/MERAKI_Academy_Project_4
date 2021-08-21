@@ -13,12 +13,12 @@ const ProductDetails = (props) => {
   const [pId, setPId] = useState();
   let history = useHistory();
 
-  const loginAuth = async () => {
+  const loginAuth = async (productId) => {
     if (loginContext.token) {
       setNotLogged(false);
       setLogged(true);
       itemCartContext.setQuantity(props.item.quantity);
-      cartContext.addToCart();
+      cartContext.sendToCart(productId);
     } else {
       {
         setLogged(false);
@@ -44,7 +44,7 @@ const ProductDetails = (props) => {
           <p className="price">price : {props.item.price}$</p>
 
           <div className="add-button">
-            <button onClick={loginAuth}>Add to cart</button>
+            <button onClick={()=>loginAuth(props.item._id)}>Add to cart</button>
             <button onClick={history.goBack}>Go Back</button>
           </div>
           <div>
