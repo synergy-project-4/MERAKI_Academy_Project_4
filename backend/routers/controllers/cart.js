@@ -48,7 +48,8 @@ const showCart = (req, res) => {
 };
 
 const deleteItem = (req, res) => {
-  const { productId, userId } = req.body;
+  const { productId, userId } = req.params;
+  console.log(req.body);
 
   usersModel
     .updateOne({ _id: userId }, { $pull: { cart: productId } })

@@ -5,13 +5,17 @@ import { CartContext } from "../../contexts/cart";
 import { LoginContext } from "../../contexts/login";
 import "./cart.css";
 
+// import { deleteItem } from "../../../../backend/routers/controllers/cart";
+
 const Cart = (props) => {
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [deleted, setDeleted] = useState(0);
 
   const loginContext = useContext(LoginContext);
+  const cartContext = useContext(CartContext);
 
   useEffect(async () => {
     let userId = loginContext.userIdLoggedIn;
@@ -19,14 +23,14 @@ const Cart = (props) => {
       .get(`http://localhost:5000/show/cart/${userId}`)
       .then((result) => {
         setCartItems(result.data);
-        setDone(true);
+        setDone(done + 1);
       })
       .catch((err) => {});
-  }, []);
+  }, [deleted]);
 
-  useEffect(() => {
+  useEffect(async () => {
     // if (done) {
-    let result = cartItems.reduce((acc, elem) => {
+    let result = await cartItems.reduce((acc, elem) => {
       return acc + elem.price;
     }, 0);
     setTotal(result);
@@ -40,6 +44,19 @@ const Cart = (props) => {
   //   }, 0);
   //   setTotal(result);
   // };
+
+  const deleteItem = async (id) => {
+    console.log(id, loginContext.userIdLoggedIn);
+    await axios
+      .delete(
+        `http://localhost:5000/show/cart/deleted/${id}/${loginContext.userIdLoggedIn}`
+      )
+      .then((result) => {
+        setDeleted(deleted + 1);
+        setDone(!done);
+      })
+      .catch((err) => {});
+  };
 
   return (
     <>
@@ -64,7 +81,14 @@ const Cart = (props) => {
                 <button>&nbsp;-&nbsp;</button>
               </div>
               <div>
-                <button className="delete_item">Delete</button>
+                <button
+                  className="delete_item"
+                  onClick={() => {
+                    deleteItem(elem._id);
+                  }}
+                >
+                  Delete
+                </button>
               </div>
               <div></div>
             </div>
